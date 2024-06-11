@@ -1,0 +1,159 @@
+﻿h1{font-family: 'Playfair Display';
+/* Använder teckensnittet 'Playfair Display' för rubriken */
+font-size: 3.2rem;
+/* Sätter fontstorleken till 3.5 rem (relativt till rot-elementets fontstorlek) */
+font-weight: lighter;
+/* Sätter fontvikten till 'lighter' för en tunnare text */
+}
+
+img {
+    width: 85vw;
+    /* Sätter bildens bredd till 85% av viewportens bredd */
+    height: auto;
+    /* Automatisk höjd för att behålla bildens proportioner */
+}
+
+.outer-container {
+    position: absolute;
+    /* Positionerar elementet absolut relativt till närmaste positionerade förfader */
+    z-index: -1;
+    /* Sätter z-index till -1 så att elementet hamnar bakom andra element med högre z-index */
+    top: 15%;
+    /* Placerar elementet 15% från toppen av dess närmaste positionerade förfader */
+}
+
+.inner-container {
+    overflow: hidden;
+    /* Döljer innehåll som överskrider containerens gränser */
+    width: 100vw;
+    /* Sätter bredden till 100% av viewportens bredd */
+    height: min-content;
+    /* Sätter höjden till det minsta innehållet som behövs för att passa in allt */
+    display: flex;
+    /* Använder flexbox för att arrangera barnen inuti container */
+    text-align: right;
+    /* Sätter textjusteringen till höger */
+    flex-direction: column;
+    /* Arrangerar flexbox-elementen (barnen) i en kolumn */
+}
+
+.image-container {
+    display: flex;
+    /* Använder flexbox för att arrangera barnen inuti container */
+    justify-content: center;
+    /* Centrerar flexbox-elementen horisontellt */
+}
+
+.outer-image-container {
+    position: absolute;
+    /* Positionerar elementet absolut relativt till närmaste positionerade förfader */
+    width: 100vw;
+    /* Sätter bredden till 100% av viewportens bredd */
+    top: 29%;
+    /* Placerar elementet 30% från toppen av dess närmaste positionerade förfader */
+    z-index: -1;
+    /* Sätter z-index till -1 så att elementet hamnar bakom andra element med högre z-index */
+}
+
+.more {
+    margin-bottom: 79%;
+    /* Sätter en bottenmarginal på 79% av elementets bredd */
+}
+
+.date {
+    color: gray;
+    /* Sätter textfärgen till grå */
+    font-style: italic;
+    /* Sätter texten i kursiv stil */
+    text-align: center;
+    /* Centrerar texten horisontellt */
+    position: absolute;
+    /* Positionerar elementet absolut relativt till närmaste positionerade förfader */
+    top: 55%;
+    /* Placerar elementet 55% från toppen av dess närmaste positionerade förfader */
+    background-color: rgba(255, 255, 255, 0.649);
+    /* Sätter en halvgenomskinlig vit bakgrund */
+    width: 100%;
+    /* Sätter bredden till 100% av dess förälder */
+}
+
+.fade-out {
+    opacity: 1;
+    /* Startar med full opacitet */
+    animation: fadeOut 4s ease 5s forwards;
+    /* Använder en fadeOut-animation som varar 4 sekunder, börjar efter 5 sekunder, och körs framåt */
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        /* Full opacitet vid början av animationen */
+    }
+
+    100% {
+        opacity: 0;
+        /* Ingen opacitet (helt genomskinlig) vid slutet av animationen */
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    /* Börjar med ingen opacitet (helt genomskinlig) */
+    animation: fadeIn 4s ease 5s forwards;
+    /* Använder en fadeIn-animation som varar 4 sekunder, börjar efter 5 sekunder, och körs framåt */
+}
+
+.fade-in-btns {
+    opacity: 0;
+    /* Börjar med ingen opacitet (helt genomskinlig) */
+    animation: fadeIn 4s ease 1s forwards;
+    /* Använder en fadeIn-animation som varar 4 sekunder, börjar efter 5 sekunder, och körs framåt */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        /* Ingen opacitet (helt genomskinlig) vid början av animationen */
+    }
+
+    100% {
+        opacity: 1;
+        /* Full opacitet vid slutet av animationen */
+    }
+}
+
+.modal-content {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
+.go-btn {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: pink;
+    font-family: 'Playfair Display';
+    border: none;
+    font-size: 1.5rem;
+    padding: 5%;
+}
+
+
+.fade-out-after-animations {
+    animation: fadeOutAfter 8s forwards;
+    /* Adjust the timing to ensure it fades out after your animations */
+}
+
+@keyframes fadeOutAfter {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.2; /* Faded but still visible in the background */
+    }
+}
