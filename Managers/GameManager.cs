@@ -5,7 +5,6 @@ namespace OneMoreDate.Managers
     public static class GameManager
     {
         public static Deck ActiveDeck { get; set; } = new();
-
         public static StarterDeck? ConvertDeckToStarterDeck(Deck deck)
         {
             if (deck.GetType() == typeof(StarterDeck))
