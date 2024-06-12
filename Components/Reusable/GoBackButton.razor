@@ -1,9 +1,7 @@
-﻿
+﻿@inject NavigationManager Navigation
 
 
-
-
-<button> <a href="/@Url"> Go back </a> </button>
+<button @onclick="GoBack">  Go back </button>
 
 
 @code
@@ -12,4 +10,10 @@
     [Parameter]
     public string Url { get; set; }
 
+    private void GoBack()
+    {
+        Navigation.NavigateTo($"/{Url}");
+    }
+
 }
+

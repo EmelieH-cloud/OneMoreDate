@@ -27,14 +27,7 @@
 
 @if (allAnimationsCompleted)
 {
-    <div class="fade-in-btns">
-        <div class="btn-container">
-            <div class="d-flex justify-content-center border border-primary vh-100 align-items-center flex-column">
-              <button @onclick="StartGame" class="vw-100" > Start Game </button>
-                <button class="vw-100"> Rules </button>
-            </div>
-        </div>
-    </div>
+    Navigation.NavigateTo("/menu");
 }
 
 @code{
@@ -68,6 +61,7 @@
             {
                 _timer?.Dispose(); // Stoppa intervallet när sista bilden har visats
 
+
                 allAnimationsCompleted = true;
 
 
@@ -77,10 +71,6 @@
         });
     }
 
-    private void StartGame()
-    {
-        Navigation.NavigateTo("/players");
-    }
 
     public void Dispose()
     {
