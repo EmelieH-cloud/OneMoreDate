@@ -10,8 +10,6 @@
         <h1 class="animate__animated animate__slideInLeft animate__delay-1s w-60 text-center more">More</h1>
     </div>
 
-
-
     <div class='outer-image-container fade-out'>
        <h1 class="animate__animated animate__slideInRight animate__delay-2s date">Date?</h1>
         <div class='image-container'>
@@ -27,19 +25,10 @@
     </div>
 </div>
 
-
-
 @if (allAnimationsCompleted)
 {
-    <div class="fade-in-btns">
-
-        <button >HEJ </button>
-        <button> HO</button>
-
-    </div>
+    Navigation.NavigateTo("/menu");
 }
-
-
 
 @code{
 
@@ -60,7 +49,7 @@
     protected override void OnInitialized()
     {
         _timer = new Timer(ChangeImage, null, 3500, 500);
-     
+
     }
 
     private void ChangeImage(object state)
@@ -72,16 +61,15 @@
             {
                 _timer?.Dispose(); // Stoppa intervallet när sista bilden har visats
 
-        allAnimationsCompleted = true;
-               
-                
+
+                allAnimationsCompleted = true;
+
+
             }
             StateHasChanged();
-          
+
         });
     }
-
-
 
 
     public void Dispose()

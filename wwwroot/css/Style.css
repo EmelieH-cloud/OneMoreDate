@@ -1,9 +1,17 @@
-﻿h1{font-family: 'Playfair Display';
+﻿
+h1
+{
+ font-family: 'Playfair Display';
 /* Använder teckensnittet 'Playfair Display' för rubriken */
 font-size: 3.2rem;
 /* Sätter fontstorleken till 3.5 rem (relativt till rot-elementets fontstorlek) */
 font-weight: lighter;
-/* Sätter fontvikten till 'lighter' för en tunnare text */
+/* Sätter fontweight till 'lighter' för en tunnare text */
+}
+
+h3, h2
+{
+    font-family: 'Playfair Display';
 }
 
 img {
@@ -15,11 +23,11 @@ img {
 
 .outer-container {
     position: absolute;
-    /* Positionerar elementet absolut relativt till närmaste positionerade förfader */
+    /* Positionerar elementet absolut relativt till närmaste positionerade parent */
     z-index: -1;
     /* Sätter z-index till -1 så att elementet hamnar bakom andra element med högre z-index */
     top: 15%;
-    /* Placerar elementet 15% från toppen av dess närmaste positionerade förfader */
+    /* Placerar elementet 15% från toppen av dess närmaste positionerade parent */
 }
 
 .inner-container {
@@ -39,18 +47,16 @@ img {
 
 .image-container {
     display: flex;
-    /* Använder flexbox för att arrangera barnen inuti container */
     justify-content: center;
-    /* Centrerar flexbox-elementen horisontellt */
 }
 
 .outer-image-container {
     position: absolute;
-    /* Positionerar elementet absolut relativt till närmaste positionerade förfader */
+    /* Positionerar elementet absolut relativt till närmaste positionerade parent */
     width: 100vw;
     /* Sätter bredden till 100% av viewportens bredd */
     top: 29%;
-    /* Placerar elementet 30% från toppen av dess närmaste positionerade förfader */
+    /* Placerar elementet 30% från toppen av dess närmaste positionerade parent*/
     z-index: -1;
     /* Sätter z-index till -1 så att elementet hamnar bakom andra element med högre z-index */
 }
@@ -62,19 +68,14 @@ img {
 
 .date {
     color: gray;
-    /* Sätter textfärgen till grå */
     font-style: italic;
-    /* Sätter texten i kursiv stil */
     text-align: center;
-    /* Centrerar texten horisontellt */
     position: absolute;
-    /* Positionerar elementet absolut relativt till närmaste positionerade förfader */
+    /* Positionerar elementet absolut relativt till närmaste positionerade parent */
     top: 55%;
-    /* Placerar elementet 55% från toppen av dess närmaste positionerade förfader */
+    /* Placerar elementet 55% från toppen av dess närmaste positionerade parent */
     background-color: rgba(255, 255, 255, 0.649);
-    /* Sätter en halvgenomskinlig vit bakgrund */
     width: 100%;
-    /* Sätter bredden till 100% av dess förälder */
 }
 
 .fade-out {
@@ -106,7 +107,7 @@ img {
 .fade-in-btns {
     opacity: 0;
     /* Börjar med ingen opacitet (helt genomskinlig) */
-    animation: fadeIn 4s ease 1s forwards;
+    animation: fadeIn 4s ease 3s forwards;
     /* Använder en fadeIn-animation som varar 4 sekunder, börjar efter 5 sekunder, och körs framåt */
 }
 
@@ -122,30 +123,28 @@ img {
     }
 }
 
-.modal-content {
+.btn-container
+{
     position: absolute;
-    width: 100vw;
-    height: 100vh;
+    height: 100%; 
+    width: 100%; 
 }
 
-.go-btn {
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-}
 
-button {
-    background-color: pink;
+button 
+{
+    background: rgb(255,192,203);
+    background: linear-gradient(0deg, rgba(255,192,203,1) 0%, rgba(220,124,194,1) 100%);
     font-family: 'Playfair Display';
-    border: none;
+    border: 2px solid black;
     font-size: 1.5rem;
-    padding: 5%;
+  
 }
+
 
 
 .fade-out-after-animations {
     animation: fadeOutAfter 8s forwards;
-    /* Adjust the timing to ensure it fades out after your animations */
 }
 
 @keyframes fadeOutAfter {
@@ -154,6 +153,27 @@ button {
     }
 
     100% {
-        opacity: 0.2; /* Faded but still visible in the background */
+        opacity: 0.2; 
     }
 }
+
+.modal-bg {
+    background-color: rgba(255, 192, 203, 0.5); /* Rosa med 50% opacitet */
+    opacity: .8;
+    width: 85%;
+    height: 40%; 
+    margin: 0 auto;
+    margin-bottom: 20%; 
+    
+}
+
+
+.addBtn, .removeBtn 
+{
+    font-size: 3rem;
+    width: 75px;
+    height: 75px;
+    border-radius: 10%;
+
+}
+

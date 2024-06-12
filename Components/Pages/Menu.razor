@@ -1,0 +1,31 @@
+﻿@page "/menu";
+@using OneMoreDate.Components.Reusable;
+@inject NavigationManager Navigation
+
+
+<div class="fade-in-btns">
+    <Background/>
+    <div class="btn-container">
+        <div class="d-flex justify-content-center border border-primary vh-100 align-items-center flex-column">
+            <button @onclick="StartGame" class="vw-100"> Start Game </button>
+            <button @onclick="GoToRules" class="vw-100"> Rules </button>
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+
+    private void StartGame()
+    {
+        Navigation.NavigateTo("/players");
+    }
+
+    private void GoToRules()
+    {
+        Navigation.NavigateTo("/rules");
+    }
+
+
+}
