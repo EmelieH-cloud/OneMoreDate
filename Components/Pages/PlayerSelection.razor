@@ -3,17 +3,17 @@
 @using OneMoreDate.Components.Reusable;
 @inject NavigationManager Navigation
 
-<div class="vh-100 d-flex justify-content-center align-items-center animate__animated animate__fadeIn">
+<div class="outer-container-players animate__animated animate__fadeIn">
 <Background/>
-<div class="d-flex justify-content-center flex-column align-items-center text-center modal-bg rounded">
-    <h2 class="display-3">Players:</h2>
-    
-    <div class="vw-100 d-flex justify-content-around align-items-center">
-    <button class="addBtn" @onclick="DecrementCount">-</button>
-            <h1>@currentCount</h1>
-     <button class=" removeBtn" @onclick="IncrementCount">+</button>
+<GoBackButton Url="" />
+<div class="inner-container-players modal-bg rounded">
+    <h1 class="display-3">Players:</h1>
+    <div class="container-players">
+    <a  @onclick="DecrementCount"> <img src="./images/addbtn.png" alt="btn" class="operator-btn"/></a>
+      <h1 class=" operator-btn">@currentCount</h1>
+     <a @onclick="IncrementCount"> <img src="./images/minusbtn.png" alt="btn" class="operator-btn"/></a>
     </div>
-    <GoBackButton Url=""/>
+   
 </div>
 </div>
 
