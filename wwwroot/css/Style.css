@@ -5,7 +5,8 @@
     2. Home
     3. Menu
     4. PlayerSelection
-    5. För surfplattor och större 
+    5. InputplayerNames
+    6. För surfplattor och större 
 
 
 
@@ -18,16 +19,15 @@ font-weight: lighter;
 
 }
 
+
 button {
     font-family: 'Playfair Display';
     font-size: 1.5rem;
-    background: rgb(255,192,203);
-    background: linear-gradient(0deg, rgba(255,192,203,1) 0%, rgba(220,124,192,1) 100%);
     border: none;
 }
 
 
-h3, h2
+h3, h2, p
 {
     font-family: 'Playfair Display';
 }
@@ -161,33 +161,30 @@ img {
     width: 100%; 
 }
 
-.menu-start-btn{
-
-
-    top:60%;
+.menu-start-btn {
+    top: 60%;
     width: 100%;
-    position:absolute;
-
+    position: absolute;
+    background: rgb(255,192,203);
+    background: linear-gradient(0deg, rgba(255,192,203,1) 0%, rgba(220,124,192,1) 100%);
 }
 
 .menu-rules-btn {
-
     top: 53%;
     width: 100%;
     position: absolute;
+    background: rgb(255,192,203);
+    background: linear-gradient(0deg, rgba(255,192,203,1) 0%, rgba(220,124,192,1) 100%);
 }
 
-
-
-/*.modal-bg {
-    background-color: rgba(255, 192, 203, 0.5);*/ /* Rosa med 50% opacitet */
-    /*opacity: .8;
+.modal-bg {
+    background-color: rgba(255, 192, 203, 0.5); /* Rosa med 50% opacitet */
+    opacity: .8;
     width: 85%;
     height: 40%; 
     margin: 0 auto;
     margin-bottom: 20%;  
-}*/
-
+}
 
 .inner-menu-container {
    
@@ -227,17 +224,46 @@ img {
 
 }
 
-.operator-btn 
+.players-btn {
+    width: 50px;
+    height: 50px;
+
+
+}
+
+    .operator-btn 
 {
     width: 45%;
     border-radius: 10px;
-    background-color: rgba(255, 192, 203, 0.5);
+
 }
 
-/* 5. för surfplattor (och större) --------------------------*/
-@media (min-width: 500px) 
+/* 5. InputPlayerNames------------------------------------*/
+
+.outer-playernames-container 
 {
-    
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+ 
+}
+
+.modal-playernames-bg {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
+    background-color: rgba(255, 192, 203, 0.5);
+    padding: 2%;
+    height: 90%;
+    width: 85%;
+}
+
+
+/* 6. för surfplattor (och större) --------------------------*/
+@media (min-width: 500px) {
     h1 /* Gör texten större */ 
     {
         font-size: 3em;
@@ -248,15 +274,16 @@ img {
     {
         width: 50vw;
     }
-    .inner-menu-container 
-    /* Ge en marginal på sidorna */ 
-    {
+    .inner-menu-container
+    /* Ge en marginal på sidorna */ {
         height: 100vh;
         display: flex;
         justify-content: center;
         flex-direction: column;
+        align-items: stretch;
         margin: 0 auto;
-        width: 60vw;
+        width: 70vw;
+ 
     }
 
     .modal-bg 
@@ -275,5 +302,28 @@ img {
         /* Ge mindre plats för knapparna */
     }
 
+    /* Mindre menu och rules knapp vid större skärm*/
+    .menu-start-btn 
+    {
+        position: absolute;
+        width: 70vw;
+        top: 70%;
+       
+    }
 
+    .menu-rules-btn 
+    {
+        position: absolute;
+        width: 70vw;
+        top: 60%;
+    }
+
+    /* Större knappar */
+    .players-btn 
+    {
+        width: 70px;
+        height: 70px;
+    }
+
+  
 }
