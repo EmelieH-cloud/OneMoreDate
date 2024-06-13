@@ -15,14 +15,31 @@
         </div>
     </div>
     <div class='outer-image-container fade-in'>
+       
         <div class='image-container'>
-            <img src=@images[currentImageIndex] alt="logo" class="logo fade-out-after-animations" />
+            <img id="logo" src=@images[currentImageIndex] alt="logo" class="logo fade-out-after-animations" />
         </div>
     </div>
+   
 </div>
+
+@if (showButtons)
+{
+
+    <div class="fade-in-btns">
+        <div class="outer-btn-container ">
+            <div class="inner-menu-container">
+                <button @onclick="StartGame" class="mb-4 menu-start-btn"> Start Game </button>
+                <button @onclick="GoToRules" class="menu-rules-btn"> Rules </button>
+            </div>
+        </div>
+    </div>
+
+}
 
 
 @code {
+    private bool showButtons = false;
     private string[] images = new string[]
     {
         "images/Bild_1.png",
@@ -34,25 +51,14 @@
 
     private int currentImageIndex = 0;
     private Timer _timer; // timer för bildbyte
-    private Timer _animationTimer; // timer för att navigera till nästa sida. 
+
 
     protected override async Task OnInitializedAsync()
     {
         _timer = new Timer(ChangeImage, null, 3500, 500);
-
-        await Task.Delay(8000);
-        Navigation.NavigateTo("/menu");
-
+       
     }
 
-    private void NavigateAfterAnimation(object state)
-    {
-     
-        InvokeAsync(() =>
-        {
-            Navigation.NavigateTo("/menu");
-        });
-    }
 
     private void ChangeImage(object state)
     {
@@ -61,8 +67,13 @@
             currentImageIndex = (currentImageIndex + 1) % images.Length;
             if (currentImageIndex == images.Length - 1)
             {
-                _timer?.Dispose(); // Stoppa intervallet när sista bilden har visats
+                _timer?.Dispose(); 
+                showButtons = true;
             }
+
+
+
+
             StateHasChanged();
 
         });
@@ -73,12 +84,17 @@
         _timer?.Dispose();
     }
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    private void StartGame()
     {
-        if (firstRender)
-        {
-            await Task.Delay(8000);
-            Navigation.NavigateTo("/menu");
-        }
+        Navigation.NavigateTo("/players");
     }
+
+    private void GoToRules()
+    {
+        Navigation.NavigateTo("/rules");
+    }
+
+
+  
+  
 }
