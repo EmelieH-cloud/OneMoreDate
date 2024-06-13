@@ -1,55 +1,54 @@
 ﻿@page "/"
 @using Microsoft.AspNetCore.Components
+@using OneMoreDate.Components.Reusable;
 @inject NavigationManager Navigation
 
-
 <div class='outer-container '>
-
     <div class='inner-container fade-out'>
         <h1 class="animate__animated animate__slideInLeft w-50 one">One</h1>
         <h1 class="animate__animated animate__slideInLeft animate__delay-1s w-60 text-center more">More</h1>
     </div>
-
     <div class='outer-image-container fade-out'>
-       <h1 class="animate__animated animate__slideInRight animate__delay-2s date">Date?</h1>
+        <h1 class="animate__animated animate__slideInRight animate__delay-2s date">Date?</h1>
         <div class='image-container'>
             <img src=@images[currentImageIndex] alt="logo" class="logo" />
         </div>
-    </div> 
-
-    <div class='outer-image-container fade-in)'>
+    </div>
+    <div class='outer-image-container fade-in'>
         <div class='image-container'>
             <img src=@images[currentImageIndex] alt="logo" class="logo fade-out-after-animations" />
         </div>
-       
     </div>
 </div>
 
-@if (allAnimationsCompleted)
-{
-    Navigation.NavigateTo("/menu");
-}
 
-@code{
-
-    private bool allAnimationsCompleted = false;
-
+@code {
     private string[] images = new string[]
-       {
+    {
         "images/Bild_1.png",
         "images/Bild_2.png",
         "images/Bild_3.png",
         "images/Bild_4.png",
         "images/Bild_5.png"
-       };
+    };
 
     private int currentImageIndex = 0;
-    private Timer _timer;
+    private Timer _timer; // timer för bildbyte
+    private Timer _animationTimer; // timer för att navigera till nästa sida. 
 
     protected override void OnInitialized()
     {
         _timer = new Timer(ChangeImage, null, 3500, 500);
 
+    }
+
+    private void NavigateAfterAnimation(object state)
+    {
+     
+        InvokeAsync(() =>
+        {
+            Navigation.NavigateTo("/menu");
+        });
     }
 
     private void ChangeImage(object state)
@@ -60,22 +59,23 @@
             if (currentImageIndex == images.Length - 1)
             {
                 _timer?.Dispose(); // Stoppa intervallet när sista bilden har visats
-
-
-                allAnimationsCompleted = true;
-
-
             }
             StateHasChanged();
 
         });
     }
 
-
     public void Dispose()
     {
         _timer?.Dispose();
     }
 
-
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await Task.Delay(8000);
+            Navigation.NavigateTo("/menu");
+        }
+    }
 }

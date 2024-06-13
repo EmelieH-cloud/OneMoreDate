@@ -1,8 +1,28 @@
-﻿@inject NavigationManager Navigation
+﻿
+@inject NavigationManager Navigation
 
+<style>
 
-<button @onclick="GoBack">  Go back </button>
+    .back-btn
+    {
+        position: absolute; 
+        width: 50px; 
+        bottom: 2%; 
+    }
 
+    .back-btn-container
+    {
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%; 
+    }
+
+</style>
+
+<div class="back-btn-container">
+<a @onclick="GoBack">  <img src="./images/backbtn.png" alt="btn" class="back-btn"/> </a>
+</div>
 
 @code
 {

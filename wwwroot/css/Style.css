@@ -1,31 +1,47 @@
 ﻿
+/* Innehållsförteckning: 
+
+    1. Globala stilar (gäller överallt)
+    2. Home
+    3. Menu
+    4. PlayerSelection
+    5. För surfplattor och större 
+
+
+
+
+ /* 1. Globala stilar ---------------------------*/
 h1
 {
  font-family: 'Playfair Display';
-/* Använder teckensnittet 'Playfair Display' för rubriken */
 font-size: 3.2rem;
-/* Sätter fontstorleken till 3.5 rem (relativt till rot-elementets fontstorlek) */
 font-weight: lighter;
-/* Sätter fontweight till 'lighter' för en tunnare text */
+
 }
+
+button 
+{
+    font-family: 'Playfair Display';
+    font-size: 1.5rem;
+}
+
 
 h3, h2
 {
     font-family: 'Playfair Display';
 }
 
+/* 2. Home ----------------------------------------------------*/
+
 img {
     width: 85vw;
-    /* Sätter bildens bredd till 85% av viewportens bredd */
     height: auto;
     /* Automatisk höjd för att behålla bildens proportioner */
 }
 
 .outer-container {
     position: absolute;
-    /* Positionerar elementet absolut relativt till närmaste positionerade parent */
     z-index: -1;
-    /* Sätter z-index till -1 så att elementet hamnar bakom andra element med högre z-index */
     top: 15%;
     /* Placerar elementet 15% från toppen av dess närmaste positionerade parent */
 }
@@ -34,15 +50,11 @@ img {
     overflow: hidden;
     /* Döljer innehåll som överskrider containerens gränser */
     width: 100vw;
-    /* Sätter bredden till 100% av viewportens bredd */
     height: min-content;
     /* Sätter höjden till det minsta innehållet som behövs för att passa in allt */
     display: flex;
-    /* Använder flexbox för att arrangera barnen inuti container */
     text-align: right;
-    /* Sätter textjusteringen till höger */
     flex-direction: column;
-    /* Arrangerar flexbox-elementen (barnen) i en kolumn */
 }
 
 .image-container {
@@ -74,7 +86,7 @@ img {
     /* Positionerar elementet absolut relativt till närmaste positionerade parent */
     top: 55%;
     /* Placerar elementet 55% från toppen av dess närmaste positionerade parent */
-    background-color: rgba(255, 255, 255, 0.649);
+    
     width: 100%;
 }
 
@@ -97,6 +109,20 @@ img {
     }
 }
 
+.fade-out-after-animations {
+    animation: fadeOutAfter 8s forwards;
+}
+
+@keyframes fadeOutAfter {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
+}
+
 .fade-in {
     opacity: 0;
     /* Börjar med ingen opacitet (helt genomskinlig) */
@@ -107,9 +133,11 @@ img {
 .fade-in-btns {
     opacity: 0;
     /* Börjar med ingen opacitet (helt genomskinlig) */
-    animation: fadeIn 4s ease 3s forwards;
-    /* Använder en fadeIn-animation som varar 4 sekunder, börjar efter 5 sekunder, och körs framåt */
+    animation: fadeIn 3s ease forwards;
+ 
 }
+
+
 
 @keyframes fadeIn {
     0% {
@@ -122,8 +150,9 @@ img {
         /* Full opacitet vid slutet av animationen */
     }
 }
+/* 3. Menu -----------------------------------------------------*/
 
-.btn-container
+.outer-btn-container
 {
     position: absolute;
     height: 100%; 
@@ -131,49 +160,99 @@ img {
 }
 
 
-button 
-{
-    background: rgb(255,192,203);
-    background: linear-gradient(0deg, rgba(255,192,203,1) 0%, rgba(220,124,194,1) 100%);
-    font-family: 'Playfair Display';
-    border: 2px solid black;
-    font-size: 1.5rem;
-  
-}
-
-
-
-.fade-out-after-animations {
-    animation: fadeOutAfter 8s forwards;
-}
-
-@keyframes fadeOutAfter {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0.2; 
-    }
-}
-
 .modal-bg {
     background-color: rgba(255, 192, 203, 0.5); /* Rosa med 50% opacitet */
     opacity: .8;
     width: 85%;
     height: 40%; 
     margin: 0 auto;
-    margin-bottom: 20%; 
-    
+    margin-bottom: 20%;  
 }
 
 
-.addBtn, .removeBtn 
+.inner-menu-container 
 {
-    font-size: 3rem;
-    width: 75px;
-    height: 75px;
-    border-radius: 10%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* 4. PlayerSelection --------------------------------*/
+
+.outer-container-players 
+{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner-container-players 
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.container-players 
+{
+    height: 100vh;
+    display: flex;
+    width: 70vw;
+    justify-content: space-around;
+    align-items: center; 
 
 }
 
+.operator-btn 
+{
+    width: 45%;
+    border-radius: 10px;
+    background-color: rgba(255, 192, 203, 0.5);
+}
+
+/* 5. för surfplattor (och större) --------------------------*/
+@media (min-width: 500px) 
+{
+    
+    h1 /* Gör texten större */ 
+    {
+        font-size: 3em;
+    }
+
+    img 
+    /* Gör alla bilder mindre! */ 
+    {
+        width: 50vw;
+    }
+    .inner-menu-container 
+    /* Ge en marginal på sidorna */ 
+    {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 60vw;
+    }
+
+    .modal-bg 
+    /* Gör modalen större */
+    {
+        background-color: rgba(255, 192, 203, 0.5); 
+        opacity: .8;
+        width: 95%;
+        height: 70%;
+        margin: 0 auto;
+    }
+
+    .container-players 
+    {
+        width: 65vw; 
+        /* Ge mindre plats för knapparna */
+    }
+}
