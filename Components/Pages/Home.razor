@@ -36,9 +36,12 @@
     private Timer _timer; // timer för bildbyte
     private Timer _animationTimer; // timer för att navigera till nästa sida. 
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
         _timer = new Timer(ChangeImage, null, 3500, 500);
+
+        await Task.Delay(8000);
+        Navigation.NavigateTo("/menu");
 
     }
 
