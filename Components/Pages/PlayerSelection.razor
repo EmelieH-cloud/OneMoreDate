@@ -6,14 +6,14 @@
 <div class="outer-container-players animate__animated animate__fadeIn">
 <Background/>
 <GoBackButton Url="menu" />
+<GoForwardBtn Url="inputPlayerNames" Count="@currentCount" IsEnabled="currentCount > 1"/>
 <div class="inner-container-players modal-bg rounded">
     <h1 class="display-3">Players:</h1>
     <div class="container-players">
-    <a  @onclick="DecrementCount"> <img src="./images/addbtn.png" alt="btn" class="operator-btn"/></a>
+    <button  @onclick="DecrementCount" class="players-btn fw-bolder display-2 bg-light rounded"> - </button>
       <h1 >@currentCount</h1>
-     <a @onclick="IncrementCount"> <img src="./images/minusbtn.png" alt="btn" class="operator-btn"/></a>
+            <button @onclick="IncrementCount" class="players-btn fw-bolder display-2 bg-light rounded"> + </button>
     </div>
-   
 </div>
 </div>
 
@@ -30,6 +30,10 @@
 
     private void DecrementCount()
     {
-        currentCount--;
+        if (currentCount!=0)
+        {
+            currentCount--;
+        }
+        
     }
 }

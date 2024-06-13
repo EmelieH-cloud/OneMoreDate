@@ -1,0 +1,68 @@
+﻿@using OneMoreDate.Components.Reusable;
+@using OneMoreDate.Managers;
+@page "/inputPlayerNames/{CurrentCount:int}"
+@inject NavigationManager navigationManager;
+
+
+<Background/>
+<GoBackButton Url="menu" />
+<div class="outer-playernames-container">
+    <div class="modal-playernames-bg rounded">
+<h2>Number of players: @CurrentCount</h2>
+
+<div class="d-flex">
+@for (int i = 1; i <= CurrentCount; i++)
+{
+    @if (i == CurrentCount)
+    {
+        <input @bind="InputValue" placeholder="Participant" />
+    }
+}
+
+<button @onclick="AddPlayers" class="fw-bolder display-2 rounded m-2">+</button>
+        </div>
+
+@foreach (var name in Names)
+{
+     <p>@name</p>
+}
+
+@if (Names.Count == CurrentCount)
+{
+    <button @onclick="AddActivePlayers">Done</button>
+}
+        
+    </div>
+</div>
+
+
+
+
+@code
+{
+    [Parameter]
+    public int CurrentCount { get; set; }
+
+    public bool IsVisible = false; 
+
+    public string InputValue { get; set; }
+
+    public List<string> Names { get; set; } = new List<string>();
+
+    private void AddPlayers()
+    {
+        if (Names.Count<=CurrentCount)
+        {
+            string newName = InputValue;
+            Names.Add(newName);
+            InputValue = "";
+        }
+
+    }
+
+    public void AddActivePlayers()
+    {
+        PlayerManager.AddActivePlayers(Names);
+        //navigationManager.NavigateTo("/gamePage");
+    }
+}
