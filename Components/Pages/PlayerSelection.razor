@@ -3,22 +3,26 @@
 @using OneMoreDate.Components.Reusable
 @inject NavigationManager Navigation
 
-<GoBackButton Url="menu" />
+
+
+
 <div class="outer-container-players animate__animated animate__fadeIn">
     <Background />
-    <GoForwardBtn Url="inputPlayerNames" Count="@currentCount" />
+ 
     <div class="inner-container-players modal-bg rounded">
         <h1 class="display-3">Players:</h1>
         <div class="container-players">
 
-            <button @onclick="DecrementCount"> - </button>
+            <button class="d-flex justify-content-center align-items-center display-2 fw-bold decrement-count-btn" @onclick="DecrementCount"> - </button>
 
             <h1 class="@className">@currentCount</h1>
 
-            <button @onclick="IncrementCount"> + </button>
+            <button class=" d-flex justify-content-center align-items-center fw-bold display-2 increment-count-btn" @onclick="IncrementCount"> + </button>
         </div>
     </div>
+       <NavigationButtons BackUrl="menu" ForwardUrl="inputPlayernames" Count="@currentCount"/>
 </div>
+ 
 
 @code {
     private int currentCount = 2;

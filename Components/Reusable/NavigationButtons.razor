@@ -1,0 +1,67 @@
+﻿@inject NavigationManager Navigation
+
+<style>
+
+    .forward-btn 
+    {
+        position: absolute;
+        width: 35px;
+        border-radius: 50%;
+        bottom: 2%;
+        right: 1%;
+        margin: 2%;
+        opacity: .8;
+    }
+
+     .back-btn
+     {
+        position: absolute;
+        width: 35px;
+        border-radius: 50%;
+        bottom: 2%;
+        left: 1%;
+        margin: 2%;
+        opacity: .8;
+     }
+
+        .navigate-btn-container 
+    {
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+    }
+
+</style>
+
+<div class="navigate-btn-container">
+    <button @onclick="GoForward">  <img src="./images/forwardbtn.png" alt="btn" class="forward-btn" /> </button>
+    <button @onclick="GoBack">  <img src="./images/backbtn.png" alt="btn" class="back-btn" /> </button>
+</div>
+
+
+@code 
+{
+    [Parameter]
+    public string ForwardUrl { get; set; }
+
+    [Parameter]
+    public int Count { get; set; }
+
+    [Parameter]
+    public string BackUrl { get; set; }
+
+ 
+    private void GoBack()
+    {
+        Navigation.NavigateTo($"/{BackUrl}");
+    }
+
+
+    private void GoForward()
+    {
+
+        Navigation.NavigateTo($"{ForwardUrl}/{Count}");
+
+    }
+}

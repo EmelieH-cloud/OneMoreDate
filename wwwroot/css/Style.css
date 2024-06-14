@@ -238,6 +238,16 @@ img {
 
 }
 
+.increment-count-btn, .decrement-count-btn {
+    border-radius: 50%;
+    width:70px;
+    height:70px;
+    text-align:center;
+    background: rgb(255,192,203);
+    background: linear-gradient(0deg, rgba(255,192,203,1) 0%, rgba(220,124,192,1) 100%);
+    padding:5%;
+}
+
 /* 5. InputPlayerNames------------------------------------*/
 
 .outer-playernames-container 
