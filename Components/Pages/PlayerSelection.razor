@@ -1,39 +1,70 @@
 ﻿@page "/players"
 @using Microsoft.AspNetCore.Components
-@using OneMoreDate.Components.Reusable;
+@using OneMoreDate.Components.Reusable
 @inject NavigationManager Navigation
 
-<div class="outer-container-players animate__animated animate__fadeIn">
-<Background/>
 <GoBackButton Url="menu" />
-<GoForwardBtn Url="inputPlayerNames" Count="@currentCount" IsEnabled="currentCount > 1"/>
-<div class="inner-container-players modal-bg rounded">
-    <h1 class="display-3">Players:</h1>
-    <div class="container-players">
-    <button  @onclick="DecrementCount" class="players-btn fw-bolder display-2 bg-light rounded"> - </button>
-      <h1 >@currentCount</h1>
-            <button @onclick="IncrementCount" class="players-btn fw-bolder display-2 bg-light rounded"> + </button>
+<div class="outer-container-players animate__animated animate__fadeIn">
+    <Background />
+    <GoForwardBtn Url="inputPlayerNames" Count="@currentCount" />
+    <div class="inner-container-players modal-bg rounded">
+        <h1 class="display-3">Players:</h1>
+        <div class="container-players">
+
+            <button @onclick="DecrementCount"> - </button>
+
+            <h1 class="@className">@currentCount</h1>
+
+            <button @onclick="IncrementCount"> + </button>
+        </div>
     </div>
 </div>
-</div>
 
-@code 
-{
-  
-    private int currentCount = 0;
+@code {
+    private int currentCount = 2;
+    private string className = "";
 
-   
-    private void IncrementCount()
+    private async void IncrementCount()
     {
-        currentCount++;
+        if (currentCount < 10)
+        {
+            currentCount++;
+            className = "animate__animated animate__bounceIn animate_faster"; // Exempel på annan animation vid increment
+            StateHasChanged();
+            await Task.Delay(500); // Vänta på att animeringen ska slutföras
+            className = ""; // Återställ klassnamnet efter animeringen
+            StateHasChanged();
+        }
+
+        if (currentCount ==10)
+        {
+            className = "animate__animated animate__shakeX text-danger";
+            StateHasChanged();
+            await Task.Delay(500); // Vänta på att animeringen ska slutföras
+            className = ""; // Återställ klassnamnet efter animeringen
+            StateHasChanged();
+        }
     }
 
-    private void DecrementCount()
+    private async void DecrementCount()
     {
-        if (currentCount!=0)
+        if (currentCount == 2)
+        {
+            className = "animate__animated animate__shakeX text-danger";
+            StateHasChanged();
+            await Task.Delay(500); // Vänta på att animeringen ska slutföras
+            className = ""; // Återställ klassnamnet efter animeringen
+            StateHasChanged();
+        }
+
+        if (currentCount >= 3)
         {
             currentCount--;
+            className = "animate__animated animate__bounceIn animate_faster"; // Exempel på annan animation vid increment
+            StateHasChanged();
+            await Task.Delay(500); // Vänta på att animeringen ska slutföras
+            className = ""; // Återställ klassnamnet efter animeringen
+            StateHasChanged();
         }
-        
     }
 }

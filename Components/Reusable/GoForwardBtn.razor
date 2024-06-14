@@ -33,14 +33,10 @@
     [Parameter]
     public int Count { get; set; }
 
-    [Parameter]
-    public bool IsEnabled { get; set; } = true;
-
     private void GoForward()
     {
-        if (IsEnabled)
-        {
+       
             Navigation.NavigateTo($"{Url}/{Count}");
-        }
+        
     }
 }
