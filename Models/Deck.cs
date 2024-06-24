@@ -19,25 +19,64 @@
             {
                 new Card
             {
-                Question = "Hen har aldrig hört talas om Rysslands invasion av Ukraina"
+                Question = "insists on being the center of attention at every party"
             },
               new Card
             {
-                Question = "Hens största dröm är att jobba som clown"
+                Question = "hates public display of affection at social gatherings"
             },
                 new Card
             {
-                Question = "Hen har tidigare varit med i ett kriminellt gäng"
+                Question = "never wants to try the food offered at parties"
 
-            }
+            },
+            new Card
+            {
+                Question = "only drinks at social events, but drinks too much everytime"
+
+            },
+            new Card
+            {
+                 Question = "eats all the snacks without sharing at parties"
+            },
+             new Card
+            {
+                 Question = "insists on playing their own music at every party"
+            },
+             new Card
+             {
+                 Question ="always dominates the beer pong table but gets overly competitive"
+             },
+             new Card
+             {
+              Question= "consumes illegal drugs at parties"
+            },
+              new Card
+             {
+              Question= "always wears a clown costume to parties"
+            },
+              new Card
+            {
+             Question="insists on bringing their pet snake to social gatherings"
+            },
+              new Card
+              {
+                  Question="always wears heavy and dramatic makeup to parties"
+              },
+              new Card
+              {
+                  Question="wears glitter and sparkles excessively on their face and body for every event"
+              },
+              new Card
+              {
+
+                  Question="wears a neon-colored suit and tie combination to formal events"
+              }
+
             });
 
         }
     }
-
-
-
-
 
 
     public class StarterDeck : Deck
@@ -51,47 +90,47 @@
             {
                 new Card
             {
-                Question = "Hen har aldrig hört talas om Rysslands invasion av Ukraina"
+                Question = "has never heard of the Russia-Ukraine conflict."
             },
               new Card
             {
-                Question = "Hens största dröm är att jobba som clown"
+                Question = "dreams of working as a full-time clown and declines any other job, even when unemployed"
             },
                 new Card
             {
-                Question = "Hen har tidigare varit med i ett kriminellt gäng"
+                Question = "has a criminal history with a gang notorious for seeking revenge on the loved ones of those who leave"
 
             },
 
                 new Card
             {
-                Question = "Hen har aldrig hört talas om Rysslands invasion av Ukraina"
+                Question = "does not believe in global warming"
             },
               new Card
             {
-                Question = "Hens största dröm är att jobba som clown"
+                Question = "collects and displays stuffed animals in their home"
             },
                 new Card
             {
-                Question = "Hen har tidigare varit med i ett kriminellt gäng"
+                Question = "believes in conspiracy theories and brings them up constantly"
 
             },
 
                 new Card
             {
-                Question = "Hen har aldrig hört talas om Rysslands invasion av Ukraina"
+                Question = "owns a pet skunk and doesn't believe in deodorizing their home as it may cause stress to the skunk"
             },
               new Card
             {
-                Question = "Hens största dröm är att jobba som clown"
+                Question = "has several but small face tattoos"
             },
                  new Card
             {
-                Question = "Hen tror inte på växthuseffekten"
+                Question = "has an obsession with wearing historical clothing from a specific era"
             },
                 new Card
             {
-                Question = "Hen har inget hår på huvudet"
+                Question = "is passionately against vaccinations and argues their stance at social gatherings"
 
             }
             });

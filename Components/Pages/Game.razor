@@ -1,0 +1,196 @@
+﻿@page "/game"
+@using OneMoreDate.Managers;
+@using OneMoreDate.Models;
+@using OneMoreDate.Components.Reusable;
+
+<div class="d-flex flex-column text-center vh-90 p-2 animate__animated animate__fadeIn modal-bg mt-3 rounded">
+<h2 class="fw-bold"> @($"{ActivePlayer.Name}'s turn")</h2>
+
+@if (ActivePlayer.LivesTogether)
+{
+    <h5>Relationship status: Lives together</h5>
+}
+else if (!ActivePlayer.LivesTogether)
+{
+    <h5>Relationship status: Dating</h5>
+}
+else if (ActivePlayer.IsMarried)
+{
+    <h5>Relationship status: Married</h5>
+}
+
+@if (ActivePlayer.Hand.Count > 0)
+{
+    @if (ActivePlayer.LivesTogether)
+    {
+            <p> <span class="fw-bolder"> @ActivePlayer.Name </span>lives together with someone who...</p>
+    }
+    else
+    {
+            <p><span class="fw-bolder"> @ActivePlayer.Name </span>is dating someone who...</p>
+    }
+
+    @foreach (Card card in ActivePlayer.Hand)
+    {
+        <p>@card.Question</p>
+        if (lastQuestionCounter < ActivePlayer.Hand.Count - 1)
+        {
+            <p>, and </p>
+        }
+        lastQuestionCounter++;
+    }
+
+    @if (!ActivePlayer.LivesTogether)
+    {
+        <p>On the @dateNumber date it is revealed that </p>
+            <StandardCard Question="@currentQuestion" Animation="@animationClass" />
+        <h5>One more date?</h5>
+    }
+    else
+    {
+        <p>Now it is revealed that </p>
+            <StandardCard Question="@currentQuestion" Animation="@animationClass" />
+        <h5>Do you want to continue the relationship with this partner that you have chosen to live with?</h5>
+    }
+}
+else
+{
+        <p> <span class="fw-bolder">@ActivePlayer.Name </span> is on the first date and meets someone who seems absolutely perfect. They're attractive, funny, and share your sense of humor. But as the date progresses, it becomes clear that... </p>
+        <StandardCard Question="@currentQuestion" Animation="@animationClass" />
+        <h5>One more date?</h5>
+}
+
+    <button @onclick="SaveCardOnPlayer" class=" m-1 rounded p-1 button-color">Yes</button>
+    <button @onclick="DeletePlayerHand" class=" m-1 rounded p-1 button-color">No</button>
+</div>
+
+
+@code {
+    private string animationClass = "";
+    private string dateNumber;
+    private int lastQuestionCounter = 0;
+    private int ActivePlayerIndex = 0;
+    private int ActiveCardIndex = 0;
+    private bool IsStarterDeck;
+    private Player ActivePlayer = new Player(); 
+    private List<Player> players = new List<Player>(); 
+    private StarterDeck ActiveStarterDeck = new StarterDeck(); 
+    private PartyDeck ActivePartyDeck = new PartyDeck(); 
+    private string deckName;
+    private string currentQuestion;
+    private Card ActiveCard = new Card(); 
+
+    protected override void OnInitialized()
+    {
+        players = PlayerManager.Players;
+        ConvertActiveDeck();
+        InitializeActiveCard();
+        InitializeActivePlayer();
+        CalculateActivePlayerDate();
+    }
+
+    public void ConvertActiveDeck()
+    {
+        if (GameManager.ActiveDeck is StarterDeck starterDeck)
+        {
+            deckName = starterDeck.Name;
+            ActiveStarterDeck = starterDeck;
+            IsStarterDeck = true;
+        }
+        else if (GameManager.ActiveDeck is PartyDeck partyDeck)
+        {
+            deckName = partyDeck.Name;
+            ActivePartyDeck = partyDeck;
+        }
+    }
+
+    private void DeletePlayerHand()
+    {
+        ActivePlayer.Hand.Clear();
+        SwitchPlayer();
+    }
+
+    private void SaveCardOnPlayer()
+    {
+        ActivePlayer.Hand.Add(ActiveCard);
+        if (ActivePlayer.Hand.Count >= 5)
+        {
+            ActivePlayer.LivesTogether = true;
+        }
+        else if (ActivePlayer.Hand.Count == 10)
+        {
+            ActivePlayer.IsMarried = true;
+        }
+        SwitchPlayer();
+    }
+
+    private bool CheckMarriageStatus(int index)
+    {
+        Player potentiallyMarriedPlayer = players[index];
+        return potentiallyMarriedPlayer.IsMarried;
+    }
+
+    private void SwitchPlayer()
+    {
+        do
+        {
+            ActivePlayerIndex = (ActivePlayerIndex + 1) % players.Count;
+        } while (CheckMarriageStatus(ActivePlayerIndex));
+
+        ActiveCardIndex = (ActiveCardIndex + 1) % (IsStarterDeck ? ActiveStarterDeck.Cards.Count : ActivePartyDeck.Cards.Count);
+
+        InitializeActiveCard();
+        InitializeActivePlayer();
+        lastQuestionCounter = 0;
+        CalculateActivePlayerDate();
+    }
+
+    private void InitializeActivePlayer()
+    {
+        ActivePlayer = players[ActivePlayerIndex];
+    }
+
+    private void InitializeActiveCard()
+    {
+        if (IsStarterDeck)
+        {
+            ActiveCard = ActiveStarterDeck.Cards[ActiveCardIndex];
+        }
+        else
+        {
+            ActiveCard = ActivePartyDeck.Cards[ActiveCardIndex];
+        }
+        currentQuestion = ActiveCard.Question;
+        FlipCard();
+
+    }
+
+    private async void FlipCard()
+    {
+    
+        animationClass = "animate__animated animate__flipInX";
+        StateHasChanged();
+        await Task.Delay(1000); // Vänta på att animeringen ska slutföras
+        animationClass = ""; // Återställ klassnamnet efter animeringen
+        StateHasChanged();
+    }
+    
+
+    private void CalculateActivePlayerDate()
+    {
+        switch (ActivePlayer.Hand.Count)
+        {
+            case 1: dateNumber = "second"; break;
+            case 2: dateNumber = "third"; break;
+            case 3: dateNumber = "fourth"; break;
+            case 4: dateNumber = "fifth"; break;
+            case 5: dateNumber = "sixth"; break;
+            case 6: dateNumber = "seventh"; break;
+            case 7: dateNumber = "eighth"; break;
+            case 8: dateNumber = "ninth"; break;
+            case 9: dateNumber = "tenth"; break;
+            default: dateNumber = "first"; break;
+        }
+    }
+}
+}

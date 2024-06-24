@@ -1,0 +1,57 @@
+﻿
+
+<style>
+    /*
+    CSS-klasser som säkerställer att texten alltid är centrerad på kortet, 
+    oavsett om kortet flyttas nedåt av annan text ovanför.
+    ----------------------------------------------------------------
+   .the-card-container, är en container för både kortet och texten. Dess position: relative, 
+   gör så att alla  element inom den kommer att vara positionerade i förhållande 
+   till denna container.  
+   
+   Själva kortet (.the-card) är ett img-element med en fast bredd på 100% av containern. 
+   Genom att sätta bredden till 100% säkerställer vi att kortet anpassar sig till storleken på the-card-container.
+
+   För att centrera frågetexten på kortet används position: absolute på texten (.card-question). 
+
+     top: 50% och left: 50% för att placera mitten av texten vid mitten av containern. 
+*/
+
+    .the-card-container {
+        position: relative;
+        width: 25rem;
+        height: auto; 
+    }
+
+    .the-card {
+        width: 100%;
+        display: block;
+    }
+
+    .card-question {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+    }
+</style>
+
+
+
+<div class="d-flex justify-content-center align-items-center">
+    <div class="the-card-container">
+        <img src="./images/card.png" alt="card" class="the-card rounded @Animation" />
+        <p class="card-question">@Question</p>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Question { get; set; }
+    [Parameter]
+    public string Animation { get; set; }
+}
+
+

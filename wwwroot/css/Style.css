@@ -6,8 +6,8 @@
     3. Menu
     4. PlayerSelection
     5. InputplayerNames
-    6. För surfplattor och större 
-
+    6. selectDeck
+    7.. För surfplattor och större 
 
 
  /* 1. Globala stilar ---------------------------*/
@@ -19,6 +19,10 @@ font-weight: lighter;
 
 }
 
+input
+{
+    height: min-content;
+}
 
 button {
     font-family: 'Playfair Display';
@@ -26,8 +30,13 @@ button {
     border: none;
 }
 
+.button-color {
+    background: rgb(255,192,203);
+    background: linear-gradient(0deg, rgba(255,192,203,1) 0%, rgba(220,124,192,1) 100%);
+}
 
-h3, h2, p
+
+h3, h2, h5, p, li, h6, h4
 {
     font-family: 'Playfair Display';
 }
@@ -240,24 +249,53 @@ img {
 
 .increment-count-btn, .decrement-count-btn {
     border-radius: 50%;
-    width:70px;
-    height:70px;
-    text-align:center;
+    width: 70px;
+    height: 70px;
+    text-align: center;
     background: rgb(255,192,203);
     background: linear-gradient(0deg, rgba(255,192,203,1) 0%, rgba(220,124,192,1) 100%);
-    padding:5%;
+    padding: 5%;
 }
 
 /* 5. InputPlayerNames------------------------------------*/
+.name-container {
+    display: flex;
+    height: min-content;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1%;
+}
 
-.outer-playernames-container 
+.done-btn
 {
+  font-size: 1.1rem;
+}
+
+.name-p {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 1%;
+
+}
+.remove-player-btn {
+    width: 25px;
+    height: 25px;
+    border-radius: 2px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    opacity: .7;
+}
+.outer-playernames-container {
     height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; 
- 
+    align-items: center;
 }
 
 .modal-playernames-bg {
@@ -271,8 +309,16 @@ img {
     width: 85%;
 }
 
+/* 6. SelectDeck ---------------------------*/
+.deck-modal 
 
-/* 6. för surfplattor (och större) --------------------------*/
+{
+    background-color: rgba(255, 192, 203, 0.5);
+    opacity: .9;
+
+}
+
+/* 7. för surfplattor (och större) --------------------------*/
 @media (min-width: 500px) {
     h1 /* Gör texten större */ 
     {
