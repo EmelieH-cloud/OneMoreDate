@@ -3,9 +3,6 @@
 @using OneMoreDate.Components.Reusable
 @inject NavigationManager Navigation
 
-
-
-
 <div class="outer-container-players animate__animated animate__fadeIn">
     <Background />
  
@@ -33,7 +30,7 @@
         if (currentCount < 10)
         {
             currentCount++;
-            className = "animate__animated animate__bounceIn animate_faster"; // Exempel på annan animation vid increment
+            className = "animate__animated animate__bounceIn animate_faster";
             StateHasChanged();
             await Task.Delay(500); // Vänta på att animeringen ska slutföras
             className = ""; // Återställ klassnamnet efter animeringen

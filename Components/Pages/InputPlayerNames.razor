@@ -3,70 +3,74 @@
 @page "/inputPlayerNames/{CurrentCount:int}"
 @inject NavigationManager navigationManager;
 
-<Background/>
-  <NavigationButtons BackUrl="players"/>
+
+
+<Background />
+<GoBackBtn BackUrl="players" />
+
 <div class="outer-playernames-container">
-    <div class="modal-playernames-bg rounded">
-<h2>Number of players: @CurrentCount</h2>
+    <div class="modal-playernames-bg rounded p-3">
+        <h2 class="mb-2">Player Names:</h2>
 
-<div class="d-flex">
-@for (int i = 1; i <= CurrentCount; i++)
-{
-    @if (i == CurrentCount)
-    {
-        <input @bind="InputValue" placeholder="Participant" disabled=@isDone/>
-    }
-}
-
-<button @onclick="AddPlayers" class="fw-bolder display-2 rounded m-2">+</button>
+        <div class="input-group mb-1">
+            <input @bind="InputValue" placeholder="Name" class="form-control" disabled="@isDone" />
+            <button @onclick="AddPlayers" class="button-color fw-bold">+</button>
         </div>
 
-@foreach (var name in Names)
-{
-     <p>@name</p>
-}
+            @foreach (var name in Names)
+            {
+             <div class="name-container bg-light">
+                <p class="name-p small">
+                    @name
+                </p>
+                <button class="remove-player-btn fw-bolder button-color fs-1 m-1" @onclick="() => RemovePlayer(name)">-</button>
+              </div>
+            }
 
-@if (Names.Count == CurrentCount)
-{
-    <button @onclick="AddActivePlayers">Done</button>
-}
-        
+
+        <button @onclick="AddActivePlayers" class="w-100 button-color done-btn rounded" disabled="@disableDoneBtn">Done</button>
     </div>
 </div>
 
-
-
-
-@code
-{
+@code {
     [Parameter]
     public int CurrentCount { get; set; }
 
-    private bool isDone = false; 
-
+    private bool isDone = false;
+    private bool disableDoneBtn = true;
     public string InputValue { get; set; }
-
     public List<string> Names { get; set; } = new List<string>();
 
     private void AddPlayers()
     {
-        if (Names.Count<CurrentCount)
+        if (Names.Count < CurrentCount && !string.IsNullOrEmpty(InputValue))
         {
-            string newName = InputValue;
-            Names.Add(newName);
+            Names.Add(InputValue);
             InputValue = "";
         }
 
-        if (Names.Count==CurrentCount)
+        if (Names.Count == CurrentCount)
         {
             isDone = true;
+            disableDoneBtn = false;
+            StateHasChanged();
         }
-
     }
 
-    public void AddActivePlayers()
+    private void RemovePlayer(string name)
+    {
+        Names.Remove(name);
+        if (Names.Count < CurrentCount)
+        {
+            isDone = false;
+            disableDoneBtn = true;
+        }
+        StateHasChanged();
+    }
+
+    private void AddActivePlayers()
     {
         PlayerManager.AddActivePlayers(Names);
-        //navigationManager.NavigateTo("/gamePage");
+        navigationManager.NavigateTo("/deck");
     }
 }

@@ -1,0 +1,67 @@
+﻿@page "/deck"
+@using OneMoreDate.Managers;
+@using OneMoreDate.Models;
+@using OneMoreDate.Components.Reusable;
+@inject NavigationManager Navigation
+
+<style>
+    .img-smaller 
+    {
+        max-width: 60%; 
+        height: auto; /* Bevarar bildens proportioner */
+        border-radius: 10px; 
+    }
+
+    .select-deck-img
+    {
+        width: 25%;
+        border-radius: 50%; 
+
+    }
+
+    .custom-bg
+    {
+        background-color: rgba(255, 192, 203, 0.5);
+        background-color: rgba(255, 255, 255, 0.5);
+        opacity: .8;
+        width: max-content;
+        border-top: 1px solid black;
+
+    }
+</style>
+
+
+<div class="container-fluid  text-center animate__animated animate__fadeIn border border-primary mt-4">
+
+      
+        <div class="col d-flex flex-column justify-content-center align-items-center border border-danger" @onclick="selectDeck">
+        <img src="./images/deck.png" alt="deck" class="img-smaller" />
+     <h4>Starter Deck</h4>
+    </div>
+
+        <div class="col d-flex flex-column justify-content-center align-items-center">
+        <img src="./images/partydeck.png" alt="deck" class="img-smaller" />
+          <h4>The original Deck</h4>
+    </div>
+
+    
+        <div class="col d-flex flex-column justify-content-center align-items-center">
+        <img src="./images/naughtydeck.png" alt="deck" class="img-smaller" />
+           <h4>The Naughty Deck </h4>
+        </div>
+</div>
+
+@code {
+
+    private void GoToGame()
+    {
+        Navigation.NavigateTo("/game");
+    }
+
+    private void selectDeck()
+    {
+        // öppna rosa modal
+
+    }
+
+}

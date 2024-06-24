@@ -5,8 +5,6 @@ namespace OneMoreDate.Managers
     public static class PlayerManager
     {
         public static List<Player> Players { get; set; } = new();
-
-
         private static bool CheckMarriageStatus(int index)
         {
             Player PotentiallyMarriedPlayer = Players[index];

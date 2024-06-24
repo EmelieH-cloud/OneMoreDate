@@ -4,6 +4,7 @@ namespace OneMoreDate.Managers
 {
     public static class GameManager
     {
+        // Klass som ansvarar för att konvertera deck till rätt decktyp (party, starter osv)
         public static Deck ActiveDeck { get; set; } = new();
         public static StarterDeck? ConvertDeckToStarterDeck(Deck deck)
         {
@@ -32,7 +33,6 @@ namespace OneMoreDate.Managers
             }
 
         }
-
         public static void AddActiveDeck(string deckName)
         {
             if (deckName == "starterDeck")
