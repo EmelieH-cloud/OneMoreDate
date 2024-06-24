@@ -30,11 +30,13 @@
     }
 </style>
 
+@if (showModal)
+{
+    <DeckModal Description=""/>
+}
 
 <div class="container-fluid  text-center animate__animated animate__fadeIn border border-primary mt-4">
-
-      
-        <div class="col d-flex flex-column justify-content-center align-items-center border border-danger" @onclick="selectDeck">
+        <div class="col d-flex flex-column justify-content-center align-items-center border border-danger" @onclick="selectDeck(1)">
         <img src="./images/deck.png" alt="deck" class="img-smaller" />
      <h4>Starter Deck</h4>
     </div>
@@ -53,14 +55,27 @@
 
 @code {
 
+    private bool showModal = false;
+    private string chosenDeck = "";
+
     private void GoToGame()
     {
         Navigation.NavigateTo("/game");
     }
 
-    private void selectDeck()
+    private void selectDeck(int deck_id)
     {
-        // öppna rosa modal
+        if (deck_id.Equals(1))
+        {
+            // sätt description till ett starter deck
+        }
+        else if (deck_id.Equals(2))
+        {
+            // sätt description till ett original deck
+        }
+        // osv...
+        showModal = true;
+        
 
     }
 
