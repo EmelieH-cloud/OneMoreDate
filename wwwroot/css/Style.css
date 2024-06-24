@@ -310,13 +310,7 @@ img {
 }
 
 /* 6. SelectDeck ---------------------------*/
-.deck-modal 
 
-{
-    background-color: rgba(255, 192, 203, 0.5);
-    opacity: .9;
-
-}
 
 /* 7. för surfplattor (och större) --------------------------*/
 @media (min-width: 500px) {

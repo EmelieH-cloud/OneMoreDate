@@ -1,0 +1,26 @@
+﻿
+
+<style>
+
+    .deck-modal 
+    {
+        background-color: rgba(255, 192, 203, 0.5);
+        opacity: .9;
+        position: absolute;
+        z-index: 1;
+    }
+</style>
+
+
+<div class="deck-modal">
+    <p>@Description</p>
+</div>
+
+@code
+{
+
+    [Parameter]
+    public string Description { get; set; }
+
+
+}
