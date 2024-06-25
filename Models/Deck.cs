@@ -2,6 +2,7 @@
 {
     public class Deck
     {
+        public bool isPurchased;
         public List<Card> Cards { get; set; }
         public Deck()
         {
@@ -15,6 +16,7 @@
 
         public PartyDeck()
         {
+            isPurchased = false;
             Cards.AddRange(new List<Card>
             {
                 new Card

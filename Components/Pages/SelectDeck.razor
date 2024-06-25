@@ -35,7 +35,7 @@
      <h4>Starter Deck</h4>
     </div>
 
-        <div class="col d-flex flex-column justify-content-center align-items-center mt-3">
+        <div class="col d-flex flex-column justify-content-center align-items-center mt-3" @onclick="()=>selectDeck(2)">
         <img src="./images/partydeck.png" alt="deck" class="img-smaller" />
           <h4>The original Deck</h4>
     </div>
@@ -65,13 +65,20 @@
         {
             deckHeader = "Trial Deck";
             deckDescription = "Ready to dive into the excitement of our game but not sure where to start? Say hello to the Trial Deck! Perfectly crafted for newcomers, this deck lets you experience the thrill and strategy of our gameplay without any commitment. Unlock the fun, explore unique challenges, and get a taste of what our full decks have to offer. Download now and start your adventure—no purchase necessary!";
+            buttonDescription = "Play";
         }
-        showModal = true;
+
 
         if (deckId == 2)
         {
-            
+            deckHeader = "Party Deck";
+            deckDescription="BLABLABLA";
+            buttonDescription="Purchase";
         }
+
+
+
+        showModal = true;
     }
 
     private void closeBtn()
@@ -86,10 +93,12 @@
             Navigation.NavigateTo("/game");
         }
 
-        else
-        {
-            
-        }
+       
+        if (buttonDescription =="Purchase")
+          {
+                
+          }
+      
     }
 
 }
