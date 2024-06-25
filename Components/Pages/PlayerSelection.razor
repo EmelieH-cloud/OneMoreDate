@@ -2,10 +2,12 @@
 @using Microsoft.AspNetCore.Components
 @using OneMoreDate.Components.Reusable
 @inject NavigationManager Navigation
+@using OneMoreDate.Managers;
+
 
 <div class="outer-container-players animate__animated animate__fadeIn">
     <Background />
- 
+
     <div class="inner-container-players modal-bg rounded">
         <h1 class="display-3">Players:</h1>
         <div class="container-players">
@@ -14,12 +16,12 @@
 
             <h1 class="@className">@currentCount</h1>
 
-            <button class=" d-flex justify-content-center align-items-center fw-bold display-2 increment-count-btn" @onclick="IncrementCount"> + </button>
+            <button class="d-flex justify-content-center align-items-center fw-bold display-2 increment-count-btn" @onclick="IncrementCount"> + </button>
         </div>
     </div>
-       <NavigationButtons BackUrl="menu" ForwardUrl="inputPlayernames" Count="@currentCount"/>
+
+    <NavigationButtons BackUrl="menu" ForwardUrl="inputPlayernames" PlayerCount=@currentCount />
 </div>
- 
 
 @code {
     private int currentCount = 2;
@@ -37,7 +39,7 @@
             StateHasChanged();
         }
 
-        if (currentCount ==10)
+        if (currentCount == 10)
         {
             className = "animate__animated animate__shakeX text-danger";
             StateHasChanged();
@@ -68,4 +70,6 @@
             StateHasChanged();
         }
     }
+
+  
 }

@@ -1,4 +1,5 @@
 ﻿@inject NavigationManager Navigation
+@using OneMoreDate.Managers;
 
 <style>
 
@@ -46,12 +47,13 @@
     public string ForwardUrl { get; set; }
 
     [Parameter]
-    public int Count { get; set; }
+    public int? PlayerCount { get; set; }
+
 
     [Parameter]
     public string BackUrl { get; set; }
 
- 
+
     private void GoBack()
     {
         Navigation.NavigateTo($"/{BackUrl}");
@@ -60,8 +62,11 @@
 
     private void GoForward()
     {
-
-        Navigation.NavigateTo($"{ForwardUrl}/{Count}");
+        if (PlayerCount!=null)
+        {
+            PlayerManager.PlayerCount = (int)PlayerCount; 
+        }
+        Navigation.NavigateTo($"{ForwardUrl}");
 
     }
 }

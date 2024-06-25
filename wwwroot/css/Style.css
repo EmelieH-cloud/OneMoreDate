@@ -19,6 +19,7 @@ font-weight: lighter;
 
 }
 
+
 input
 {
     height: min-content;
@@ -90,13 +91,14 @@ img {
 
 .date {
     color: gray;
+    background-color: rgba(255, 255, 255, 0.5);
     font-style: italic;
     text-align: center;
     position: absolute;
     /* Positionerar elementet absolut relativt till närmaste positionerade parent */
     top: 55%;
     /* Placerar elementet 55% från toppen av dess närmaste positionerade parent */
-    
+
     width: 100%;
 }
 
@@ -310,6 +312,37 @@ img {
 }
 
 /* 6. SelectDeck ---------------------------*/
+
+.my-decks-container 
+{
+    padding: 3%;
+    width: 95%;
+    margin: 2%; 
+}
+
+.img-smaller {
+    max-width: 60%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.select-deck-img {
+    width: 25%;
+    border-radius: 50%;
+}
+
+.select-deck-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8%;
+}
+
+.back-btn {
+    width: 35px;
+    border-radius: 50%;
+}
 
 .deck-modal-inner-container{
     display:flex;

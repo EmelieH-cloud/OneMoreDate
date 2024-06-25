@@ -1,9 +1,7 @@
-﻿@using OneMoreDate.Components.Reusable;
-@using OneMoreDate.Managers;
-@page "/inputPlayerNames/{CurrentCount:int}"
-@inject NavigationManager navigationManager;
-
-
+﻿@page "/inputPlayerNames"
+@using OneMoreDate.Components.Reusable
+@using OneMoreDate.Managers
+@inject NavigationManager navigationManager
 
 <Background />
 <GoBackBtn BackUrl="players" />
@@ -13,33 +11,31 @@
         <h2 class="mb-2">Player Names:</h2>
 
         <div class="input-group mb-1">
-            <input @bind="InputValue" placeholder="Name" class="form-control" disabled="@isDone" />
+            <input @bind="InputValue" placeholder="Name" class="form-control" disabled="@isDone" @ref="playerNameInput" />
             <button @onclick="AddPlayers" class="button-color fw-bold">+</button>
         </div>
 
-            @foreach (var name in Names)
-            {
-             <div class="name-container bg-light">
+        @foreach (var name in Names)
+        {
+            <div class="name-container bg-light">
                 <p class="name-p small">
                     @name
                 </p>
                 <button class="remove-player-btn fw-bolder button-color fs-1 m-1" @onclick="() => RemovePlayer(name)">-</button>
-              </div>
-            }
-
+            </div>
+        }
 
         <button @onclick="AddActivePlayers" class="w-100 button-color done-btn rounded" disabled="@disableDoneBtn">Done</button>
     </div>
 </div>
 
 @code {
-    [Parameter]
     public int CurrentCount { get; set; }
-
     private bool isDone = false;
     private bool disableDoneBtn = true;
     public string InputValue { get; set; }
     public List<string> Names { get; set; } = new List<string>();
+    private ElementReference playerNameInput;
 
     private void AddPlayers()
     {
@@ -55,6 +51,11 @@
             disableDoneBtn = false;
             StateHasChanged();
         }
+        else
+        {
+            // Sätt fokus tillbaka till input-elementet efter att en spelare har lagts till
+            _ = FocusInputAsync();
+        }
     }
 
     private void RemovePlayer(string name)
@@ -66,11 +67,33 @@
             disableDoneBtn = true;
         }
         StateHasChanged();
+        // Sätt fokus tillbaka till input-elementet efter att en spelare har tagits bort
+        _ = FocusInputAsync();
     }
 
     private void AddActivePlayers()
     {
         PlayerManager.AddActivePlayers(Names);
         navigationManager.NavigateTo("/deck");
+    }
+
+    protected override void OnInitialized()
+    {
+        CurrentCount = PlayerManager.PlayerCount;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Sätt fokus på input-elementet när komponenten har renderats för första gången
+            await FocusInputAsync();
+        }
+    }
+
+    private async Task FocusInputAsync()
+    {
+        await Task.Delay(1); // Vänta en kort stund för att säkerställa att rendering är klar
+        await playerNameInput.FocusAsync();
     }
 }
