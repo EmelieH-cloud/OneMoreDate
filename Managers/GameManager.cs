@@ -6,6 +6,7 @@ namespace OneMoreDate.Managers
     {
         // Klass som ansvarar för att konvertera deck till rätt decktyp (party, starter osv)
         public static Deck ActiveDeck { get; set; } = new();
+
         public static StarterDeck? ConvertDeckToStarterDeck(Deck deck)
         {
             if (deck.GetType() == typeof(StarterDeck))

@@ -4,23 +4,7 @@
 @using OneMoreDate.Components.Reusable;
 @inject NavigationManager Navigation
 
-<style>
-    .img-smaller 
-    {
-        max-width: 60%; 
-        height: auto; 
-        border-radius: 10px; 
-    }
 
-    .select-deck-img
-    {
-        width: 25%;
-        border-radius: 50%; 
-
-    }
-
- 
-</style>
 
 @if (showModal)
 {
@@ -28,24 +12,27 @@
     <DeckModal Description=@deckDescription DeckHeader=@deckHeader CloseButton ="closeBtn" btnClick="clickButton" ButtonDescription=@buttonDescription/>
     
 }
+<div class="my-decks-container mb-4 text-center animate__animated animate__fadeIn mt-4 rounded">
 
-<div class="container-fluid mb-4 text-center animate__animated animate__fadeIn  mt-4">
-        <div class="col d-flex flex-column justify-content-center align-items-center " @onclick="()=>selectDeck(1)" >
+        <div class="select-deck-container" @onclick="()=>selectDeck(1)" >
         <img src="./images/deck.png" alt="deck" class="img-smaller" />
      <h4>Starter Deck</h4>
     </div>
 
-        <div class="col d-flex flex-column justify-content-center align-items-center mt-3" @onclick="()=>selectDeck(2)">
+    <div class="select-deck-container" @onclick="()=>selectDeck(2)">
         <img src="./images/partydeck.png" alt="deck" class="img-smaller" />
           <h4>The original Deck</h4>
     </div>
 
-    
-        <div class="col d-flex flex-column justify-content-center align-items-center mt-3">
+
+    <div class="select-deck-container" @onclick="()=>selectDeck(3)">
         <img src="./images/naughtydeck.png" alt="deck" class="img-smaller" />
            <h4>The Naughty Deck </h4>
         </div>
+
+    
 </div>
+<button @onclick="GoBack">  <img src="./images/backbtn.png" alt="btn" class="back-btn" /> </button>
 
 @code {
     private string buttonDescription{ get; set; }
@@ -58,24 +45,35 @@
         Navigation.NavigateTo("/game");
     }
 
+    private void GoBack()
+    {
+        Navigation.NavigateTo($"/inputPlayerNames");
+    }
+
     private void selectDeck(int deckId)
     {
 
         if (deckId == 1)
         {
             deckHeader = "Trial Deck";
-            deckDescription = "Ready to dive into the excitement of our game but not sure where to start? Say hello to the Trial Deck! Perfectly crafted for newcomers, this deck lets you experience the thrill and strategy of our gameplay without any commitment. Unlock the fun, explore unique challenges, and get a taste of what our full decks have to offer. Download now and start your adventure—no purchase necessary!";
+            deckDescription = "Ready to dive into the excitement of our game but not sure where to start? The trial game is perfect for newcomers, this deck lets you experience the thrill and strategy of our gameplay without any commitment.";
             buttonDescription = "Play";
         }
 
 
-        if (deckId == 2)
+        else if (deckId == 2)
         {
-            deckHeader = "Party Deck";
+            deckHeader = "The Original Deck";
             deckDescription="BLABLABLA";
             buttonDescription="Purchase";
         }
 
+        else if (deckId ==3)
+        {
+            deckHeader = "The Naughty Deck";
+            deckDescription = "BLABLABLA";
+            buttonDescription = "Purchase";
+        }
 
 
         showModal = true;
