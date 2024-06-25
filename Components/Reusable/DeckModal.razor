@@ -4,30 +4,45 @@
 
     .deck-modal 
     {
-        border:2px solid black;
+       
         position: fixed;
-        width:75%;
-        height:50%;
+        width:85%;
+        
         top: 40%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: rgba(255, 255, 255, 0.9);
-        padding: 20px;
-        border-radius: 10px;
+        background-color: rgba(255, 192, 203, 0.9);
+       
+        
         z-index: 1000;
     }
 </style>
 
 
 <div class="deck-modal">
+
+    <div class="deck-modal-btn-container ">
+    <button type="button" class=" btn-close small " aria-label="Close" @onclick=CloseButton></button>
+    </div>
+    <div class="deck-modal-inner-container"
+ <h2>@DeckHeader</h2>
     <p>@Description</p>
+    <button @onclick=btnClick>HEJ</button>
+    </div>
 </div>
 
 @code
 {
-
+    [Parameter]
+    public string ButtonDescription{ get; set; }
+    [Parameter]
+    public string DeckHeader{ get; set; }
     [Parameter]
     public string Description { get; set; }
 
+    [Parameter]
+    public EventCallback CloseButton{ get; set; }
 
+    [Parameter]
+    public EventCallback btnClick{ get; set;  }
 }

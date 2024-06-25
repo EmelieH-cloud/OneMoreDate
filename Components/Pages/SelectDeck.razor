@@ -8,7 +8,7 @@
     .img-smaller 
     {
         max-width: 60%; 
-        height: auto; /* Bevarar bildens proportioner */
+        height: auto; 
         border-radius: 10px; 
     }
 
@@ -19,44 +19,37 @@
 
     }
 
-    .custom-bg
-    {
-        background-color: rgba(255, 192, 203, 0.5);
-        background-color: rgba(255, 255, 255, 0.5);
-        opacity: .8;
-        width: max-content;
-        border-top: 1px solid black;
-
-    }
+ 
 </style>
 
 @if (showModal)
 {
    
-    <DeckModal Description=@deckDescription/>
+    <DeckModal Description=@deckDescription DeckHeader=@deckHeader CloseButton ="closeBtn" btnClick="clickButton" ButtonDescription=@buttonDescription/>
     
 }
 
-<div class="container-fluid  text-center animate__animated animate__fadeIn border border-primary mt-4">
-        <button class="col d-flex flex-column justify-content-center align-items-center border border-danger" @onclick="()=>selectDeck(1)" >
+<div class="container-fluid mb-4 text-center animate__animated animate__fadeIn  mt-4">
+        <div class="col d-flex flex-column justify-content-center align-items-center " @onclick="()=>selectDeck(1)" >
         <img src="./images/deck.png" alt="deck" class="img-smaller" />
      <h4>Starter Deck</h4>
-    </button>
+    </div>
 
-        <div class="col d-flex flex-column justify-content-center align-items-center">
+        <div class="col d-flex flex-column justify-content-center align-items-center mt-3">
         <img src="./images/partydeck.png" alt="deck" class="img-smaller" />
           <h4>The original Deck</h4>
     </div>
 
     
-        <div class="col d-flex flex-column justify-content-center align-items-center">
+        <div class="col d-flex flex-column justify-content-center align-items-center mt-3">
         <img src="./images/naughtydeck.png" alt="deck" class="img-smaller" />
            <h4>The Naughty Deck </h4>
         </div>
 </div>
 
 @code {
-
+    private string buttonDescription{ get; set; }
+    private string deckHeader;
     private bool showModal = false;
     private string deckDescription;
 
@@ -70,15 +63,33 @@
 
         if (deckId == 1)
         {
-            deckDescription = "Trial Deck.";
+            deckHeader = "Trial Deck";
+            deckDescription = "Ready to dive into the excitement of our game but not sure where to start? Say hello to the Trial Deck! Perfectly crafted for newcomers, this deck lets you experience the thrill and strategy of our gameplay without any commitment. Unlock the fun, explore unique challenges, and get a taste of what our full decks have to offer. Download now and start your adventure—no purchase necessary!";
         }
         showModal = true;
 
-        
-       
-        
-        
+        if (deckId == 2)
+        {
+            
+        }
+    }
 
+    private void closeBtn()
+    {
+        showModal = false;
+    }
+
+    private void clickButton()
+    {
+        if(buttonDescription == "Play")
+        {
+            Navigation.NavigateTo("/game");
+        }
+
+        else
+        {
+            
+        }
     }
 
 }
