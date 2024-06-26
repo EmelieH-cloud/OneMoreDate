@@ -19,6 +19,13 @@ font-weight: lighter;
 
 }
 
+.clear-font 
+{
+
+    font-family: 'Afacad';
+    font-size: 1.2rem;
+}
+
 
 input
 {
