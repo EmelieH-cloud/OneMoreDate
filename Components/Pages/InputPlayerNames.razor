@@ -50,7 +50,7 @@
         {
             disableDoneBtn = false;
         }
-         if(PlayerManager.Players.Count >=10)
+        if(PlayerManager.Players.Count >=10)
         {
             inputIsDone = true;
             StateHasChanged();
@@ -89,10 +89,9 @@
 
     protected override void OnInitialized()
     {
-        
+
 
         Names.Clear();
-
         players = PlayerManager.Players;
         if (players!= null)
         {
@@ -100,6 +99,12 @@
             {
                 Names.Add(p.Name);
             }
+        }
+
+        // Så att done-button fungerar även om man kommer tillbaka till sidan.
+        if (players!= null && players.Count>=1)
+        {
+            disableDoneBtn = false;
         }
     }
 
