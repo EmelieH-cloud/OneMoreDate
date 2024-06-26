@@ -1,20 +1,18 @@
 ﻿@page "/inputPlayerNames"
 @using OneMoreDate.Components.Reusable
 @using OneMoreDate.Managers
+@using OneMoreDate.Models
 @inject NavigationManager navigationManager
 
 <Background />
-<GoBackBtn BackUrl="players" />
-
+<GoBackBtn BackUrl="menu" />
 <div class="outer-playernames-container">
     <div class="modal-playernames-bg rounded p-3">
         <h2 class="mb-2">Player Names:</h2>
-
         <div class="input-group mb-1">
-            <input @bind="InputValue" placeholder="Name" class="form-control" disabled="@isDone" @ref="playerNameInput" />
+            <input @bind="InputValue" placeholder="Name" class="form-control" disabled="@inputIsDone" @ref="playerNameInput" />
             <button @onclick="AddPlayers" class="button-color fw-bold">+</button>
         </div>
-
         @foreach (var name in Names)
         {
             <div class="name-container bg-light">
@@ -30,8 +28,9 @@
 </div>
 
 @code {
-    public int CurrentCount { get; set; }
-    private bool isDone = false;
+    private List<Player>? players = new List<Player>();
+
+    private bool inputIsDone = false;
     private bool disableDoneBtn = true;
     public string InputValue { get; set; }
     public List<string> Names { get; set; } = new List<string>();
@@ -39,31 +38,40 @@
 
     private void AddPlayers()
     {
-        if (Names.Count < CurrentCount && !string.IsNullOrEmpty(InputValue))
+
+        if (!string.IsNullOrEmpty(InputValue))
         {
             Names.Add(InputValue);
             InputValue = "";
+
         }
 
-        if (Names.Count == CurrentCount)
+        if (Names.Count>=1)
         {
-            isDone = true;
             disableDoneBtn = false;
-            StateHasChanged();
         }
+         if(PlayerManager.Players.Count >=10)
+        {
+            inputIsDone = true;
+            StateHasChanged();
+
+        }
+
         else
         {
             // Sätt fokus tillbaka till input-elementet efter att en spelare har lagts till
             _ = FocusInputAsync();
         }
+
+
     }
 
     private void RemovePlayer(string name)
     {
         Names.Remove(name);
-        if (Names.Count < CurrentCount)
+        if (Names.Count ==10)
         {
-            isDone = false;
+            inputIsDone = false;
             disableDoneBtn = true;
         }
         StateHasChanged();
@@ -73,13 +81,26 @@
 
     private void AddActivePlayers()
     {
+        PlayerManager.Players.Clear();
         PlayerManager.AddActivePlayers(Names);
+        Names.Clear();
         navigationManager.NavigateTo("/deck");
     }
 
     protected override void OnInitialized()
     {
-        CurrentCount = PlayerManager.PlayerCount;
+        
+
+        Names.Clear();
+
+        players = PlayerManager.Players;
+        if (players!= null)
+        {
+            foreach (Player p in players)
+            {
+                Names.Add(p.Name);
+            }
+        }
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
