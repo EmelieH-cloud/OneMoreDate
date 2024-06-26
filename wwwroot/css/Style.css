@@ -11,12 +11,22 @@
 
 
  /* 1. Globala stilar ---------------------------*/
-h1
-{
- font-family: 'Playfair Display';
-font-size: 3.2rem;
-font-weight: lighter;
 
+body {
+    background-color: #FFF0F4;
+}
+
+
+h1 {
+    font-family: 'Playfair Display';
+    font-size: 3.2rem;
+    font-weight: lighter;
+    margin: 0; /* Ta bort standardmarginal */
+    padding: 0; /* Ta bort standardpadding */
+    border: none; /* Ta bort eventuell border */
+    outline: none; /* Ta bort eventuell outline */
+    box-shadow: none; /* Ta bort eventuell box-shadow */
+    text-decoration: none; /* Ta bort eventuell text-dekoration */
 }
 
 .clear-font 
@@ -58,6 +68,7 @@ img {
 }
 
 .outer-container {
+    background-color: #FFF0F4;
     position: absolute;
     z-index: -1;
     top: 15%;
@@ -76,11 +87,14 @@ img {
 }
 
 .image-container {
+
     display: flex;
     justify-content: center;
+    background-color: #FFF0F4;
 }
 
 .outer-image-container {
+    background-color: #FFF0F4;
     position: absolute;
     /* Positionerar elementet absolut relativt till närmaste positionerade parent */
     width: 100vw;
@@ -89,6 +103,14 @@ img {
     /* Placerar elementet 30% från toppen av dess närmaste positionerade parent*/
     z-index: -1;
     /* Sätter z-index till -1 så att elementet hamnar bakom andra element med högre z-index */
+}
+
+.one {
+
+    border: none; /* Ta bort eventuell border */
+    outline: none; /* Ta bort eventuell outline */
+    box-shadow: none; /* Ta bort eventuell box-shadow */
+    text-decoration: none; /* Ta bort eventuell text-dekoration */
 }
 
 .more {
@@ -138,7 +160,7 @@ img {
     }
 
     100% {
-        opacity: 0.2;
+        opacity: 0;
     }
 }
 
