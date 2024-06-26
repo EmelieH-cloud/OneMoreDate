@@ -59,6 +59,8 @@ h3, h2, h5, p, li, h6, h4
     font-family: 'Playfair Display';
 }
 
+
+
 /* 2. Home ----------------------------------------------------*/
 
 img {
@@ -202,19 +204,21 @@ img {
 }
 
 .menu-start-btn {
-    top: 60%;
+    top: 45%;
     width: 100%;
     position: absolute;
     background: rgb(255,192,203);
     background: linear-gradient(0deg, rgba(255,192,203,1) 0%, rgba(220,124,192,1) 100%);
+    padding:4%;
 }
 
 .menu-rules-btn {
-    top: 53%;
+    top: 58%;
     width: 100%;
     position: absolute;
     background: rgb(255,192,203);
     background: linear-gradient(0deg, rgba(255,192,203,1) 0%, rgba(220,124,192,1) 100%);
+    padding: 4%;
 }
 
 .modal-bg {

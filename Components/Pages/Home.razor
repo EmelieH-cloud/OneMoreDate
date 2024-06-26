@@ -3,7 +3,16 @@
 @using OneMoreDate.Components.Reusable;
 @inject NavigationManager Navigation
 
+@if (showLogo)
+{
+
+
+    <div class="fade-in-btns">
+        <Background />
+    </div>
+}
 <div class='outer-container '>
+   
     <div class='inner-container fade-out'>
         <h1 class="animate__animated animate__slideInLeft w-50 one">One</h1>
         <h1 class="animate__animated animate__slideInLeft animate__delay-1s w-60 text-center more">More</h1>
@@ -38,6 +47,7 @@
 
 
 @code {
+    private bool showLogo = false;
     private bool showButtons = false;
     private string[] images = new string[]
     {
@@ -68,6 +78,7 @@
             {
                 _timer?.Dispose(); 
                 showButtons = true;
+                showLogo = true;
             }
 
             StateHasChanged();
