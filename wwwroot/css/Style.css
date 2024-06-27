@@ -4,7 +4,7 @@
     1. Globala stilar (gäller överallt)
     2. Home
     3. Menu
-    4. PlayerSelection
+    4. PlayerSelection  -BORTTAGEN -
     5. InputplayerNames
     6. selectDeck
     7.. För surfplattor och större 
@@ -243,56 +243,9 @@ img {
 
 /* 4. PlayerSelection --------------------------------*/
 
-.outer-container-players 
-{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.inner-container-players 
-{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.container-players 
-{
-    height: 100vh;
-    display: flex;
-    width: 70vw;
-    justify-content: space-around;
-    align-items: center; 
-
-}
-
-.players-btn {
-    width: 50px;
-    height: 50px;
 
 
-}
 
-    .operator-btn 
-{
-    width: 45%;
-    border-radius: 10px;
-
-}
-
-.increment-count-btn, .decrement-count-btn {
- 
-    width: 70px;
-    height: 100%; 
-    text-align: center;
-    background: rgb(255,192,203);
-    background: linear-gradient(0deg, rgba(255,192,203,1) 0%, rgba(220,124,192,1) 100%);
-
-}
 
 /* 5. InputPlayerNames------------------------------------*/
 .name-container {
@@ -405,14 +358,35 @@ img {
 
 /* 6. Game */
 
-.yes-btn, .no-btn
+.my-show-cards-container
 {
-    width: 70px;
-    height: 70px; 
-    border-radius: 50%; 
+    border: 2px solid red;
+    width: 100vw;
+    height: 100vh; 
+    margin: 0;
+    padding: 0;
+ 
 }
 
-/* 7. för surfplattor (och större) --------------------------*/
+.yes-btn, .no-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+/* 7. Previous Card */
+
+.previous-card-container
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center; 
+    margin-top: 3%; 
+
+}
+
+/* 8. för surfplattor (och större) --------------------------*/
 @media (min-width: 500px) {
     h1 /* Gör texten större */ 
     {
