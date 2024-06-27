@@ -2,18 +2,25 @@
 @using OneMoreDate.Managers;
 @using OneMoreDate.Models;
 @using OneMoreDate.Components.Reusable;
+@inject NavigationManager Navigation
 
-<div class="d-flex flex-column text-center vh-90 p-2 animate__animated animate__fadeIn  mt-3 rounded">
+<div class="animate__animated animate__fadeIn rounded">
+
+    @if (ShowCards)
+    {
+        <div class="my-show-cards-container">
+        <ShowCards CloseButton="CloseBtn"/>
+        </div>
+    }
+
+
 <h2 class="fw-bold"> @($"{ActivePlayer.Name}'s turn")</h2>
 
 @if (ActivePlayer.LivesTogether)
 {
     <h5>Relationship status: Lives together</h5>
 }
-else if (!ActivePlayer.LivesTogether)
-{
-    <h5>Relationship status: Dating</h5>
-}
+
 else if (ActivePlayer.IsMarried)
 {
     <h5>Relationship status: Married</h5>
@@ -21,24 +28,8 @@ else if (ActivePlayer.IsMarried)
 
 @if (ActivePlayer.Hand.Count > 0)
 {
-    @if (ActivePlayer.LivesTogether)
-    {
-            <p> <span class="fw-bolder"> @ActivePlayer.Name </span>lives together with someone who...</p>
-    }
-    else
-    {
-            <p><span class="fw-bolder"> @ActivePlayer.Name </span>is dating someone who...</p>
-    }
+    
 
-    @foreach (Card card in ActivePlayer.Hand)
-    {
-        <p>@card.Question</p>
-        if (lastQuestionCounter < ActivePlayer.Hand.Count - 1)
-        {
-            <p>, and </p>
-        }
-        lastQuestionCounter++;
-    }
 
     @if (!ActivePlayer.LivesTogether)
     {
@@ -87,10 +78,11 @@ else
     private Player ActivePlayer = new Player(); 
     private List<Player> players = new List<Player>(); 
     private StarterDeck ActiveStarterDeck = new StarterDeck(); 
-    private PartyDeck ActivePartyDeck = new PartyDeck(); 
+    private PartyDeck ActivePartyDeck = new PartyDeck();
     private string deckName;
     private string currentQuestion;
     private Card ActiveCard = new Card(); 
+    private bool ShowCards = false; 
 
     protected override void OnInitialized()
     {
@@ -99,6 +91,8 @@ else
         InitializeActiveCard();
         InitializeActivePlayer();
         CalculateActivePlayerDate();
+
+
     }
 
     public void ConvertActiveDeck()
@@ -155,11 +149,27 @@ else
         InitializeActivePlayer();
         lastQuestionCounter = 0;
         CalculateActivePlayerDate();
+
     }
+
+    private void CloseBtn()
+    {
+        ShowCards = false;
+    }
+
 
     private void InitializeActivePlayer()
     {
+
+        // Byt spelare 
         ActivePlayer = players[ActivePlayerIndex];
+        PlayerManager.SetActivePlayer(ActivePlayer);
+
+            ShowCards = true; 
+        
+
+
+
     }
 
     private void InitializeActiveCard()

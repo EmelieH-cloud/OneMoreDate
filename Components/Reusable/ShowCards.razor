@@ -1,0 +1,109 @@
+﻿@using Microsoft.AspNetCore.Components
+@using OneMoreDate.Components.Reusable
+@using OneMoreDate.Managers
+@using OneMoreDate.Models
+
+<style>
+
+    .container 
+    {
+        position: relative;
+        width: 100%;
+        height: 100vh; /* Se till att container tar hela höjden av viewporten */
+        background-color: #f0f0f0; /* För att se skillnad på container och ShowCards-Container */
+    }
+
+    .ShowCards-Container
+    {
+        
+        background-color: white;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        border: 2px solid black;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    
+    }
+
+    .img-small
+    {
+        width: 70%; 
+        border: 2px solid black;
+        justify-self: flex-end;
+    }
+</style>
+
+ <div class="container">
+<div class="animate__animated animate__fadeIn ShowCards-Container">
+    
+    <button type="button" class=" btn-close small " aria-label="Close" @onclick=CloseButton></button>
+
+    <div class="previous-card-container">
+        @if (ActivePlayer != null)
+        {
+            <h2 class="fw-bold">@($"{ActivePlayer.Name}'s turn")</h2>
+
+            @if (ActivePlayer.LivesTogether)
+            {
+                <h5>Relationship status: Lives together</h5>
+            }
+            @if (ActivePlayer.IsMarried)
+            {
+                <h5>Relationship status: Married</h5>
+            }
+
+            @if (ActivePlayer.Hand != null && ActivePlayer.Hand.Count > 0)
+            {
+                @if (ActivePlayer.LivesTogether)
+                {
+                    <p><span class="fw-bolder">@ActivePlayer.Name</span> lives together with someone who...</p>
+                }
+                else
+                {
+                    <p><span class="fw-bolder">@ActivePlayer.Name</span> is dating someone who...</p>
+                }
+
+                int lastQuestionCounter = 0;
+                int delayCounter = 1;
+
+                @foreach (Card card in ActivePlayer.Hand)
+                {
+                    <p class="@GetAnimationClass(delayCounter) text-center">@card.Question</p>
+
+                    if (lastQuestionCounter < ActivePlayer.Hand.Count - 1)
+                    {
+                        <p>, and </p>
+                    }
+                    lastQuestionCounter++;
+                    delayCounter++;
+                }
+               
+
+                <GoForwardBtn ForwardUrl="game" />
+            }
+        }
+        <img src="images/table.png" alt="table" class="img-small" />
+    </div>
+  
+</div>
+</div>
+
+@code {
+    public Player? ActivePlayer;
+
+    [Parameter]
+    public EventCallback CloseButton { get; set; }
+
+    protected override void OnInitialized()
+    {
+        ActivePlayer = PlayerManager.GetActivePlayer();
+    }
+
+    private string GetAnimationClass(int delayCounter)
+    {
+        return $"animate__animated animate__fadeIn animate__delay-{delayCounter}s";
+    }
+}
