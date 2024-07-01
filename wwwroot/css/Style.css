@@ -21,8 +21,7 @@ body {
 
 h1 {
 
-    font-size: 3.2rem;
-    font-weight: lighter;
+ 
     margin: 0; /* Ta bort standardmarginal */
     padding: 0; /* Ta bort standardpadding */
     border: none; /* Ta bort eventuell border */
@@ -80,10 +79,12 @@ img {
 }
 
 .outer-container {
+    
     background-color: #FFF0F4;
     position: absolute;
     z-index: -1;
-    top: 15%;
+    height:100%;
+    margin-top:5%;
     /* Placerar elementet 15% från toppen av dess närmaste positionerade parent */
 }
 
@@ -118,17 +119,27 @@ img {
 }
 
 .one {
-    border: none; /* Ta bort eventuell border */
+    border: 2px solid black; /* Ta bort eventuell border */
     outline: none; /* Ta bort eventuell outline */
     box-shadow: none; /* Ta bort eventuell box-shadow */
     text-decoration: none; /* Ta bort eventuell text-dekoration */
-    font-family: 'MuseoModerno';
+    font-family: "DM Serif Display", serif;
+    font-size:7rem;
+   
+    margin-left:10%;
+  padding:0%;
 }
 
 .more {
-    margin-bottom: 79%;
+    
+    border:2px solid blue;
     /* Sätter en bottenmarginal på 79% av elementets bredd */
     font-family: 'MuseoModerno';
+    font-family: "DM Serif Display", serif;
+    font-size: 7rem;
+    margin-left:26%;
+    height:min-content;
+   
 }
 
 
@@ -216,22 +227,18 @@ img {
 }
 
 .menu-start-btn {
-    height: 40px;
-    /* width: 100%;
-            padding: 3%;
-          top: 57%;
-    position: absolute;
+
+    height: 70px;
+     width: 100%;
     border-radius: 6%;   
-      css för gammal knapp */
+  
 }
 
 .menu-rules-btn {
     margin-top: 5%;
-    height: 40px;
-    /* 
+    height: 70px;
     border-radius: 6%;
-    width: 100%;   
-        css för gammal knapp*/
+    width: 100%;
 }
 
 .modal-bg {
@@ -245,10 +252,11 @@ img {
 
 .inner-menu-container {
     width: 100%;
-    margin-top: 50%; 
-    height: 50%;
+    margin-top: 50%;
+    height: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center; 
+
     flex-direction: column;
 
 }
@@ -546,7 +554,7 @@ img {
     touch-action: manipulation;
     white-space: nowrap;
     will-change: box-shadow, transform;
-    font-size: 18px;
+    font-size: 30px;
 }
 
     .button-29:focus {
