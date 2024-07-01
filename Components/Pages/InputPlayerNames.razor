@@ -6,10 +6,10 @@
 
 <Background />
 <GoBackBtn BackUrl="menu" />
-<div class="outer-playernames-container">
+<div class="outer-playernames-container ">
     <div class="modal-playernames-bg rounded p-3">
-        <h2 class="mb-4 mt-4">Player names:</h2>
-        <div class="input-group mb-4">
+        <h2 class=" player-names-header animate__animated animate__slideInLeft">PLAYER NAMES:</h2>
+        <div class="input-group mb-4 ">
             <input @bind="InputValue" placeholder="Name" class="form-control" disabled="@inputIsDone" @ref="playerNameInput" />
             <button @onclick="AddPlayers" class="button-29 fw-bold small custom-btn-width custom-btn-height">+</button>
         </div>

@@ -267,7 +267,18 @@ img {
 
 
 /* 5. InputPlayerNames------------------------------------*/
+
+
+
+
+.player-names-header {
+    font-family: "Quicksand", sans-serif;
+    font-size: 2rem;
+    font-weight:300;
+    margin-top:15%;
+}
 .name-container {
+   
     display: flex;
     width: 100%;
     height: 8%; 
@@ -302,6 +313,7 @@ img {
     opacity: .7;
 }
 .outer-playernames-container {
+
     height: 90vh;
     display: flex;
     flex-direction: column;
