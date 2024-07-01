@@ -7,27 +7,32 @@
        
         position: fixed;
         width:85%;
-        
         top: 40%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: rgba(255, 192, 203, 0.9);
-       
-        
+        background-color: rgba(255, 29, 165, 0.9);
         z-index: 1000;
+    }
+
+    .full-width-btn
+    {
+        width: 100%; 
+        background-color: rgba(180, 29, 100, 0.7);
+        border: none;
+
     }
 </style>
 
 
-<div class="deck-modal">
+<div class="deck-modal rounded">
 
-    <div class="deck-modal-btn-container ">
+    <div class="deck-modal-btn-container">
     <button type="button" class=" btn-close small " aria-label="Close" @onclick=CloseButton></button>
     </div>
     <div class="deck-modal-inner-container"
- <h2 class="fw-bold clear-font" >@DeckHeader</h2>
-    <p class="fw-bold clear-font">@Description</p>
-    <button @onclick=btnClick class="button-color button clear-font">@ButtonDescription</button>
+ <h2 class="fw-bold clear-font text-white" >@DeckHeader</h2>
+    <p class="clear-font text-white">@Description</p>
+    <button @onclick=btnClick class="text-white rounded full-width-btn fs-2">@ButtonDescription</button>
     </div>
 </div>
 

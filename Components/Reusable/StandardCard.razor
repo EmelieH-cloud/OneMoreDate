@@ -6,9 +6,10 @@
     .the-card-container 
     {
         position: relative;
-        width: 10rem;
+        width: 13rem;
         height: auto; 
-        z-index: 11; 
+        z-index: -1;
+   
    
     }
 
@@ -17,20 +18,30 @@
         display: block;
     }
 
-    .card-question {
+    .card-question 
+    {
         position: absolute;
-        z-index: -1;
+        
         top: 32%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 90%;
         text-align: center;
     }
+
+    .outer-card-container
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 70vh; 
+        
+    }
 </style>
 
 
 
-<div class="d-flex justify-content-center align-items-center">
+<div class="outer-card-container">
     <div class="the-card-container">
         <img src="./images/card.png" alt="card" class="the-card rounded @Animation" />
         <p class="card-question">@Question</p>
