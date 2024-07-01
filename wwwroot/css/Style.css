@@ -84,7 +84,6 @@ img {
     position: absolute;
     z-index: -1;
     height:100%;
-    margin-top:5%;
     /* Placerar elementet 15% från toppen av dess närmaste positionerade parent */
 }
 
@@ -112,7 +111,7 @@ img {
     /* Positionerar elementet absolut relativt till närmaste positionerade parent */
     width: 100vw;
     /* Sätter bredden till 100% av viewportens bredd */
-    top: 29%;
+    top: 28%;
     /* Placerar elementet 30% från toppen av dess närmaste positionerade parent*/
     z-index: -1;
     /* Sätter z-index till -1 så att elementet hamnar bakom andra element med högre z-index */
@@ -124,9 +123,8 @@ img {
     box-shadow: none; /* Ta bort eventuell box-shadow */
     text-decoration: none; /* Ta bort eventuell text-dekoration */
     font-family: "DM Serif Display", serif;
-    font-size:7rem;
-   
-    margin-left:10%;
+    font-size:6rem;
+    margin-left:15%;
   padding:0%;
 }
 
@@ -136,9 +134,8 @@ img {
     /* Sätter en bottenmarginal på 79% av elementets bredd */
     font-family: 'MuseoModerno';
     font-family: "DM Serif Display", serif;
-    font-size: 7rem;
-    margin-left:26%;
-    height:min-content;
+    font-size: 6rem;
+
    
 }
 
