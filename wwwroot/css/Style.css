@@ -152,7 +152,7 @@ img {
     text-align: center;
     width: 100%;
     font-size: 6rem;
-    margin-left: %;
+ 
 }
 
 .fade-out {
@@ -265,22 +265,25 @@ img {
 
 
 
-
 /* 5. InputPlayerNames------------------------------------*/
 
 
-.custom-btn-height{
+.custom-btn-height
+{
     height:100%;
 }
 
 .player-names-header {
-    font-family: "Quicksand", sans-serif;
-    font-size: 2rem;
-    font-weight:300;
-    margin-top:3%;
-    margin-bottom:10%;
-   
+    font-family: "Poiret One", sans-serif;
+    font-size: 2.7rem;
+    font-weight: 800;
+    margin-top: 3%;
+    margin-bottom: 10%;
+    color: white;
+
+
 }
+
 .name-container {
    
     display: flex;
@@ -317,8 +320,8 @@ img {
     opacity: .7;
     z-index:-1;
 }
-.outer-playernames-container {
-    
+.outer-playernames-container 
+{
     
     height: 100vh;
     background-size: 33%;
@@ -343,18 +346,18 @@ img {
     flex-direction: column;
     justify-content: flex-start; 
     align-items: center;
-    padding: 2%;
+    padding: 1%;
     height: 90%;
-    width: 85%;
+    width: 95%;
 }
 
 /* 6. SelectDeck ---------------------------*/
 
-.my-decks-container 
-{
+.my-decks-container {
     padding: 3%;
-    width: 95%;
-    margin: 2%; 
+    width: 90%;
+    margin: 0 auto;
+
 }
 
 .img-smaller {
@@ -374,6 +377,8 @@ img {
     justify-content: center;
     align-items: center;
     margin-bottom: 8%;
+  
+    border-radius: 10%;
 }
 
 .back-btn {
