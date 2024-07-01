@@ -4,19 +4,47 @@
 @using OneMoreDate.Models
 @inject NavigationManager navigationManager
 
-<Background />
+<style>
+   
+    .white-modal
+    {
+        display: flex;
+        justify-content: center;
+        width: 90vw;
+        height: 80vh;
+       background-color: rgba(255, 255, 255, 0.7);
+       
+     
+    }
+
+    .custom-color
+    {
+        border-color: black;
+    }
+
+    .my-border
+    {
+        border: 1px solid black;
+       
+    }
+</style>
+
+
+
+
 <GoBackBtn BackUrl="menu" />
 <div class="outer-playernames-container ">
+  <div class="white-modal">
     <div class="modal-playernames-bg rounded p-3">
-        <h2 class=" player-names-header animate__animated animate__slideInLeft">PLAYER NAMES:</h2>
+        <h2 class=" player-names-header ">PLAYER NAMES:</h2>
         <div class="input-group mb-4 ">
-            <input @bind="InputValue" placeholder="Name" class="form-control" disabled="@inputIsDone" @ref="playerNameInput" />
+            <input @bind="InputValue" placeholder="Name" class="form-control custom-color" disabled="@inputIsDone" @ref="playerNameInput" />
             <button @onclick="AddPlayers" class="button-29 fw-bold small custom-btn-width custom-btn-height">+</button>
         </div>
         @foreach (var name in Names)
         {
-            <div class="name-container bg-light">
-                <p class="name-p small">
+            <div class="name-container bg-light my-border rounded">
+                <p class="p-2 name-p small">
                     @name
                 </p>
                 <button class="fw-bolder fs-1 custom-btn-width button-29 custom-btn-height" @onclick="() => RemovePlayer(name)">-</button>
@@ -26,6 +54,7 @@
         <div class=" d-flex vw-100 mt-4 justify-content-center align-items-center">
         <button @onclick="AddActivePlayers" class="button-29 done-btn" disabled="@disableDoneBtn">Done</button>
         </div>
+    </div>
     </div>
 </div>
 

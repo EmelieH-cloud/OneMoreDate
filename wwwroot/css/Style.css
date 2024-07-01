@@ -269,13 +269,17 @@ img {
 /* 5. InputPlayerNames------------------------------------*/
 
 
-
+.custom-btn-height{
+    height:100%;
+}
 
 .player-names-header {
     font-family: "Quicksand", sans-serif;
     font-size: 2rem;
     font-weight:300;
-    margin-top:15%;
+    margin-top:3%;
+    margin-bottom:10%;
+   
 }
 .name-container {
    
@@ -311,10 +315,15 @@ img {
     justify-content: center; 
     align-items: center; 
     opacity: .7;
+    z-index:-1;
 }
 .outer-playernames-container {
-
-    height: 90vh;
+    
+    
+    height: 100vh;
+    background-size: 33%;
+    background-image: url(../images/glas-background.png);
+    background-repeat: repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;
