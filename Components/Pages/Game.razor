@@ -4,17 +4,27 @@
 @using OneMoreDate.Components.Reusable;
 @inject NavigationManager Navigation
 
-<div class="animate__animated animate__fadeIn rounded">
+
+
+<style>
+    .just-married-animation
+    {
+        position: absolute;
+        z-index: 1000;
+    }
+</style>
+
+<div class="animate__animated animate__fadeIn rounded text-center">
 
     @if (ShowCards)
     {
-        <div class="my-show-cards-container">
+
         <ShowCards CloseButton="CloseBtn"/>
-        </div>
+   
     }
 
 
-<h2 class="fw-bold"> @($"{ActivePlayer.Name}'s turn")</h2>
+<h2 class="fw-bold mt-4"> @($"{ActivePlayer.Name}'s turn")</h2>
 
 @if (ActivePlayer.LivesTogether)
 {
@@ -29,27 +39,26 @@ else if (ActivePlayer.IsMarried)
 @if (ActivePlayer.Hand.Count > 0)
 {
     
-
-
     @if (!ActivePlayer.LivesTogether)
     {
-        <p>On the @dateNumber date it is revealed that </p>
+        <p>On the @dateNumber date it is revealed that they...</p>
             <StandardCard Question="@currentQuestion" Animation="@animationClass" />
       
     }
     else
     {
-        <p>Now it is revealed that </p>
+        <p>Now it is revealed that they... </p>
             <StandardCard Question="@currentQuestion" Animation="@animationClass" />
       
     }
 }
 else
 {
-        <p> <span class="fw-bolder">@ActivePlayer.Name </span> is on the first date and meets someone who seems absolutely perfect. They're attractive, funny, and share your sense of humor. But as the date progresses, it becomes clear that... </p>
+       
         <StandardCard Question="@currentQuestion" Animation="@animationClass" />
       
 }
+
 
  
 </div>
@@ -122,11 +131,15 @@ else
         if (ActivePlayer.Hand.Count >= 5)
         {
             ActivePlayer.LivesTogether = true;
+
         }
         else if (ActivePlayer.Hand.Count == 10)
         {
             ActivePlayer.IsMarried = true;
+
         }
+
+
         SwitchPlayer();
     }
 
@@ -190,7 +203,7 @@ else
     private async void FlipCard()
     {
     
-        animationClass = "animate__animated animate__flipInX";
+        animationClass = "animate__animated animate__fadeIn";
         StateHasChanged();
         await Task.Delay(1000); // Vänta på att animeringen ska slutföras
         animationClass = ""; // Återställ klassnamnet efter animeringen

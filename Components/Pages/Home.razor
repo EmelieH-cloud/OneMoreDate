@@ -15,10 +15,10 @@
    
     <div class='inner-container fade-out'>
         <h1 class="animate__animated animate__slideInLeft w-50 one">One</h1>
-        <h1 class="animate__animated animate__slideInLeft animate__delay-1s w-60 text-center more">More</h1>
+        <h1 class="animate__animated animate__slideInLeft animate__delay-1s w-60 text-center more">more</h1>
     </div>
     <div class='outer-image-container fade-out'>
-        <h1 class="animate__animated animate__slideInRight animate__delay-2s date">Date?</h1>
+        <h1 class="animate__animated animate__slideInRight animate__delay-2s date">date?</h1>
         <div class='image-container'>
             <img src=@images[currentImageIndex] alt="logo" class="logo" />
         </div>
@@ -35,10 +35,12 @@
 @if (showButtons)
 {
     <div class="fade-in-btns">
+
         <div class="outer-btn-container ">
             <div class="inner-menu-container">
-                <button @onclick="StartGame" class="mb-4 menu-start-btn"> Start Game </button>
-                <button @onclick="GoToRules" class="menu-rules-btn"> Rules </button>
+                <TableImage/>
+                <button @onclick="StartGame" class="button-29 menu-start-btn p-1"> Start game </button>
+                <button @onclick="GoToRules" class="button-29 menu-rules-btn p-1"> Rules </button>
             </div>
         </div>
     </div>
