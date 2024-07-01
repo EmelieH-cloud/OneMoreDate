@@ -79,7 +79,7 @@ img {
 }
 
 .outer-container {
-    
+    top:12%;
     background-color: #FFF0F4;
     position: absolute;
     z-index: -1;
@@ -118,39 +118,41 @@ img {
 }
 
 .one {
-    border: 2px solid black; /* Ta bort eventuell border */
+    /* Ta bort eventuell border */
     outline: none; /* Ta bort eventuell outline */
     box-shadow: none; /* Ta bort eventuell box-shadow */
     text-decoration: none; /* Ta bort eventuell text-dekoration */
-    font-family: "DM Serif Display", serif;
-    font-size:6rem;
-    margin-left:15%;
-  padding:0%;
+    font-family: "Nanum Myeongjo", serif;
+    font-size: 8rem;
+    margin-left: 15%;
+    padding: 0%;
+    font-weight: 100;
 }
 
 .more {
-    
-    border:2px solid blue;
+    margin-top: 3%;
     /* Sätter en bottenmarginal på 79% av elementets bredd */
-    font-family: 'MuseoModerno';
-    font-family: "DM Serif Display", serif;
-    font-size: 6rem;
 
-   
+    font-family: "Nanum Myeongjo", serif;
+    font-size: 5rem;
+    text-align: right;
+    margin-right: 5%;
+    font-weight: 100;
 }
 
 
 
 .date {
+    font-family: "Playwrite SK", cursive;
     color: #FF1DA5;
-    font-style: italic;
-    text-align: center;
     position: absolute;
     /* Positionerar elementet absolut relativt till närmaste positionerade parent */
-    top: 55%;
+    top: 45%;
     /* Placerar elementet 55% från toppen av dess närmaste positionerade parent */
-    font-family: 'MuseoModerno';
+    text-align: center;
     width: 100%;
+    font-size: 6rem;
+    margin-left: %;
 }
 
 .fade-out {
