@@ -10,7 +10,7 @@
         top: 40%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: rgba(255, 29, 165, 0.9);
+        background-color: rgba(247, 149, 209, 0.8);
         z-index: 1000;
     }
 
@@ -24,7 +24,7 @@
 </style>
 
 
-<div class="deck-modal rounded">
+<div class="deck-modal rounded @AddAnimationClass">
 
     <div class="deck-modal-btn-container">
     <button type="button" class=" btn-close small " aria-label="Close" @onclick=CloseButton></button>
@@ -44,6 +44,9 @@
     public string DeckHeader{ get; set; }
     [Parameter]
     public string Description { get; set; }
+
+    [Parameter]
+    public string AddAnimationClass { get; set; }
 
     [Parameter]
     public EventCallback CloseButton{ get; set; }
