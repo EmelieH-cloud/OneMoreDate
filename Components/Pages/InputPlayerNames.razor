@@ -6,15 +6,6 @@
 
 <style>
    
-    .white-modal
-    {
-        display: flex;
-        justify-content: center;
-        width: 90vw;
-        height: 80vh;
-        background-color: rgba(247, 149, 209, 0.9);
-    }
-
     .custom-color
     {
         border-color: black;
@@ -25,19 +16,32 @@
         border: 1px solid black;
        
     }
+
+    .input-container
+    {
+        position: fixed;
+        bottom: 0%; 
+        width: 100%;
+        background-color: gray;
+    
+      
+    }
 </style>
 
 
 
 
 <GoBackBtn BackUrl="menu" />
-<div class="outer-playernames-container ">
-    <div class="white-modal rounded animate__animated animate__slideInLeft ">
-    <div class="modal-playernames-bg p-3">
-            <h2 class=" player-names-header  ">Player names:</h2>
-        <div class="input-group mb-4 ">
+
+<div class="outer-playernames-container">
+
+    <div class="rounded animate__animated animate__slideInLeft ">
+
+      
+        <div class="input-container d-flex border border-danger vw-100 justiify-content-center align-items-center">
             <input @bind="InputValue" placeholder="Name" class="form-control custom-color" disabled="@inputIsDone" @ref="playerNameInput" />
-            <button @onclick="AddPlayers" class="button-29 fw-bold small custom-btn-width custom-btn-height">+</button>
+            <button @onclick="AddPlayers" class="button-29 fw-bold m-1 ">+</button>
+            <button @onclick="AddActivePlayers" class="button-29 m-1" disabled="@disableDoneBtn">></button>
         </div>
         @foreach (var name in Names)
         {
@@ -45,14 +49,10 @@
                 <p class="p-2 name-p small">
                     @name
                 </p>
-                <button class="fw-bolder fs-1 custom-btn-width button-29 custom-btn-height" @onclick="() => RemovePlayer(name)">-</button>
+                <button class="fw-bolder fs-1 button-29 custom-btn-height" @onclick="() => RemovePlayer(name)">-</button>
             </div>
         }
 
-        <div class=" d-flex vw-100 mt-4 justify-content-center align-items-center">
-        <button @onclick="AddActivePlayers" class="button-29 done-btn" disabled="@disableDoneBtn">Done</button>
-        </div>
-    </div>
     </div>
 </div>
 
@@ -137,14 +137,6 @@
         }
     }
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            // Sätt fokus på input-elementet när komponenten har renderats för första gången
-            await FocusInputAsync();
-        }
-    }
 
     private async Task FocusInputAsync()
     {
