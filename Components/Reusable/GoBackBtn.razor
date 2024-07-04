@@ -7,13 +7,19 @@
     .back-btn 
     {
         position: absolute;
-        width: 35px;
-        border-radius: 50%;
-        top: 2%;
         left: 1%;
-        margin: 2%;
-        opacity: .8;
-        
+        width: 32px; 
+        color: white;
+        height: 32px;
+        background-color: gray;
+
+
+      
+    }
+
+    .custom-margin
+    {
+        margin-bottom: 68%; 
     }
 
     .navigate-btn-container 
@@ -21,15 +27,18 @@
         position: absolute;
         z-index: 1;
         width: 100%;
-        height: 10%;
-        top: 2%; 
+        top: 5px; 
    
     }
 
 </style>
 
 <div class="navigate-btn-container">
-    <button @onclick="GoBack">  <img src="./images/backbtn.png" alt="btn" class="back-btn" /> </button>
+    <button @onclick="GoBack" class="back-btn animate__animated animate__fadeIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left custom-margin" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+        </svg>
+    </button>
 </div>
 
 
