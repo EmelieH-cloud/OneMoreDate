@@ -11,46 +11,163 @@
         border-color: black;
     }
 
-    .my-border
-    {
-        border: 1px solid black;
-       
+    .input-container {
+        width: 100vw;
+        display: flex;
+        padding: 1%; 
+        background-color: gray;
+        justify-content: space-between;
     }
 
-    .
+    
+
+    .player-names-header 
+    {
+
+        color: black;
+        position: absolute;
+        height: 100px;
+        width: 100%;
+        top: 1%;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .name-container {
+        display: flex;
+        width: 80%;
+        height: 8%;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        margin-top: 1%; 
+    
+    }
+
+    .done-btn {
+
+        color: white;
+        width: 34px;
+        background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
+    }
+
+    .name-p {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        border-radius: 20px; 
+        color: white;
+        background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
+    }
+
+    .add-btn
+    {
+        margin-right: 1%; 
+        color: white;
+        width: 34px;
+        background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
+    }
+
+    .remove-btn
+    {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        color: white;
+        background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+
+    .background-image-container 
+    {
+        height: 100%;
+        width: 100vw;
+        background-size: 100%;
+        background-image: url(../images/background-pattern.png);
+        background-repeat: repeat;
+        display: flex;
+        align-items: end
+
+    }
+
+    .outer-container-inputplayernames
+    {
+        width: 100vw;
+        height: 100vh;
+        background-color: white;
+    }
+
+
+    .added-names-container
+    {
+        height: 80%; 
+        width: 100%; 
+        position: absolute;
+
+    }
+
+    .inner-name-container
+    {
+        width: 85%; 
+      
+    }
+
+    .names-header
+    {
+        border-bottom: 1px solid black;
+        padding: 1%; 
+    }
+
+    
 </style>
 
 
 
-
-
-
-
-
-<div class="outer-container-player-names">
+<div class="outer-container-inputplayernames">
 <GoBackBtn BackUrl="menu" />
     <div class="player-names-header">
-        <h2>PLAYER NAMES</h2>
-    </div>
-<div class="outer-playernames-container">
 
+        <h1 class="text-center mt-4 display-2 names-header">PLAYER NAMES</h1>
+
+    </div>
+<div class="background-image-container">
+
+        <div class="added-names-container">
+        @foreach (var name in Names)
+        {
+            <div class="name-container bg-light rounded">
+
+                    <div class="inner-name-container animate__animated animate__slideInLeft">
+                <p class="p-2 name-p small">
+                    @name
+                </p>
+                </div>
+
+                    <div class="animate__animated animate__fadeIn">
+                        <button class="remove-btn" @onclick="() => RemovePlayer(name)">
+                           -
+                        </button>
+                </div>
+            </div>
+        }
+        </div>
     <div class="rounded animate__animated animate__slideInLeft ">
 
       
         <div class="input-container ">
             <input @bind="InputValue" placeholder="Name" class="name-input form-control custom-color" disabled="@inputIsDone" @ref="playerNameInput" />
-            <button @onclick="AddPlayers" class="button-29 fw-bold m-1 ">+</button>
-            <button @onclick="AddActivePlayers" class="button-29 m-1" disabled="@disableDoneBtn">></button>
+            <button @onclick="AddPlayers" class="add-btn">+</button>
+                <button @onclick="AddActivePlayers" class="done-btn" disabled="@disableDoneBtn">></button>
         </div>
-        @foreach (var name in Names)
-        {
-            <div class="name-container bg-light my-border rounded">
-                <p class="p-2 name-p small">
-                    @name
-                </p>
-                <button class="fw-bolder fs-1 button-29 custom-btn-height" @onclick="() => RemovePlayer(name)">-</button>
-            </div>
-        }
+      
 
     </div>
 </div>
