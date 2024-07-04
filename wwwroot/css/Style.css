@@ -290,6 +290,8 @@ img {
     position: absolute;
     height: 10%;
     width: 100%;
+   position: absolute;
+   top:0%;
     
     background-color:lightgray;
 }
@@ -331,7 +333,7 @@ img {
 }
 .outer-playernames-container {
     border: 2px red solid;
-    height:90vh;
+    height:95vh;
     width: 100vw;
     background-size: 100%;
     background-image: url(../images/background-pattern.png);
@@ -341,7 +343,8 @@ img {
 
 }
 
-.outer-container{
+.outer-container-player-names{
+    border: 2px solid blue;
     width:100vw;
     height:100vh;
     display:flex;
