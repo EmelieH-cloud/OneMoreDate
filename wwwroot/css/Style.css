@@ -267,6 +267,16 @@ img {
 /* 5. InputPlayerNames------------------------------------*/
 
 
+.name-input {
+    
+}
+.input-container {
+    border: 2px solid black;
+   width:100vw;
+   display:flex;
+   justify-content:space-between;
+
+}
 .custom-btn-height
 {
     height:100%;
@@ -277,10 +287,11 @@ img {
     font-size: 2.7rem;
     font-weight: 800;
     color: white;
-    background-color: gray;
-
-
-
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    
+    background-color:lightgray;
 }
 
 .name-container {
@@ -318,17 +329,24 @@ img {
     opacity: .7;
     z-index:-1;
 }
-.outer-playernames-container 
-{
-    
-    height: 100vh;
+.outer-playernames-container {
+    border: 2px red solid;
+    height:90vh;
+    width: 100vw;
     background-size: 100%;
     background-image: url(../images/background-pattern.png);
     background-repeat: repeat;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
+    display:flex;
+    align-items:end
+
+}
+
+.outer-container{
+    width:100vw;
+    height:100vh;
+    display:flex;
+    align-items:end;
+    background-color:white;
 }
 
 

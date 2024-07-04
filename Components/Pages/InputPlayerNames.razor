@@ -17,15 +17,7 @@
        
     }
 
-    .input-container
-    {
-        position: fixed;
-        bottom: 0%; 
-        width: 100%;
-        background-color: gray;
-    
-      
-    }
+    .
 </style>
 
 
@@ -33,13 +25,19 @@
 
 <GoBackBtn BackUrl="menu" />
 
+
+
+<div class="outer-container">
+    <div class="player-names-header">
+        <h2>PLAYER NAMES</h2>
+    </div>
 <div class="outer-playernames-container">
 
     <div class="rounded animate__animated animate__slideInLeft ">
 
       
-        <div class="input-container d-flex border border-danger vw-100 justiify-content-center align-items-center">
-            <input @bind="InputValue" placeholder="Name" class="form-control custom-color" disabled="@inputIsDone" @ref="playerNameInput" />
+        <div class="input-container ">
+            <input @bind="InputValue" placeholder="Name" class="name-input form-control custom-color" disabled="@inputIsDone" @ref="playerNameInput" />
             <button @onclick="AddPlayers" class="button-29 fw-bold m-1 ">+</button>
             <button @onclick="AddActivePlayers" class="button-29 m-1" disabled="@disableDoneBtn">></button>
         </div>
@@ -54,6 +52,7 @@
         }
 
     </div>
+</div>
 </div>
 
 @code {
