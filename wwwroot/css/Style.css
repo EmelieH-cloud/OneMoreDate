@@ -15,7 +15,7 @@
 
 body {
     background-color: #FFF0F4; 
-
+    height:100vh;
 }
 
 
@@ -72,14 +72,14 @@ img {
 
       
     width: 85%;
-    height: auto;
+    
     /* Automatisk höjd för att behålla bildens proportioner */
 }
 
 .outer-container {
     
     position:absolute;
-    top:12%;
+
     background-color: #FFF0F4;
     position: absolute;
     z-index: -1;
@@ -95,7 +95,7 @@ img {
     overflow: hidden;
     /* Döljer innehåll som överskrider containerens gränser */
     width: 100vw;
-    height: min-content;
+ 
     /* Sätter höjden till det minsta innehållet som behövs för att passa in allt */
     display: flex;
     text-align: right;
@@ -113,6 +113,7 @@ img {
 .outer-image-container {
  
     position:absolute;
+    
     background-color: #FFF0F4;
     /*    position: absolute;*/
     /* Positionerar elementet absolut relativt till närmaste positionerade parent */
@@ -133,6 +134,7 @@ img {
     margin-left: 15%;
     padding: 0%;
     font-weight: 100;
+    font-size:120px;
 }
 
 .more {
@@ -144,6 +146,7 @@ img {
     margin-right: 5%;
     font-weight: 100;
    bottom:22%;
+   font-size:100px;
 }
 
 
@@ -236,7 +239,10 @@ img {
 
     height: 70px;
      width: 100%;
-    border-radius: 6%;   
+    border-radius: 6%;  
+   position:absolute;
+   top:22%;
+
   
 }
 
@@ -245,6 +251,8 @@ img {
     height: 70px;
     border-radius: 6%;
     width: 100%;
+    position: absolute;
+    top: 22%;
 }
 
 .modal-bg {
@@ -258,7 +266,7 @@ img {
 
 .inner-menu-container {
     width: 100%;
-    margin-top: 50%;
+   
     height: 100%;
     display: flex;
     justify-content: center; 
@@ -274,9 +282,112 @@ img {
 
 /* 5. InputPlayerNames------------------------------------*/
 
+.background-image-container {
+    height: 100%;
+    width: 100vw;
+    background-size: 85%;
+    background-image: url(../images/background-pattern.png);
+    display: flex;
+    align-items: end
+}
+
+
+.custom-color {
+    border-color: black;
+}
+
+.input-container {
+    width: 100vw;
+    display: flex;
+    padding: 3%;
+    background-color: gray;
+    justify-content: space-between;
+}
 
 
 
+.player-names-header {
+    color: black;
+    position: absolute;
+    height: 100px;
+    width: 100%;
+    top: 1%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name-container {
+    display: flex;
+    width: 80%;
+    height: 8%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 1%;
+    margin-bottom: 3%;
+}
+
+.done-btn {
+    color: white;
+    width: 34px;
+    background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
+}
+
+.name-p {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    border-radius: 20px;
+    color: white;
+    background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
+}
+
+.add-btn {
+    margin-right: 1%;
+    color: white;
+    width: 34px;
+    background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
+}
+
+.remove-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    color: white;
+    background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.outer-container-inputplayernames {
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+}
+
+
+.added-names-container {
+    height: 80%;
+    width: 100%;
+    position: absolute;
+}
+
+.inner-name-container {
+    width: 85%;
+}
+
+.names-header {
+    border-bottom: 1px solid black;
+    padding: 1%;
+}
 
 
 /* 6. SelectDeck ---------------------------*/
@@ -336,8 +447,7 @@ img {
 {
     border: 2px solid red;
     width: 100vw;
-    height: 100vh; 
-   
+ 
     display:flex;
     justify-content:center;
     align-items:center;
@@ -414,15 +524,15 @@ img {
 
 
 
-/* 8. för surfplattor (och större) --------------------------*/
+ /*/8. för surfplattor (och större) --------------------------*/
 
 
-@media(min-width:650px) {
-
+@media(min-width:1200px) {
 
 
     .one {
         font-size: 200px;
+       
     }
 
     .more {
@@ -431,127 +541,192 @@ img {
 
     .date {
         font-size: 180px;
+    }
+
+
+    img {
+        width: 150vw;
     }
 }
 
 
+@media (min-width: 800px) and (max-width: 1000px) 
+{
 
-@media (min-width: 200px) and (max-width: 650px) {
-
-    .outer-container
-    {
-       
+    .background-image-container {
+        height: 100%;
+        width: 100vw;
+        background-size:80%;
+        background-image: url(../images/background-pattern.png);
+        display: flex;
+        align-items: end
     }
+
     .one {
-        font-size: 150px;
-        background-color: blue;
+        background-color:green;
+        font-size: 200px;
+       
     }
 
     .more {
-        font-size: 130px;
+        font-size: 180px;
     }
 
     .date {
-        font-size: 150px;
+        font-size: 180px;
     }
-
-
-    h1 /* Gör texten större */ {
-        font-size: 3em;
-    }
-
-    img
-    /* Gör alla bilder mindre! */ {
-        width: 50vw;
-    }
-
-    .inner-menu-container
-    /* Ge en marginal på sidorna */ {
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: stretch;
-        margin: 0 auto;
-        width: 70vw;
-        margin-top: 30%;
-    }
-
-    .modal-bg
-    /* Gör modalen större */ {
-        background-color: rgba(255, 192, 203, 0.5);
-        opacity: .8;
-        width: 95%;
-        height: 70%;
-        margin: 0 auto;
-    }
-
-    .container-players {
-        width: 65vw;
-        /* Ge mindre plats för knapparna */
-    }
-
-    /* Mindre menu och rules knapp vid större skärm*/
     .menu-start-btn {
-        /*/position: absolute;
+        position: absolute;
         width: 70vw;
-        top: 70%;*/
+        top: 25%;
     }
 
     .menu-rules-btn {
-        /* position: absolute;
+        position: absolute;
         width: 70vw;
-        top: 60%;*/
+        top: 26%;
     }
 
-    /* Större knappar */
+
     .players-btn {
         width: 70px;
         height: 70px;
     }
+
+    .inner-menu-container {
+     
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: flex-end;
+        margin: 0 auto;
+        width: 70vw;
+        height: 100%;
+     
+    }
+
 }
 
 
 
-.button-29 {
-    align-items: center;
-    appearance: none;
-    background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
-    border: 0;
-    border-radius: 6px;
-    box-shadow: rgba(255, 29, 165, .6) 0 4px 6px, rgba(255, 29, 165, .5) 0 8px 16px -4px, rgba(255, 29, 165, .7) 0 -3px 0 inset, rgba(0, 0, 0, .1) 0 1px 0 inset;
-    box-sizing: border-box;
-    color: #fff;
-    cursor: pointer;
-    display: inline-flex;
-    justify-content: center;
-    line-height: 1;
-    list-style: none;
-    overflow: hidden;
-    padding-left: 16px;
-    padding-right: 16px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    transition: box-shadow .15s, transform .15s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    white-space: nowrap;
-    will-change: box-shadow, transform;
-    font-size: 30px;
-}
 
-    .button-29:focus {
-        box-shadow: #FF1DA5 0 0 0 1.5px inset, rgba(255, 29, 165, .6) 0 4px 6px, rgba(255, 29, 165, .5) 0 8px 16px -4px, #FF1DA5 0 -3px 0 inset, rgba(0, 0, 0, .1) 0 1px 0 inset;
+    /**/
+
+    @media (min-width: 400px) and (max-width: 750px) {
+
+
+        .one {
+            font-size: 150px;
+           
+            
+        }
+
+        .more {
+            font-size: 130px;
+        }
+
+        .date {
+            font-size: 150px;
+
+        }
+
+
+        h1 {
+            font-size: 3em;
+        }
+
+        img {
+            width: 90vw;
+        }
+
+        .inner-menu-container 
+        {
+            
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: flex-end;
+            margin: 0 auto;
+            width: 70vw;
+            
+        }
+
+        .modal-bg
+        {
+            background-color: rgba(255, 192, 203, 0.5);
+            opacity: .8;
+            width: 95%;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        .container-players {
+            width: 65vw;
+        }
+
+
+        .menu-start-btn {
+            position: absolute;
+            width: 70vw;
+            top:30%;
+          
+        }
+
+        .menu-rules-btn {
+            position: absolute;
+            width: 70vw;
+           top:32%;
+        }
+
+
+        .players-btn {
+            width: 70px;
+            height: 70px;
+        }
     }
 
-    .button-29:hover {
-        box-shadow: rgba(255, 29, 165, .6) 0 6px 10px, rgba(255, 29, 165, .5) 0 12px 20px -4px, #FF1DA5 0 -3px 0 inset, rgba(0, 0, 0, .1) 0 1px 0 inset;
-        transform: translateY(-2px);
+
+
+    .button-29 {
+        align-items: center;
+        appearance: none;
+        background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
+        border: 0;
+        border-radius: 6px;
+        box-shadow: rgba(255, 29, 165, .6) 0 4px 6px, rgba(255, 29, 165, .5) 0 8px 16px -4px, rgba(255, 29, 165, .7) 0 -3px 0 inset, rgba(0, 0, 0, .1) 0 1px 0 inset;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: inline-flex;
+        justify-content: center;
+        line-height: 1;
+        list-style: none;
+        overflow: hidden;
+        padding-left: 16px;
+        padding-right: 16px;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        transition: box-shadow .15s, transform .15s;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        white-space: nowrap;
+        will-change: box-shadow, transform;
+        font-size: 30px;
     }
 
-    .button-29:active {
-        box-shadow: #FF1DA5 0 3px 7px inset, rgba(0, 0, 0, .2) 0 1px 3px inset;
-        transform: translateY(2px);
-    }
+        .button-29:focus {
+            box-shadow: #FF1DA5 0 0 0 1.5px inset, rgba(255, 29, 165, .6) 0 4px 6px, rgba(255, 29, 165, .5) 0 8px 16px -4px, #FF1DA5 0 -3px 0 inset, rgba(0, 0, 0, .1) 0 1px 0 inset;
+        }
+
+        .button-29:hover {
+            box-shadow: rgba(255, 29, 165, .6) 0 6px 10px, rgba(255, 29, 165, .5) 0 12px 20px -4px, #FF1DA5 0 -3px 0 inset, rgba(0, 0, 0, .1) 0 1px 0 inset;
+            transform: translateY(-2px);
+        }
+
+        .button-29:active {
+            box-shadow: #FF1DA5 0 3px 7px inset, rgba(0, 0, 0, .2) 0 1px 3px inset;
+            transform: translateY(2px);
+   
