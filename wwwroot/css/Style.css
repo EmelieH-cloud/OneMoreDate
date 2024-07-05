@@ -69,12 +69,16 @@ h1, h3, h2, h5, li, h6, h4 {
 /* 2. Home ----------------------------------------------------*/
 
 img {
-    width: 85vw;
+
+      
+    width: 85%;
     height: auto;
     /* Automatisk höjd för att behålla bildens proportioner */
 }
 
 .outer-container {
+    
+    position:absolute;
     top:12%;
     background-color: #FFF0F4;
     position: absolute;
@@ -87,6 +91,7 @@ img {
 }
 
 .inner-container {
+  
     overflow: hidden;
     /* Döljer innehåll som överskrider containerens gränser */
     width: 100vw;
@@ -99,21 +104,21 @@ img {
 
 .image-container {
 
-    
     display: flex;
     justify-content: center;
+    align-items:center; 
     background-color: #FFF0F4;
 }
 
 .outer-image-container {
-    display: flex;
-    justify-content: center;
+ 
+    position:absolute;
     background-color: #FFF0F4;
     /*    position: absolute;*/
     /* Positionerar elementet absolut relativt till närmaste positionerade parent */
     width: 100vw;
     /* Sätter bredden till 100% av viewportens bredd */
-  /*  top: 28%;*/
+    /*  top: 28%;*/
     /* Placerar elementet 30% från toppen av dess närmaste positionerade parent*/
     z-index: -1;
     /* Sätter z-index till -1 så att elementet hamnar bakom andra element med högre z-index */
@@ -125,35 +130,37 @@ img {
     box-shadow: none; /* Ta bort eventuell box-shadow */
     text-decoration: none; /* Ta bort eventuell text-dekoration */
     font-family: "Nanum Myeongjo", serif;
-    font-size: 25vw;
+    font-size: 100px;
     margin-left: 15%;
     padding: 0%;
     font-weight: 100;
 }
 
 .more {
+    position:relative;
     margin-top: 3%;
     /* Sätter en bottenmarginal på 79% av elementets bredd */
     font-family: "Nanum Myeongjo", serif;
-    font-size: 20vw;
+    font-size: 80px;
     text-align: right;
     margin-right: 5%;
     font-weight: 100;
-    margin-bottom:4%;
+   bottom:22%;
 }
 
 
 
 .date {
+    position:relative;
     font-family: "Playwrite SK", cursive;
     color: #FF1DA5;
     position: absolute;
     /* Positionerar elementet absolut relativt till närmaste positionerade parent */
-    top: 52%;
+    top: 50%;
     /* Placerar elementet 55% från toppen av dess närmaste positionerade parent */
     text-align: center;
     width: 100%;
-    font-size: 22vw;
+    font-size: 100px;
  
 }
 
@@ -407,11 +414,46 @@ img {
     animation-delay: 10s;
 }
 
+
+
 /* 8. för surfplattor (och större) --------------------------*/
-@media (min-width: 300px) {
+
+
+@media(min-width:600px) {
+
+    .outer-container
+    {
+        background-color:blue;
+    }
+
+
+
+    .one {
+        font-size: 300px;
+    }
+
+    .more {
+        font-size: 170px;
+    }
+
+    .date {
+        font-size: 180px;
+    }
+}
+
+
+
+@media (min-width: 500px ) {
+    .one{
+        font-size:150px;
+    }
+
+    .more{
+        font-size:130px;
+    }
 
     .date{
-        top:60%;
+       font-size:150px;
     }
 
 
