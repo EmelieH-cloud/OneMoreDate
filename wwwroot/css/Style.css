@@ -130,7 +130,6 @@ img {
     box-shadow: none; /* Ta bort eventuell box-shadow */
     text-decoration: none; /* Ta bort eventuell text-dekoration */
     font-family: "Nanum Myeongjo", serif;
-    font-size: 100px;
     margin-left: 15%;
     padding: 0%;
     font-weight: 100;
@@ -141,7 +140,6 @@ img {
     margin-top: 3%;
     /* Sätter en bottenmarginal på 79% av elementets bredd */
     font-family: "Nanum Myeongjo", serif;
-    font-size: 80px;
     text-align: right;
     margin-right: 5%;
     font-weight: 100;
@@ -419,21 +417,16 @@ img {
 /* 8. för surfplattor (och större) --------------------------*/
 
 
-@media(min-width:600px) {
-
-    .outer-container
-    {
-        background-color:blue;
-    }
+@media(min-width:650px) {
 
 
 
     .one {
-        font-size: 300px;
+        font-size: 200px;
     }
 
     .more {
-        font-size: 170px;
+        font-size: 180px;
     }
 
     .date {
@@ -443,30 +436,35 @@ img {
 
 
 
-@media (min-width: 500px ) {
-    .one{
-        font-size:150px;
-    }
+@media (min-width: 200px) and (max-width: 650px) {
 
-    .more{
-        font-size:130px;
-    }
-
-    .date{
-       font-size:150px;
-    }
-
-
-    h1 /* Gör texten större */ 
+    .outer-container
     {
+       
+    }
+    .one {
+        font-size: 150px;
+        background-color: blue;
+    }
+
+    .more {
+        font-size: 130px;
+    }
+
+    .date {
+        font-size: 150px;
+    }
+
+
+    h1 /* Gör texten större */ {
         font-size: 3em;
     }
 
-    img 
-    /* Gör alla bilder mindre! */ 
-    {
+    img
+    /* Gör alla bilder mindre! */ {
         width: 50vw;
     }
+
     .inner-menu-container
     /* Ge en marginal på sidorna */ {
         height: 100vh;
@@ -476,50 +474,41 @@ img {
         align-items: stretch;
         margin: 0 auto;
         width: 70vw;
-        margin-top: 30%; 
- 
+        margin-top: 30%;
     }
 
-    .modal-bg 
-    /* Gör modalen större */
-    {
-        background-color: rgba(255, 192, 203, 0.5); 
+    .modal-bg
+    /* Gör modalen större */ {
+        background-color: rgba(255, 192, 203, 0.5);
         opacity: .8;
         width: 95%;
         height: 70%;
         margin: 0 auto;
     }
 
-    .container-players 
-    {
-        width: 65vw; 
+    .container-players {
+        width: 65vw;
         /* Ge mindre plats för knapparna */
     }
 
     /* Mindre menu och rules knapp vid större skärm*/
-    .menu-start-btn 
-    {
+    .menu-start-btn {
         /*/position: absolute;
         width: 70vw;
         top: 70%;*/
-       
     }
 
-    .menu-rules-btn 
-    {
-       /* position: absolute;
+    .menu-rules-btn {
+        /* position: absolute;
         width: 70vw;
         top: 60%;*/
     }
 
     /* Större knappar */
-    .players-btn 
-    {
+    .players-btn {
         width: 70px;
         height: 70px;
     }
-
-  
 }
 
 
