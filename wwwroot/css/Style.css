@@ -80,6 +80,8 @@ img {
     position: absolute;
     z-index: -1;
     height:100%;
+    
+
 
     /* Placerar elementet 15% från toppen av dess närmaste positionerade parent */
 }
@@ -97,18 +99,21 @@ img {
 
 .image-container {
 
+    
     display: flex;
     justify-content: center;
     background-color: #FFF0F4;
 }
 
 .outer-image-container {
+    display: flex;
+    justify-content: center;
     background-color: #FFF0F4;
-    position: absolute;
+    /*    position: absolute;*/
     /* Positionerar elementet absolut relativt till närmaste positionerade parent */
     width: 100vw;
     /* Sätter bredden till 100% av viewportens bredd */
-    top: 28%;
+  /*  top: 28%;*/
     /* Placerar elementet 30% från toppen av dess närmaste positionerade parent*/
     z-index: -1;
     /* Sätter z-index till -1 så att elementet hamnar bakom andra element med högre z-index */
@@ -120,7 +125,7 @@ img {
     box-shadow: none; /* Ta bort eventuell box-shadow */
     text-decoration: none; /* Ta bort eventuell text-dekoration */
     font-family: "Nanum Myeongjo", serif;
-    font-size: 8rem;
+    font-size: 25vw;
     margin-left: 15%;
     padding: 0%;
     font-weight: 100;
@@ -130,10 +135,11 @@ img {
     margin-top: 3%;
     /* Sätter en bottenmarginal på 79% av elementets bredd */
     font-family: "Nanum Myeongjo", serif;
-    font-size: 5rem;
+    font-size: 20vw;
     text-align: right;
     margin-right: 5%;
     font-weight: 100;
+    margin-bottom:4%;
 }
 
 
@@ -143,11 +149,11 @@ img {
     color: #FF1DA5;
     position: absolute;
     /* Positionerar elementet absolut relativt till närmaste positionerade parent */
-    top: 45%;
+    top: 52%;
     /* Placerar elementet 55% från toppen av dess närmaste positionerade parent */
     text-align: center;
     width: 100%;
-    font-size: 6rem;
+    font-size: 22vw;
  
 }
 
@@ -402,7 +408,13 @@ img {
 }
 
 /* 8. för surfplattor (och större) --------------------------*/
-@media (min-width: 500px) {
+@media (min-width: 300px) {
+
+    .date{
+        top:60%;
+    }
+
+
     h1 /* Gör texten större */ 
     {
         font-size: 3em;
