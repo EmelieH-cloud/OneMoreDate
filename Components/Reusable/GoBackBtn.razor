@@ -1,45 +1,9 @@
 ﻿@inject NavigationManager Navigation
 
-<style>
-
-   
-
-    .back-btn 
-    {
-        position: absolute;
-        left: 1%;
-        width: 35px; 
-        color: white;
-        height: 35px;
-        background-color: black;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        border-radius:50%;
-
-
-      
-    }
-
-    .custom-margin
-    {
-        margin-bottom: 70%; 
-    }
-
-    .navigate-btn-container 
-    {
-        position: absolute;
-        z-index: 1;
-        width: 100%;
-        top: 5px; 
-   
-    }
-
-</style>
 
 <div class="navigate-btn-container">
     <button @onclick="GoBack" class="back-btn animate__animated animate__fadeIn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-chevron-left back-button-svg" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
         </svg>
     </button>
