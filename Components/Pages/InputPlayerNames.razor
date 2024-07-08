@@ -81,9 +81,10 @@
             disableDoneBtn = false;
         }
 
+        StateHasChanged();
         FocusInputAsync();
         // Anropa StateHasChanged för att uppdatera renderingen
-        StateHasChanged();
+       
     }
 
     private void RemovePlayer(string name)
