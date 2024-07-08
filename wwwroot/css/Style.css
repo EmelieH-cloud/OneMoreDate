@@ -34,6 +34,10 @@ body
     height:100vh;
 }
 
+button
+{
+    border: none;
+}
 
 h1 {
 
@@ -51,12 +55,6 @@ h1 {
     font-size: 1.2rem;
 }
 
-button 
-{
-    font-family: 'MuseoModerno';
-    font-size: 1.7rem;
-    border: none;
-}
 
 .button-color {
     /* 
@@ -68,6 +66,7 @@ button
 
 
 }
+
 
 
 h1, h3, h2, h5, li, h6, h4 {
@@ -289,16 +288,17 @@ img {
 
 .name-input 
 {
-    
+   border-radius: 20px;
    width: 70%;
 }
 
 .background-image-container 
 {
+    
     height: 100%;
     width: 100%;
     background-size: 100%;
-    background-image: url(../images/background-pattern.png);
+    background-image: url(../images/background-pattern12.png);
 }
 
 
@@ -310,15 +310,20 @@ img {
 .input-container 
 {
     width: 100vw;
+    padding: 2%;
     display: flex;
     background-color: gray;
     justify-content: space-between;
     position:fixed;
    bottom:0%;
    z-index:1000;
+
  
 }
  
+
+   
+
 
 .player-names-header 
 {
@@ -331,14 +336,15 @@ img {
     align-items: center;
 }
 
-.name-container 
-{
+.name-container {
 
     display: flex;
     width: 80%;
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
+    background-color: #FFF0F4;
+    
 }
 
 .done-btn 
@@ -352,7 +358,8 @@ img {
     background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
 }
 
-.done-btn-disabled {
+.done-btn-disabled 
+{
     color: white;
     width: 42px;
     display: flex;
@@ -365,10 +372,9 @@ img {
 
 
 
-.name-p 
-{
-   
-    font-size:1.3rem;
+.name-p {
+  
+    font-size: 1.3rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -406,17 +412,19 @@ img {
 }
 
 
+
 .remove-btn 
 {
     width: 34px;
     height: 30px;
-    margin: 2%;
     border-radius: 10px;
     color: white;
     background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    
 }
 
 
@@ -424,29 +432,29 @@ img {
 {
     width: 100vw;
    height:100vh;
-    border:2px solid blue;
+    
 
 }
 
 
 .added-names-container
 {
+
     margin-top: 20%;
     width: 100%;
     max-height: 70%;
     overflow-y: auto;
     position: absolute;
-    
-  
 }
 
     .added-names-container::-webkit-scrollbar 
     {
         width: 12px; /* Width of the scrollbar */
+        background-color: #FFF0F4;
     }
 
     .added-names-container::-webkit-scrollbar-track {
-        background: #f1f1f1; /* Background of the scrollbar track */
+       background-color: #FFF0F4; /* Background of the scrollbar track */
     }
 
     .added-names-container::-webkit-scrollbar-thumb {
@@ -455,13 +463,14 @@ img {
     }
 
         .added-names-container::-webkit-scrollbar-thumb:hover {
-            background: #555; /* Color when hovering over the scrollbar thumb */
+         background-color: #FFF0F4;
+             /* Color when hovering over the scrollbar thumb */
         }
 
-.inner-name-container 
-{
+.inner-name-container {
     width: 85%;
-   
+    background-color: #FFF0F4;
+  
 }
 
 .names-header {
@@ -474,12 +483,33 @@ img {
 
 /* 6. SelectDeck ---------------------------*/
 
+.deck-header {
+    background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
+    padding: 1%;
+    margin-top: 2%;
+    font-size: 1.8rem;
+    width: 80%;
+    color: white;
+    border-radius: 20px;
+}
+
 .my-decks-container 
     {
     padding: 3%;
     width: 90%;
     margin: 0 auto;
 
+}
+
+.fixed-back-btn 
+{
+    position: fixed;
+    width: 55px;
+    padding: 1%;
+    left: 1%;
+    top: 0;
+    transform: translateY(-50%);
+    z-index: 1000; /* Se till att knappen ligger över annat innehåll */
 }
 
 .img-smaller {
@@ -640,10 +670,7 @@ img {
     .back-btn {
         position: absolute;
         left: 1%;
-        width: 70px;
         color: white;
-        height: 35px;
-        background-color: black;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1016,17 +1043,14 @@ img {
 
     /* 9.3 GoBackButton*/
 
-    .back-btn {
+    .back-btn 
+    {
         position: absolute;
         left: 1%;
-        width: 70px;
         color: white;
-        height: 70px;
-        background-color: black;
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 50%;
         margin-top: 2%;
     }
 
@@ -1097,17 +1121,17 @@ img {
 
 
 
+
 .back-btn {
     position: absolute;
     left: 1%;
-    width: 50px;
     color: white;
-    height: 50px;
-    background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
+    background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
+    width: 40px;
+    height: 40px;
 }
 
 .custom-margin
@@ -1119,9 +1143,10 @@ img {
     position: absolute;
     z-index: 1;
     width: 100%;
-    top: 5px;
+    top: 9px;
 }
 
-.back-button-svg {
-    width: 40%;
+.back-button-svg 
+{
+    width: 40%; 
 }

@@ -5,29 +5,6 @@
 @inject NavigationManager Navigation
 
 
-<style>
-    .fixed-back-btn
-    {
-        position: fixed;
-        width: 55px;
-        padding: 3%; 
-        left: 2%;
-        bottom: 0;
-        transform: translateY(-50%);
-        z-index: 1000; /* Se till att knappen ligger över annat innehåll */
-    }
-
-    h4
-    {
-        font-family: "Poiret One", sans-serif;
-        font-size: 1.5rem;
-        background-color: #FF1DA5;
-        padding: 2%;
-        border-radius: 10px;
-        color: white;
-        width: 80%;
-    }
-</style>
 
 @if (showModal)
 {
@@ -39,23 +16,27 @@
 
         <div class="select-deck-container " @onclick="()=>selectDeck(1)" >
         <img src="./images/deck.png" alt="deck" class="img-smaller" />
-     <h4>The trial Deck</h4>
+     <h4 class="deck-header">The trial Deck</h4>
     </div>
 
     <div class="select-deck-container" @onclick="()=>selectDeck(2)">
         <img src="./images/partydeck.png" alt="deck" class="img-smaller" />
-          <h4>The original Deck</h4>
+          <h4 class="deck-header">The original Deck</h4>
     </div>
 
 
     <div class="select-deck-container" @onclick="()=>selectDeck(3)">
         <img src="./images/naughtydeck.png" alt="deck" class="img-smaller" />
-           <h4>The naughty Deck </h4>
+           <h4 class="deck-header">The naughty Deck </h4>
         </div>
 
     
 </div>
-<GoBackBtn BackUrl="inputPlayerNames"/>
+
+<div class="fixed-back-btn">
+    <GoBackBtn BackUrl="inputPlayerNames" />
+</div>
+
 
 @code {
     private string addAnimationClass = "";
