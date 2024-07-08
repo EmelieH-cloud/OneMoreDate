@@ -69,6 +69,8 @@
         {
             Names.Add(InputValue);
             InputValue = "";
+          
+
         }
 
         // Uppdatera disableDoneBtn baserat på antalet namn
@@ -79,6 +81,7 @@
             disableDoneBtn = false;
         }
 
+        FocusInputAsync();
         // Anropa StateHasChanged för att uppdatera renderingen
         StateHasChanged();
     }
@@ -143,6 +146,7 @@
     private void UpdateInputValue(ChangeEventArgs e)
     {
         InputValue = e.Value?.ToString();
+      
     }
 
 }
