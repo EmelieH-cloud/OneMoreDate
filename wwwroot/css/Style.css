@@ -565,14 +565,13 @@ img {
 
 .p-text 
 {
-    font-size: 25px;
-   
-    line-height:30px;
+    font-size: 17px;
+    line-height:26px;
 }
 
 .deck-modal-header 
 {
-    font-size: 30px;
+    font-size: 35px;
 
     font-family: "Playwrite SK";
 }
@@ -888,7 +887,7 @@ img {
 
 
         .name-p {
-            font-size: 2rem;
+            font-size: 1.5rem;
             display: flex;
             justify-content: center;
             align-items: center;
