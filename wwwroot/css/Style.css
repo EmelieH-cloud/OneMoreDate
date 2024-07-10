@@ -74,13 +74,16 @@ h1, h3, h2, h5, li, h6, h4 {
     font-weight: lighter;
 }
 
+.back-btn-no-background{
+
+    margin:3%;
+    position:fixed;
+    z-index:1000;
+
+}
 /* 2. Home ----------------------------------------------------*/
-
 img {
-
-      
     width: 85%;
-    
     /* Automatisk höjd för att behålla bildens proportioner */
 }
 
@@ -491,6 +494,7 @@ img {
     width: 80%;
     color: white;
     border-radius: 20px;
+    text-align:center;
 }
 
 .my-decks-container 
@@ -521,15 +525,17 @@ img {
 .select-deck-img {
     width: 25%;
     border-radius: 50%;
+  
 }
 
 .select-deck-container {
+ 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 8%;
-  
+ 
     border-radius: 10%;
 }
 
