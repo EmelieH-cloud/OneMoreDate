@@ -26,6 +26,15 @@
 
 
 
+    
+
+
+
+
+
+
+
+
  /* 1. Globala stilar ---------------------------*/
 
 body 
@@ -34,10 +43,7 @@ body
     height:100vh;
 }
 
-button
-{
-    border: none;
-}
+
 
 h1 {
 
@@ -56,14 +62,6 @@ h1 {
 }
 
 
-.button-color {
-    /* 
-    background: rgb(255,192,203);
-    background: linear-gradient(0deg, rgba(255,192,203,1) 0%, rgba(220,124,192,1) 100%); */
-
-    /*background: rgb(247,2,122);
-    background: linear-gradient(0deg, rgba(247,2,122,0.6834383411567753) 0%, rgba(235,125,195,0.6694327389158788) 100%);*/
-}
 
 
 
@@ -79,6 +77,65 @@ h1, h3, h2, h5, li, h6, h4 {
     z-index:2;
 
 }
+
+.back-btn-no-background-svg {
+    width:32px;
+  
+}
+
+
+button {
+    border: none;
+}
+
+
+.button-29 {
+    align-items: center;
+    appearance: none;
+    background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
+    border: 0;
+    border-radius: 6px;
+    box-shadow: rgba(255, 29, 165, .6) 0 4px 6px, rgba(255, 29, 165, .5) 0 8px 16px -4px, rgba(255, 29, 165, .7) 0 -3px 0 inset, rgba(0, 0, 0, .1) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+/*    padding-left: 16px;
+    padding-right: 16px;*/
+/*    position: relative;*/
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .15s, transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 30px;
+}
+
+    .button-29:focus {
+        box-shadow: #FF1DA5 0 0 0 1.5px inset, rgba(255, 29, 165, .6) 0 4px 6px, rgba(255, 29, 165, .5) 0 8px 16px -4px, #FF1DA5 0 -3px 0 inset, rgba(0, 0, 0, .1) 0 1px 0 inset;
+    }
+
+    .button-29:hover {
+        box-shadow: rgba(255, 29, 165, .6) 0 6px 10px, rgba(255, 29, 165, .5) 0 12px 20px -4px, #FF1DA5 0 -3px 0 inset, rgba(0, 0, 0, .1) 0 1px 0 inset;
+        transform: translateY(-2px);
+    }
+
+    .button-29:active {
+        box-shadow: #FF1DA5 0 3px 7px inset, rgba(0, 0, 0, .2) 0 1px 3px inset;
+        transform: translateY(2px);
+    }
+
+/**/
+
+
+
 /* 2. Home ----------------------------------------------------*/
 img {
     width: 85%;
@@ -246,7 +303,7 @@ img {
      width: 100%;
     border-radius: 6%;  
    position:absolute;
-   top:29%;
+   top:63%;
 
   
 }
@@ -257,7 +314,7 @@ img {
     border-radius: 6%;
     width: 100%;
     position: absolute;
-    top: 30%;
+    top: 74%;
 }
 
 .modal-bg {
@@ -289,6 +346,7 @@ img {
 
 .name-input 
 {
+    padding-left:3%;
    border-radius: 20px;
    width: 70%;
 }
@@ -346,6 +404,10 @@ img {
     margin: 0 auto;
     background-color: #FFF0F4;
     
+}
+
+.done-btn-svg{
+    width:50%;
 }
 
 .done-btn 
@@ -412,10 +474,13 @@ img {
     align-items: center;
 }
 
+.add-btn-svg{
+    width:50%;
+}
 
 
-.remove-btn 
-{
+
+.remove-btn {
     width: 34px;
     height: 30px;
     border-radius: 10px;
@@ -424,8 +489,6 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    
 }
 
 
@@ -719,9 +782,40 @@ img {
 
 
 
- /* 9. MEDIA QUERIES --------------------------*/
+/* 9. Go Back Btn */
 
-/* 9.1: media queries för min-width: 1200px */
+.back-btn {
+    position: absolute;
+    left: 1%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
+    width: 40px;
+    height: 40px;
+}
+
+.custom-margin {
+    margin-bottom: 70%;
+}
+
+.navigate-btn-container {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    top: 9px;
+}
+
+.back-button-svg {
+    width: 40%;
+}
+
+
+
+ /* 10. MEDIA QUERIES --------------------------*/
+
+/* 10.1: media queries för min-width: 1200px */
 
 @media (min-width: 1200px) {
 
@@ -745,23 +839,14 @@ img {
 
 
 
-    /* 9.2: media queries för min-width 800px och max-width 1199px */
+    /* 10.2: media queries för min-width 800px och max-width 1199px */
 
-    @media (min-width: 800px) and (max-width: 1199px) {
-
-        .back-btn {
-            position: absolute;
-            left: 1%;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-        }
+    @media (min-width: 800px) and (max-width: 1199px) 
+    {
 
 
         .one {
-            background-color: blue;
+            background-color: purple;
             font-size: 200px;
         }
 
@@ -775,14 +860,14 @@ img {
 
         .menu-start-btn {
             position: absolute;
-            width: 70vw;
-            top: 25%;
+            width: 80vw;
+            top: 70%;
         }
 
         .menu-rules-btn {
             position: absolute;
-            width: 70vw;
-            top: 26%;
+            width: 80vw;
+            top: 78%;
         }
 
 
@@ -792,14 +877,17 @@ img {
         }
 
         .inner-menu-container {
+           
             display: flex;
             justify-content: center;
             flex-direction: column;
-            align-items: flex-end;
+            align-items: center;
             margin: 0 auto;
             width: 70vw;
             height: 100%;
         }
+
+        /*InputPlayerNames*/
 
         .names-header {
             padding: 1%;
@@ -887,7 +975,7 @@ img {
 
 
         .name-p {
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -911,18 +999,17 @@ img {
         }
 
         /*GoBackButton*/
-
         .back-btn {
             position: absolute;
             left: 1%;
-            width: 70px;
             color: white;
-            height: 70px;
-            background-color: black;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 50%;
+      
+            width:60px;
+            height:60px;
+       
         }
 
         .custom-margin {
@@ -938,18 +1025,100 @@ img {
         }
 
         .back-button-svg {
-            width: 40%;
+            width: 70%;
         }
+
+        .back-btn-no-background {
+            margin-top: 3%;
+            position: fixed;
+            z-index: 2;
+        }
+
+
+        .back-btn-no-background-svg {
+            width: 55px;
+        }
+
+
+
+        /*deck-modal*/
+        .p-text {
+            font-size: 30px;
+            line-height: 40px;
+        }
+
+        .deck-modal-header {
+            font-size: 60px;
+            font-family: "Playwrite SK";
+        }
+
+        .deck-modal-inner-container {
+            display: flex;
+            height: 90%;
+            flex-direction: column;
+            align-items: center;
+            text-align: justify;
+            line-height: 20px;
+            position: relative; /* Viktigt för att hålla den ovanför övertoningen */
+            z-index: 1000;
+            margin: 0 auto;
+        }
+
+        .deck-modal {
+            position: fixed;
+            width: 85%;
+            height: 80%;
+            top: 50%;
+            border-radius: 35px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
+            z-index: 1000;
+        }
+
+        .modal-btn {
+            position: absolute;
+            bottom: 8%;
+            width: 80%;
+            background-color: rgba(180, 29, 100, 0.7);
+            border-radius: 30px;
+            font-size: 25px;
+            padding: 5%;
+            font-weight: bold;
+        }
+
+        .modal-font {
+            font-family: "Poppins";
+        }
+
+
+        .deckmodal-outer-container {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+        .deck-modal-text-container {
+            position: absolute; /* Absolut positionering för att använda top, left, transform */
+            top: 45%; /* Flytta 50% från toppen av förälderelementet */
+            left: 50%; /* Flytta 50% från vänster av förälderelementet */
+            transform: translate(-50%, -50%); /* Flytta tillbaka 50% av elementets egna höjd och bredd */
+            width: 80%;
+        }
+
+
+
+
     }
 
-    /* 9.3: media queries för min-width 400px och max-width 799px */
+    /* 10.3: media queries för min-width 400px och max-width 799px */
 
     @media (min-width: 400px) and (max-width: 799px) {
 
 
         .one {
-            font-size: 150px;
-            background-color: green;
+            font-size: 145px;
+            background-color: blue;
         }
 
         .more {
@@ -957,7 +1126,7 @@ img {
         }
 
         .date {
-            font-size: 150px;
+            font-size: 128px;
         }
 
 
@@ -972,9 +1141,9 @@ img {
         .inner-menu-container {
             height: 100vh;
             display: flex;
-            justify-content: center;
+        align-items:center;
             flex-direction: column;
-            align-items: flex-end;
+           
             margin: 0 auto;
             width: 70vw;
         }
@@ -994,14 +1163,15 @@ img {
 
         .menu-start-btn {
             position: absolute;
-            width: 70vw;
-            top: 30%;
+            width: 85vw;
+            top: 68%;
+          
         }
 
         .menu-rules-btn {
             position: absolute;
-            width: 70vw;
-            top: 32%;
+            width: 85vw;
+            top: 78%;
         }
 
 
@@ -1011,13 +1181,13 @@ img {
         }
 
 
-        /* 9.3 InputPlayerNames:*/
+        /* 10.3 InputPlayerNames:*/
 
 
         .names-header {
             padding: 1%;
             color: white;
-            font-size: 4rem;
+            font-size: 2.5rem;
         }
 
         .player-names-header {
@@ -1033,7 +1203,7 @@ img {
         .done-btn {
             height: 80%;
             color: white;
-            width: 70px;
+            width: 55px;
             display: flex;
             border-radius: 5px;
             justify-content: center;
@@ -1044,7 +1214,7 @@ img {
         .done-btn-disabled {
             height: 80%;
             color: white;
-            width: 70px;
+            width: 55px;
             display: flex;
             border-radius: 5px;
             justify-content: center;
@@ -1057,7 +1227,7 @@ img {
             margin-right: 2%;
             margin-left: 2%;
             color: white;
-            width: 70px;
+            width: 55px;
             border-radius: 5px;
             background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
             display: flex;
@@ -1095,12 +1265,12 @@ img {
         .name-input {
             width: 80%;
             height: 80%;
-            font-size: 1.5rem;
+            font-size: 1rem;
         }
 
 
         .name-p {
-            font-size: 2rem;
+            font-size: 1.5rem;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -1112,8 +1282,8 @@ img {
 
 
         .remove-btn {
-            width: 55px;
-            height: 55px;
+            width: 40px;
+            height: 40px;
             margin: 2%;
             border-radius: 10px;
             color: white;
@@ -1123,7 +1293,7 @@ img {
             align-items: center;
         }
 
-        /* 9.3 GoBackButton*/
+        /* 10.3 GoBackButton*/
 
         .back-btn {
             position: absolute;
@@ -1132,7 +1302,7 @@ img {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 2%;
+        
         }
 
         .custom-margin {
@@ -1150,85 +1320,32 @@ img {
         .back-button-svg {
             width: 40%;
         }
+
+
+        /* Select Deck */
+
+        .p-text {
+            font-size: 25px;
+            line-height: 35px;
+        }
+
+        .deck-modal-header
+        {
+            font-size:45px;
+        }
     }
+
+
+
+ 
     /* Slut på media query 9.3 ---------*/
 
 
 
-    /* 10. button-29 */
-
-    .button-29 {
-        align-items: center;
-        appearance: none;
-        background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
-        border: 0;
-        border-radius: 6px;
-        box-shadow: rgba(255, 29, 165, .6) 0 4px 6px, rgba(255, 29, 165, .5) 0 8px 16px -4px, rgba(255, 29, 165, .7) 0 -3px 0 inset, rgba(0, 0, 0, .1) 0 1px 0 inset;
-        box-sizing: border-box;
-        color: #fff;
-        cursor: pointer;
-        display: inline-flex;
-        justify-content: center;
-        line-height: 1;
-        list-style: none;
-        overflow: hidden;
-        padding-left: 16px;
-        padding-right: 16px;
-        position: relative;
-        text-align: center;
-        text-decoration: none;
-        transition: box-shadow .15s, transform .15s;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-        white-space: nowrap;
-        will-change: box-shadow, transform;
-        font-size: 30px;
-    }
-
-        .button-29:focus {
-            box-shadow: #FF1DA5 0 0 0 1.5px inset, rgba(255, 29, 165, .6) 0 4px 6px, rgba(255, 29, 165, .5) 0 8px 16px -4px, #FF1DA5 0 -3px 0 inset, rgba(0, 0, 0, .1) 0 1px 0 inset;
-        }
-
-        .button-29:hover {
-            box-shadow: rgba(255, 29, 165, .6) 0 6px 10px, rgba(255, 29, 165, .5) 0 12px 20px -4px, #FF1DA5 0 -3px 0 inset, rgba(0, 0, 0, .1) 0 1px 0 inset;
-            transform: translateY(-2px);
-        }
-
-        .button-29:active {
-            box-shadow: #FF1DA5 0 3px 7px inset, rgba(0, 0, 0, .2) 0 1px 3px inset;
-            transform: translateY(2px);
-        }
 
 
-    /*  11. GoBackBtn (komponentstil) */
+    
 
 
 
 
-    .back-btn {
-        position: absolute;
-        left: 1%;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
-        width: 40px;
-        height: 40px;
-    }
-
-    .custom-margin {
-        margin-bottom: 70%;
-    }
-
-    .navigate-btn-container {
-        position: absolute;
-        z-index: 1;
-        width: 100%;
-        top: 9px;
-    }
-
-    .back-button-svg {
-        width: 40%;
-    }
