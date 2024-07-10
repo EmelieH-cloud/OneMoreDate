@@ -565,14 +565,15 @@ img {
 
 .p-text 
 {
-    font-size: 20px;
-    margin-top: 7%; 
+    font-size: 25px;
+   
+    line-height:30px;
 }
 
 .deck-modal-header 
 {
-    font-size: 40px;
-    margin-bottom: 10%;
+    font-size: 30px;
+
     font-family: "Playwrite SK";
 }
 
@@ -580,14 +581,16 @@ img {
     display: flex;
     height: 90%;
     flex-direction: column;
-    width: 82%;
+ 
     align-items: center;
     text-align: justify;
-    padding: 2%;
+
     line-height: 20px;
     position: relative; /* Viktigt för att hålla den ovanför övertoningen */
     z-index: 1000;
     margin: 0 auto;
+
+
 }
 
 .deck-modal {
@@ -600,6 +603,7 @@ img {
     transform: translate(-50%, -50%);
     background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
     z-index: 1000;
+    
 }
 
 .modal-btn {
@@ -624,6 +628,14 @@ img {
     position: absolute;
 }
 
+.deck-modal-text-container {
+    position: absolute; /* Absolut positionering för att använda top, left, transform */
+    top: 45%; /* Flytta 50% från toppen av förälderelementet */
+    left: 50%; /* Flytta 50% från vänster av förälderelementet */
+    transform: translate(-50%, -50%); /* Flytta tillbaka 50% av elementets egna höjd och bredd */
+    width:80%;
+    
+}
 /* 7. Game */
 
 .my-show-cards-container
