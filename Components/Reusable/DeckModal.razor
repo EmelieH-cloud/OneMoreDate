@@ -1,91 +1,7 @@
 ﻿@inject NavigationManager Navigation;
 
-<style>
 
 
-    .p-text-bigger
-    {
-        font-size:20px;
-        
-    }
-
-    .p-text {
-        font-size: 20px;
-    }
-
-    .deck-modal-header
-    {
-        font-size:40px;
-      
-        margin-bottom:10%;
-     
-        font-family: "Playwrite SK";
-    }
-
-    .deck-modal-inner-container 
-    {
-        display: flex;
-        height:90%;
-        flex-direction: column;
-     
-       width:82%;
-        align-items: center;
-        text-align: justify;
-        padding: 2%;
-        line-heigt:20px;
-    
-        position: relative; /* Viktigt för att hålla den ovanför övertoningen */
-        z-index: 1000;
-        margin: 0 auto;
-    }
-
-    .deck-modal 
-    {
-       
-        position: fixed;
-        width:85%;
-        height: 70%;
-        top: 40%;
-        border-radius: 35px;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
-        z-index: 1000;
-      
-   
-
-        
-    }
-
-    .modal-btn
-    {
-        position: absolute;
-        bottom: 3%; 
-        width: 80%; 
-        
-        background-color: rgba(180, 29, 100, 0.7);
-        border-radius: 30px;
-       font-size:25px;
-       padding:5%;
-       font-weight:bold;
-    }
-    .modal-font
-    {
-        font-family: "Poppins";
-    }
-
-
-    .deckmodal-outer-container
-    {
-        
-        width:100%;
-        height:100%;
-        
-
-        position:absolute;
-    
-    }
-</style>
 
 <div class="deckmodal-outer-container">
 <div class="deck-modal @AddAnimationClass">
@@ -99,8 +15,8 @@
     {
  <h2 class=" text-white deck-modal-header" >Trial Deck</h2>
 
-                <p class="modal-font p-text-bigger text-white">Ready to dive into the joy of our game but not sure where to start?</p>
-                <p class="modal-font p-text text-white ">The trial game is perfect for newcomers, this deck lets you experience the thrill and strategy of our gameplay without any commitment</p>
+                <p class="modal-font p-text text-white">Ready to dive into the joy of our game but not sure where to start?</p>
+                <p class="modal-font p-text text-white ">The trial version lets you experience the fun but without the commitment</p>
 
     }
     
