@@ -25,7 +25,7 @@
 
                         <div class="animate__animated animate__fadeIn  pink-bg">
                             <button class="remove-btn" @onclick="() => RemovePlayer(name)">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  class="bi bi-dash bg-svg-pink" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor"  class="bi bi-dash bg-svg-pink " viewBox="0 0 16 16">
                                     <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
                                 </svg>
                             </button>
@@ -37,12 +37,12 @@
             <div class="input-container rounded animate__animated animate__slideInLeft ">
                     <input @bind="InputValue" placeholder="Name" class="name-input form-control custom-color" disabled="@inputIsDone" @oninput="UpdateInputValue" @ref=" playerNameInput" @onkeydown="HandleKeyPress"  />
             <button @onclick="AddPlayers" class="@(string.IsNullOrWhiteSpace(InputValue) ? "add-btn-disabled" : "add-btn")">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class=" add-btn-svg bi bi-plus" viewBox="0 0 16 16">
                             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
                         </svg>
                     </button>
             <button @onclick="AddActivePlayers" class="@(disableDoneBtn ? "done-btn-disabled" : "done-btn")" disabled="@disableDoneBtn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-right done-btn-svg" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
                         </svg>
                     </button>
