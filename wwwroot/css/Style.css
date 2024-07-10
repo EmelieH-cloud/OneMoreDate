@@ -494,11 +494,10 @@ img {
 }
 
 .my-decks-container 
-    {
+{
     padding: 3%;
     width: 90%;
     margin: 0 auto;
-
 }
 
 .fixed-back-btn 
@@ -539,16 +538,28 @@ img {
     border-radius: 50%;
 }
 
-.deck-modal-inner-container
-{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:2%;
-    line-height:30px;
+.overlay-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 999; /* Säkerställ att den ligger ovanpå annat innehåll */
 }
+
+.deck-modal-inner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2%;
+    line-height: 30px;
+    position: relative; /* Viktigt för att hålla den ovanför övertoningen */
+    z-index: 1000; /* Högre än övertoningen */
+}
+
 .deck-modal-btn-container{
     display:flex;
     justify-content:end;

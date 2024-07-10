@@ -9,8 +9,15 @@
 @if (showModal)
 {
    
-    <DeckModal Description=@deckDescription DeckHeader=@deckHeader CloseButton ="closeBtn" btnClick="clickButton" ButtonDescription=@buttonDescription AddAnimationClass="@addAnimationClass"/>
-    
+      <div class="overlay-background" @onclick="closeBtn"></div>
+    <div class="deck-modal-inner-container">
+        <DeckModal Description=@deckDescription 
+                   DeckHeader=@deckHeader 
+                   CloseButton="closeBtn" 
+                   btnClick="clickButton" 
+                   ButtonDescription=@buttonDescription 
+                   AddAnimationClass=@addAnimationClass />
+    </div>
 }
 <div class="my-decks-container mb-4 text-center animate__animated animate__fadeIn animate__slower rounded">
 
