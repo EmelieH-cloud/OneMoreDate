@@ -11,12 +11,7 @@
    
       <div class="overlay-background" @onclick="closeBtn"></div>
     <div class="deck-modal-inner-container">
-        <DeckModal Description=@deckDescription 
-                   DeckHeader=@deckHeader 
-                   CloseButton="closeBtn" 
-                   btnClick="clickButton" 
-                   ButtonDescription=@buttonDescription 
-                   AddAnimationClass=@addAnimationClass />
+        <DeckModal CloseButton="closeBtn"  DeckNumber =@deckNumber AddAnimationClass=@addAnimationClass />
     </div>
 }
 
@@ -28,6 +23,7 @@
         </svg>
     </button>
 </div>
+
 <div class="my-decks-container mb-4 text-center animate__animated animate__fadeIn animate__slower rounded">
 
 
@@ -60,15 +56,12 @@
 
 @code {
     private string addAnimationClass = "";
-    private string buttonDescription{ get; set; }
-    private string deckHeader;
-    private bool showModal = false;
-    private string deckDescription;
 
-    private void GoToGame()
-    {
-        Navigation.NavigateTo("/game");
-    }
+
+    private bool showModal = false;
+    private int deckNumber;
+
+  
 
     private void GoBack()
     {
@@ -79,27 +72,7 @@
     {
         addAnimationClass = "animate__animated animate__fadeIn";
 
-        if (deckId == 1)
-        {
-            deckHeader = "Trial Deck";
-            deckDescription = "Ready to dive into the excitement of our game but not sure where to start? The trial game is perfect for newcomers, this deck lets you experience the thrill and strategy of our gameplay without any commitment.";
-            buttonDescription = "PLAY";
-        }
-
-
-        else if (deckId == 2)
-        {
-            deckHeader = "The Original Deck";
-            deckDescription="BLABLABLA";
-            buttonDescription="Purchase";
-        }
-
-        else if (deckId ==3)
-        {
-            deckHeader = "The Naughty Deck";
-            deckDescription = "BLABLABLA";
-            buttonDescription = "Purchase";
-        }
+        deckNumber = deckId;
 
 
         showModal = true;
@@ -111,19 +84,6 @@
         addAnimationClass = "";
     }
 
-    private void clickButton()
-    {
-        if(buttonDescription == "PLAY")
-        {
-            Navigation.NavigateTo("/game");
-        }
-
-       
-        if (buttonDescription =="Purchase")
-          {
-                
-          }
-      
-    }
+   
 
 }

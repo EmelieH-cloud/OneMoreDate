@@ -52,7 +52,7 @@ h1 {
 .clear-font 
 {
     font-family: 'Afacad';
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 
@@ -78,7 +78,7 @@ h1, h3, h2, h5, li, h6, h4 {
 
     margin:3%;
     position:fixed;
-    z-index:1000;
+    z-index:2;
 
 }
 /* 2. Home ----------------------------------------------------*/
@@ -554,17 +554,6 @@ img {
     z-index: 999; /* Säkerställ att den ligger ovanpå annat innehåll */
 }
 
-.deck-modal-inner-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 2%;
-    line-height: 30px;
-    position: relative; /* Viktigt för att hålla den ovanför övertoningen */
-    z-index: 1000; /* Högre än övertoningen */
-}
 
 .deck-modal-btn-container{
     display:flex;
