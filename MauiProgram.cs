@@ -16,6 +16,7 @@ namespace OneMoreDate
                 });
 
             builder.Services.AddMauiBlazorWebView();
+            builder.Services.AddBlazorBootstrap();
 
 #if DEBUG
             builder.Services.AddBlazorWebViewDeveloperTools();

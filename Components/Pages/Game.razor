@@ -15,7 +15,10 @@
 </style>
 
 <div class="animate__animated animate__fadeIn rounded text-center">
+  
+   
 
+    
     @if (ShowCards)
     {
 
@@ -90,7 +93,7 @@ else
     private PartyDeck ActivePartyDeck = new PartyDeck();
     private string deckName;
     private string currentQuestion;
-    private Card ActiveCard = new Card(); 
+    private PlayerCard ActiveCard = new PlayerCard(); 
     private bool ShowCards = false; 
 
     protected override void OnInitialized()
