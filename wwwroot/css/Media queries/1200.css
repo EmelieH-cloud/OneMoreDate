@@ -1,0 +1,20 @@
+﻿
+@media (min-width: 1200px) {
+
+    .one {
+        font-size: 200px;
+        background-color: deeppink;
+    }
+
+    .more {
+        font-size: 180px;
+    }
+
+    .date {
+        font-size: 180px;
+    }
+
+    img {
+        width: 150vw;
+    }
+}
