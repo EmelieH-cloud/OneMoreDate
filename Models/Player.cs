@@ -3,7 +3,7 @@
     public class Player
     {
         public string Name { get; set; }
-        public List<Card> Hand { get; set; } = new();
+        public List<PlayerCard> Hand { get; set; } = new();
         public bool HasCard { get; set; }
         public int MaxHandSize { get; set; }
         public bool LivesTogether { get; set; } = false;

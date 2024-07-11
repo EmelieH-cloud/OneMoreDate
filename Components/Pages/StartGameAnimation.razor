@@ -1,0 +1,27 @@
+﻿@page "/startGame"
+@using OneMoreDate.Managers;
+@using OneMoreDate.Models;
+@using OneMoreDate.Components.Reusable;
+@inject NavigationManager Navigation
+
+<div class="start-game-container @currentAnimationClass" @ref="animationElement">
+    <img class="logo-img" src='./images/Bild_5.png' alt="logo" />
+</div>
+
+ 
+@code {
+    private ElementReference animationElement;
+    private string currentAnimationClass = "animate__animated animate__zoomIn";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await Task.Delay(2000);
+            currentAnimationClass = "animate__animated animate__zoomOut";
+            StateHasChanged();
+            await Task.Delay(2000);
+            Navigation.NavigateTo("/game");
+        }
+    }
+}
