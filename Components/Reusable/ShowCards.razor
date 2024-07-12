@@ -5,19 +5,19 @@
 
 
 
-<div class="ShowCards-Container rounded animate__animated animate__fadeIn">
+<div class="ShowCards-Container rounded animate__animated animate__fadeIn" @onclick="OnOutsideClickAsync">
 
-    <div class="previous-card-container">
+    <div class="previous-card-container"  >
         @if (ActivePlayer != null)
         {
             <div class="text-container">
                 <div class="background-pink">
                     <div class="d-flex justify-content-start p-1">
                         <div>
-                            <Dropdown Color="DropdownColor.Secondary" @ref="dropdown">
+                            <Dropdown @onmouseover="MouseIn" @onmouseout="MouseOut" Color="DropdownColor.Secondary" @ref="dropdown">
                                 <DropdownMenu Class="mt-4">
                                     <DropdownItem To="#" Type="DropdownItemType.Link">How To Play</DropdownItem>
-                                    <DropdownItem To="#" Type="DropdownItemType.Link">Quit Game</DropdownItem>
+                                    <DropdownItem @onclick="() => smModal.ShowAsync()" Type=" DropdownItemType.Link">Quit Game</DropdownItem>
                                 </DropdownMenu>
                             </Dropdown>
                       </div>
@@ -92,12 +92,24 @@
     
         <button @onclick=CloseButton><img src="./images/pinkarrow.png" alt="btn" class="forward-btn" /></button>
     </div>
+    <Modal Class="modal-backdrop" @ref="smModal" UseStaticBackdrop="false" title="Quit Game" Size="ModalSize.Small">
+        <BodyTemplate>
+            <h3>Quit Game</h3>
+            <p>Are you sure you want to quit?</p>
+            <button @* @onclick="QuitGame" *@>Yes</button>
+            <button @* @onclick="CancelQuitGame" *@>No</button>
+        </BodyTemplate>
+    </Modal>
 </div>
 
+
+
 @code {
+    bool IsInside;
     public Player? ActivePlayer;
     private Dropdown dropdown = default!;
     private bool dropdownIsOpen = false;
+    private Modal smModal = default!;
 
     [Parameter]
     public EventCallback CloseButton { get; set; }
@@ -111,7 +123,9 @@
     {
         await dropdown.ShowAsync();
         dropdownIsOpen = true;
+
     }
+
 
     private async Task HideAsync()
     {
@@ -136,4 +150,29 @@
             _ => ""
         };
     }
+
+
+    private void MouseIn()
+    {
+        IsInside = true;
+    }
+    private void MouseOut()
+    {
+        IsInside = false;
+    }
+
+    private async Task OnOutsideClickAsync()
+    {
+        if (!IsInside && dropdownIsOpen)
+        {
+            await HideAsync();
+        }
+    }
+
 }
+
+
+    
+
+
+
