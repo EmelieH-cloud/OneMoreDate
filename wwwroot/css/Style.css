@@ -816,9 +816,8 @@ p {
 
 }
 
-
-.modal-backdrop
+.my-dialog-container
 {
-    position:fixed;
     z-index: 1000;
 }
+
