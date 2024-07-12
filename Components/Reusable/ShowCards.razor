@@ -1,5 +1,4 @@
-﻿
-@using Microsoft.AspNetCore.Components
+﻿@using Microsoft.AspNetCore.Components
 @using Components.Reusable;
 @using OneMoreDate.Managers
 @using OneMoreDate.Models
@@ -94,16 +93,16 @@
 
         <button @onclick=CloseButton><img src="./images/pinkarrow.png" alt="btn" class="forward-btn" /></button>
     </div>
-    <Modal Class="modal-backdrop" @ref="smModal" UseStaticBackdrop="false" title="Quit Game" Size="ModalSize.Small">
-        <BodyTemplate>
-            <h3>Quit Game</h3>
-            <p>Are you sure you want to quit?</p>
-            <button @* @onclick="QuitGame" *@>Yes</button>
-            <button @* @onclick="CancelQuitGame" *@>No</button>
-        </BodyTemplate>
-    </Modal>
+   
 </div>
-
+<Modal DialogCssClass="z-index-1000" @ref="smModal" UseStaticBackdrop="false" title="Quit Game" Size="ModalSize.Small">
+    <BodyTemplate>
+        <h3>Quit Game</h3>
+        <p>Are you sure you want to quit?</p>
+        <button class="bg-success text-white rounded dialog-yes-btn mt-2" @* @onclick="QuitGame" *@>Yes</button>
+        <button class="bg-danger text-white rounded dialog-no-btn m2-2" @* @onclick="CancelQuitGame" *@>No</button>
+    </BodyTemplate>
+</Modal>
 
 
 @code {
@@ -172,4 +171,3 @@
     }
 
 }
-
