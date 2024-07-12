@@ -805,3 +805,8 @@ p {
 
 }
 
+
+.modal-backdrop {
+    position:fixed;
+    z-index: 1000;
+}
