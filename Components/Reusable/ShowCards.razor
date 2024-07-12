@@ -5,31 +5,49 @@
 @using OneMoreDate.Models
 @using Microsoft.AspNetCore.Components.Web
 
-@if (dropdownIsOpen)
-{
-    <div class="screen-area-mouseclick" @onclick="ScreenClicked"> </div>
-}
-<div class="ShowCards-Container rounded animate__animated animate__fadeIn">
+
+
+<div class="ShowCards-Container rounded animate__animated animate__fadeIn" @onclick="OnOutsideClickAsync">
+
     <div class="previous-card-container">
         @if (ActivePlayer != null)
         {
             <div class="text-container">
                 <div class="background-pink">
                     <div class="d-flex justify-content-start p-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" @onclick="OpenMenu" fill="currentColor" class="bi bi-list hamburger-menu" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
-                        </svg>
+                        <div>
+                            <Dropdown @onmouseover="MouseIn" @onmouseout="MouseOut" Color="DropdownColor.Secondary" @ref="dropdown">
+                                <DropdownMenu Class="mt-4">
+                                    <DropdownItem To="#" Type="DropdownItemType.Link">How To Play</DropdownItem>
+                                    <DropdownItem @onclick="() => smModal.ShowAsync()" Type=" DropdownItemType.Link">Quit Game</DropdownItem>
+                                </DropdownMenu>
+                            </Dropdown>
+                        </div>
+
+                        @if (!dropdownIsOpen)
+                        {
+                            <Button @onclick="ShowAsync">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="white" class="bi bi-list hamburger-menu" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                                </svg>
+                            </Button>
+                        }
+
                         @if (dropdownIsOpen)
                         {
-                            <div class="game-menu">
-                              <ul>
-                                  <li>Quit Game</li>
-                              </ul>
-                            </div>
+                            <Button @onclick="HideAsync">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="white" class="bi bi-list hamburger-menu" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                                </svg>
+                            </Button>
                         }
+
                     </div>
+
+
                     <h2 class="activeplayer-header text-white">@($"{ActivePlayer.Name}'s turn")</h2>
                 </div>
+
 
                 @if (ActivePlayer.LivesTogether)
                 {
@@ -40,15 +58,16 @@
                     <h5>Relationship status: Married</h5>
                 }
 
-                @if (ActivePlayer.Hand == null || ActivePlayer.Hand.Count == 0)
+                @if (ActivePlayer.Hand.Count == 0 || ActivePlayer.Hand == null)
                 {
                     <div class="first-card">
-                        <div class="first-card-p">
+                        <div class=" first-card-p">
                             <p><span class="fw-bolder">@ActivePlayer.Name </span> is on the first date and meets someone who seems absolutely perfect...</p>
                         </div>
                     </div>
                 }
-                else
+
+                @if (ActivePlayer.Hand != null && ActivePlayer.Hand.Count > 0)
                 {
                     @if (ActivePlayer.LivesTogether)
                     {
@@ -64,34 +83,56 @@
                     {
                         <div class="question-container">
                             <img src="images/heart.png" alt="heart" class="heart-image fade-in-previous @GetDelayClass(delayCounter)" />
-                            <p class="fade-in-previous @GetDelayClass(delayCounter) mb-2">@card.Question</p>
+                            <p class="fade-in-previous @GetDelayClass(delayCounter) mb-2 ">@card.Question</p>
                         </div>
                         delayCounter++;
+
                     }
                 }
             </div>
         }
 
-        <button @onclick="CloseButton"><img src="./images/pinkarrow.png" alt="btn" class="forward-btn" /></button>
+        <button @onclick=CloseButton><img src="./images/pinkarrow.png" alt="btn" class="forward-btn" /></button>
     </div>
+    <Modal Class="modal-backdrop" @ref="smModal" UseStaticBackdrop="false" title="Quit Game" Size="ModalSize.Small">
+        <BodyTemplate>
+            <h3>Quit Game</h3>
+            <p>Are you sure you want to quit?</p>
+            <button @* @onclick="QuitGame" *@>Yes</button>
+            <button @* @onclick="CancelQuitGame" *@>No</button>
+        </BodyTemplate>
+    </Modal>
 </div>
 
+
+
 @code {
+    bool IsInside;
     public Player? ActivePlayer;
+    private Dropdown dropdown = default!;
+    private bool dropdownIsOpen = false;
+    private Modal smModal = default!;
 
     [Parameter]
     public EventCallback CloseButton { get; set; }
 
-    private bool dropdownIsOpen = false;
-
-    private void OpenMenu()
+    protected override void OnInitialized()
     {
-        dropdownIsOpen = true;
+        ActivePlayer = PlayerManager.GetActivePlayer();
     }
 
-    private void ScreenClicked()
+    private async Task ShowAsync()
     {
-        dropdownIsOpen = false; 
+        await dropdown.ShowAsync();
+        dropdownIsOpen = true;
+
+    }
+
+
+    private async Task HideAsync()
+    {
+        await dropdown.HideAsync();
+        dropdownIsOpen = false;
     }
 
     private string GetDelayClass(int delayCounter)
@@ -112,8 +153,23 @@
         };
     }
 
-    protected override void OnInitialized()
+
+    private void MouseIn()
     {
-        ActivePlayer = PlayerManager.GetActivePlayer();
+        IsInside = true;
     }
+    private void MouseOut()
+    {
+        IsInside = false;
+    }
+
+    private async Task OnOutsideClickAsync()
+    {
+        if (!IsInside && dropdownIsOpen)
+        {
+            await HideAsync();
+        }
+    }
+
 }
+
