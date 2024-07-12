@@ -710,6 +710,24 @@ img {
 
 /* showcards komponenten */
 
+.screen-area-mouseclick
+{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: 2px solid black;
+    z-index: 1000;
+}
+
+.game-menu {
+    position: absolute;
+    top: 8%;
+    background-color: white;
+    width: 50%;
+    height: 30%;
+    border: 2px solid black;
+}
+
 .previous-card-container {
     display: flex;
     font-family: "Playwrite SK";
@@ -806,7 +824,8 @@ p {
 }
 
 
-.modal-backdrop {
+.modal-backdrop
+{
     position:fixed;
     z-index: 1000;
 }
