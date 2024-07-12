@@ -1,0 +1,78 @@
+﻿@using Microsoft.AspNetCore.Components
+@using Components.Reusable;
+@using OneMoreDate.Managers
+@using OneMoreDate.Models
+
+
+<div>
+
+                             <Dropdown @onmouseover="MouseIn" @onmouseout="MouseOut" Color="DropdownColor.Secondary" @ref="dropdown">
+                                <DropdownMenu Class="mt-4">
+                                    <DropdownItem To="#" Type="DropdownItemType.Link">How To Play</DropdownItem>
+                                    <DropdownItem @* @onclick="() => smModal.ShowAsync()" *@ Type=" DropdownItemType.Link">Quit Game</DropdownItem>
+                                </DropdownMenu>
+                            </Dropdown>
+                    </div>
+
+
+
+
+                      @if (!dropdownIsOpen)
+                        {
+                            <Button  @onclick="ShowAsync">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="white" class="bi bi-list hamburger-menu" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                                </svg>
+                            </Button>
+                        }
+
+                    @if (dropdownIsOpen)
+                    {
+                            <Button  @onclick="HideAsync">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="white" class="bi bi-list hamburger-menu" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                                </svg>
+                            </Button>
+                    }
+                   
+                  
+
+@code {
+
+    private Dropdown dropdown = default!;
+    private bool IsInside;
+    private bool dropdownIsOpen = false;
+
+
+    private void MouseIn()
+    {
+        IsInside = true;
+    }
+    private void MouseOut()
+    {
+        IsInside = false;
+    }
+
+    private async Task OnOutsideClickAsync()
+    {
+        if (!IsInside && dropdownIsOpen)
+        {
+            await HideAsync();
+        }
+    }
+
+
+    private async Task ShowAsync()
+    {
+        await dropdown.ShowAsync();
+        dropdownIsOpen = true;
+
+    }
+
+
+    private async Task HideAsync()
+    {
+        await dropdown.HideAsync();
+        dropdownIsOpen = false;
+    }
+}
