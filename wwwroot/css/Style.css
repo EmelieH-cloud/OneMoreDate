@@ -267,18 +267,16 @@ img {
     background-color: gray;
     justify-content: space-between;
     position:fixed;
-   bottom:0%;
+     bottom:0%;
    z-index:1000;
-
- 
 }
-
 
 
 
 
 .player-names-header {
     position: sticky;
+
     width: 100%;
     background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
     display: flex;
@@ -826,5 +824,6 @@ p {
 .my-dialog-container
 {
     z-index: 1000;
+    background-color: white;
 }
 
