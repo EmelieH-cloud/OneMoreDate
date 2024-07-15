@@ -4,7 +4,7 @@
 @using OneMoreDate.Models
 @using Microsoft.AspNetCore.Components.Web
 
-
+<GoBackBtn BackUrl="menu" />
 
 <div class="ShowCards-Container rounded animate__animated animate__fadeIn" @onclick="OnOutsideClickAsync">
 
@@ -93,7 +93,7 @@
 
         <button @onclick=CloseButton><img src="./images/pinkarrow.png" alt="btn" class="forward-btn" /></button>
     </div>
-   
+
 </div>
 <Modal DialogCssClass="z-index-1000" @ref="smModal" UseStaticBackdrop="false" title="Quit Game" Size="ModalSize.Small">
     <BodyTemplate>

@@ -4,45 +4,54 @@
 @inject NavigationManager Navigation
 
 
-@if (showLogo)
-{
+<div class='outer-container '>
 
 
-    <div class="fade-in-btns">
-        <Background />
-    </div>
-}
-<div class='outer-container border border-danger'>
-   
-    <div class='inner-container  fade-out'>
-  
-        <h1 class="animate__animated animate__slideInLeft w-50 one">One</h1>
-        <h1 class="animate__animated animate__slideInLeft animate__delay-1s w-60   more">more</h1>
+    @if (showLogo)
+    {
 
-    </div>
-    <div class='outer-image-container fade-out ' >
+
+        <div class="fade-in-btns">
+            <Background />
+        </div>
+    }
+
+    <div class='outer-image-container fade-out '>
+        <div class='inner-container  fade-out'>
+
+            <h1 class="animate__animated animate__slideInLeft w-50 one">One</h1>
+            <h1 class="animate__animated animate__slideInLeft animate__delay-1s w-60   more">more</h1>
+
+        </div>
+
         <h1 class="animate__animated animate__slideInRight animate__delay-2s date">Date?</h1>
+
         <div class='  image-container'>
-           
-            <img  src=@images[currentImageIndex] alt="logo" class="logo" />
+
+            <img src=@images[currentImageIndex] alt="logo" class="logo" />
         </div>
     </div>
     <div class='outer-image-container fade-in'>
-       
+
         <div class='image-container'>
             <img id="logo" src=@images[currentImageIndex] alt="logo" class="logo fade-out-after-animations" />
         </div>
     </div>
-   
+
+
+
+
+
 </div>
+
 
 @if (showButtons)
 {
-    <div class="fade-in-btns">
+    <div class="fade-in-btns ">
 
-        <div class="outer-btn-container  ">
+        <div class="outer-btn-container">
             <div class="inner-menu-container ">
-                <TableImage/>
+                <TableImage />
                 <button @onclick="StartGame" class=" button-29 menu-start-btn p-1"> Start game </button>
                 <button @onclick="GoToRules" class="button-29 menu-rules-btn p-1"> Rules </button>
             </div>
@@ -62,7 +71,7 @@
         "images/Bild_3.png",
         "images/Bild_4.png",
         "images/Bild_5.png"
-    };
+        };
 
     private int currentImageIndex = 0;
     private Timer _timer; // timer för bildbyte
@@ -71,7 +80,7 @@
     protected override async Task OnInitializedAsync()
     {
         _timer = new Timer(ChangeImage, null, 3500, 500);
-       
+
     }
 
 
@@ -82,7 +91,7 @@
             currentImageIndex = (currentImageIndex + 1) % images.Length;
             if (currentImageIndex == images.Length - 1)
             {
-                _timer?.Dispose(); 
+                _timer?.Dispose();
                 showButtons = true;
                 showLogo = true;
             }
@@ -108,7 +117,7 @@
     }
 
 
-  
-  
-  
+
+
+
 }
