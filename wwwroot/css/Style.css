@@ -40,7 +40,8 @@ img {
     background-color: #FFF0F4;
     position: absolute;
     z-index: -1;
-    height:100%;
+    height:100vh;
+    width:100vw;
 
 }
 
@@ -57,7 +58,7 @@ img {
 }
 
 .image-container {
-
+   
     display: flex;
     justify-content: center;
     align-items:center; 
@@ -84,11 +85,12 @@ img {
     box-shadow: none; /* Ta bort eventuell box-shadow */
     text-decoration: none; /* Ta bort eventuell text-dekoration */
     font-family: "Nanum Myeongjo", serif;
-    margin-left: 15%;
+    margin-left: 20%;
     padding: 0%;
     font-weight: 100;
     font-size:120px;
     background-color:yellow;
+    margin-top:15%;
 }
 
 .more {
@@ -111,7 +113,7 @@ img {
     color: #FF1DA5;
     position: absolute;
     /* Positionerar elementet absolut relativt till närmaste positionerade parent */
-    top: 50%;
+    top: 70%;
     /* Placerar elementet 55% från toppen av dess närmaste positionerade parent */
     text-align: center;
     width: 100%;
@@ -163,7 +165,7 @@ img {
     opacity: 0;
     /* Börjar med ingen opacitet (helt genomskinlig) */
     animation: fadeIn 6s ease 2s forwards;
- 
+    background-color: #FFF0F4;
 }
 
 
@@ -181,7 +183,10 @@ img {
 }
 /* 3. Menu -----------------------------------------------------*/
 
+
+
 .outer-btn-container {
+
     background: rgb(195,34,126);
     background: linear-gradient(0deg, rgba(195,34,126,0.14002097420999648) 0%, rgba(253,45,178,0.030777276731004943) 100%);
     position: absolute;
@@ -195,16 +200,16 @@ img {
     border-radius: 6%;
     position: relative;
     margin-top: calc(100% + 2vh);
-
+   
 }
 
 .menu-rules-btn {
-   margin-top: 5%; 
+    margin-top: 5%;
     height: 65px;
     border-radius: 6%;
     width: 100%;
     position: relative;
-
+  
 }
 
 .modal-bg {
@@ -221,6 +226,7 @@ img {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    background-color: #FFF0F4;
 }
 
 /* 4.  --------------------------------*/
@@ -244,6 +250,7 @@ img {
     width: 100%;
     background-size: 100%;
     background-image: url(../images/background-pattern12.png);
+    position:fixed;
 }
 
 
@@ -263,11 +270,13 @@ img {
      bottom:0%;
    z-index:1000;
 }
- 
-.player-names-header 
-{
-    color: black;
-    position: absolute;
+
+
+
+
+.player-names-header {
+    position: sticky;
+
     width: 100%;
     background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
     display: flex;
@@ -376,6 +385,7 @@ img {
 {
     width: 100vw;
    height:100vh;
+   position:absolute;
     
 
 }
@@ -383,7 +393,7 @@ img {
 
 .added-names-container
 {
-
+    
     margin-top: 20%;
     width: 100%;
     max-height: 70%;
@@ -418,7 +428,7 @@ img {
 }
 
 .names-header {
-
+    margin-top:15%;
     padding:1%;
   
     color:white;
@@ -479,11 +489,7 @@ img {
     border-radius: 10%;
 }
 
-.back-btn 
-{
-    width: 35px;
-    border-radius: 50%;
-}
+
 
 .overlay-background {
     position: fixed;
@@ -666,14 +672,18 @@ img {
 
 .back-btn {
     position: absolute;
-    left: 1%;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
+    margin-top: 12%;
+    margin-left:3%;
+    margin-right:2%;
+    margin-bottom:1%;
+    border-radius:50%;
 }
 
 .custom-margin {
@@ -687,8 +697,9 @@ img {
     top: 9px;
 }
 
-.back-button-svg {
-    width: 40%;
+.back-btn-svg {
+    width: 100%;
+    height:100%;
 }
 
 .table-img {
