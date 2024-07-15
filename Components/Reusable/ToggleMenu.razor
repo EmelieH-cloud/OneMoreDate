@@ -1,0 +1,144 @@
+﻿@inject NavigationManager NavigationManager
+
+
+
+
+<style>
+    /*
+    Förklaring av grid-systemet ---------------------------------------------
+      
+        | top    | top    | top    |
+        | left   | modal  | right  |
+        | bottom | bottom | bottom |
+   
+     .container: 
+        täcker hela komponenten och har absolut positionering (position: absolute;) för att täcka
+        hela bildskärmen (width: 100vw; height: 100vh;). Den är samtidigt en grid container med 
+        en 3x3-rutnätslayout. Rutnätet definieras med grid-template-areas,
+        grid-template-columns och grid-template-rows.
+
+    grid-template-columns: 
+       1fr auto 1fr:
+       1fr: Den första och tredje kolumnen tar upp lika mycket av det återstående utrymmet (en fraktion var).
+       auto: Den mellersta kolumnen (där modal ligger) tar upp så mycket utrymme som dess innehåll behöver.
+  
+       grid-template-rows: 
+        1fr auto 1fr::
+        1fr: Den första och tredje raden tar upp lika mycket av det återstående utrymmet (en fraktion var).
+        auto: Den mellersta raden (där modal ligger) tar upp så mycket utrymme som dess innehåll behöver.
+
+      grid-template-areas:
+        "top top top": Den första raden består av tre kolumner, alla namngivna top.
+         Det betyder att detta område sträcker sig över hela den första raden.
+        "left modal right": Den andra raden har tre områden: left, modal, och right.
+        Varje namn representerar en kolumn i denna rad.
+        
+        "bottom bottom bottom": Den tredje raden består av tre kolumner, alla namngivna bottom, 
+        vilket betyder att detta område sträcker sig över hela den tredje raden.
+     */
+
+    
+    .container {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        grid-template-areas:
+            "top top top"
+            "left modal right"
+            "bottom bottom bottom";
+        grid-template-columns: 1fr auto 1fr;
+        grid-template-rows: 1fr auto 1fr;
+    }
+
+    .toggle-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+    }
+
+    .my-menu-modal {
+        grid-area: modal;
+        width: 300px;
+        height: auto;
+        background-color: white;
+        z-index: 1200;
+        align-self: center;
+        justify-self: center;
+        border-radius: 10px; 
+    }
+
+    .links-container
+    {
+        display: flex; 
+        flex-direction: column;
+        padding: 3%; 
+    }
+    
+    /* 
+    .toggle-screen: det semi-transparenta skiktet som täcker resten av sidan när modalen är öppen.
+    Det har grid-area inställt på att täcka alla rader (top till bottom) och kolumner (left till right).
+    Bakgrundsfärgen är en svart färg med 50% opacitet (rgba(0, 0, 0, 0.5)), vilket ger en halvgenomskinlig
+    effekt. z-index används för att placera detta över andra element på sidan.
+
+    .my-menu-modal: Detta är själva modalens innehåll. Det tar upp ett fyrkantigt
+    område på grid med namnet modal. Bakgrundsfärgen är vit (background-color: white;).
+    z-index är inställt högre än .toggle-screen för att se till att modalen visas över den
+    semi-transparenta bakgrunden.
+
+     "top top top": Den första raden består av tre kolumner, alla namngivna top.
+     Det betyder att detta område sträcker sig över hela den första raden.
+    "left modal right": Den andra raden har tre områden: left, modal, och right. 
+    Varje namn representerar en kolumn i denna rad.
+    "bottom bottom bottom": Den tredje raden består av tre kolumner, alla namngivna bottom, vilket betyder att detta område sträcker sig över hela den tredje raden.*/
+
+
+</style>
+
+<div>
+    <button @onclick="HandleModal">Open Modal</button>
+
+    @if (modalShowing)
+    {
+        <div class="container">
+            <div class="toggle-screen" @onclick="HandleScreenClick"></div>
+            <div class="my-menu-modal">
+                <div class="links-container">
+                <button @onclick="NavigateToSomething">Quit Game</button>
+                <button @onclick="NavigateToSomething">Rules</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+
+@code {
+    private bool modalShowing = false;
+
+    private void HandleModal()
+    {
+        modalShowing = true;
+    }
+
+    private void NavigateToSomething()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+
+    private void HandleScreenClick()
+    {
+        if (modalShowing)
+        {
+            modalShowing = false;
+            StateHasChanged();
+        }
+    }
+}

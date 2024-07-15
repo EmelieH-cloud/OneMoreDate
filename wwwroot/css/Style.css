@@ -260,16 +260,10 @@ img {
     background-color: gray;
     justify-content: space-between;
     position:fixed;
-   bottom:0%;
+     bottom:0%;
    z-index:1000;
-
- 
 }
  
-
-   
-
-
 .player-names-header 
 {
     color: black;
@@ -819,5 +813,6 @@ p {
 .my-dialog-container
 {
     z-index: 1000;
+    background-color: white;
 }
 
