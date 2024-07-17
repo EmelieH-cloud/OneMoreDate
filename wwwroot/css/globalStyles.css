@@ -50,8 +50,8 @@ button {
     align-items: center;
     appearance: none;
     background: rgb(241,13,128);
- 
 
+    background: linear-gradient(0deg, rgba(241,13,128,1) 0%, rgba(246,72,168,1) 5%, rgba(251,37,123,1) 92%);
     border: 0;
     border-radius: 30px;
     box-sizing: border-box;
