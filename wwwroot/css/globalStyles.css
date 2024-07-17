@@ -73,7 +73,9 @@ button {
     touch-action: manipulation;
     white-space: nowrap;
     will-change: box-shadow, transform;
-    font-size: 30px;
+    font-size: 25px;
+    font-family:"Poppins";
+    font-weight:400;
 }
 
     .button-29:focus {
