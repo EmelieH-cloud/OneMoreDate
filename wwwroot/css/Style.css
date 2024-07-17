@@ -44,7 +44,7 @@ img {
     display: flex;
     justify-content: center;
     align-items:center; 
-    background-color: #FFF0F4;
+   
 }
 
 .outer-image-container {
@@ -170,13 +170,29 @@ img {
     /* Justera tjockleken på ramen efter behov */
     border-top-left-radius: 170px; /* Skapar rundade hörn */
     border-top-right-radius: 170px; /* Skapar rundade hörn */
- /* Platt botten */
+    /* Platt botten */
     position: absolute; /* Behövs för att positionera pseudo-elementet */
     overflow: hidden; /* För att dölja pseudo-elementet utanför ramen */
-    background: linear-gradient(0deg, rgba(241,13,128,1) 0%, rgba(246,72,168,1) 5%, rgba(251,37,123,1) 92%); /* Bakgrundsfärg */
-    opacity:0.2;
-    top:35%;
+ 
+    background: rgba(241, 13, 128, 0.1);
+    top: 35%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
+
+    .oval-frame img {
+        opacity: 1; /* Återställer opacity för bilden till full opacity */
+        /* Eventuella andra stilar för bilden */
+    }
+
+
+    .table-image-new
+    {
+        width:115%;
+    }
+
+
 
     /*.oval-frame::before {
         content: "";
