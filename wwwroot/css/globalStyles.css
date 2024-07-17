@@ -1,9 +1,9 @@
 ﻿/* 1. Globala stilar ---------------------------*/
 
 body {
-    background-color: #FFF0F4;
+    background: linear-gradient(0deg, rgb(247, 247, 247) 23.8%, rgb(252, 221, 221) 92%);
     height: 100vh;
-    width:100vw;
+    width: 100vw;
 }
 
 
@@ -23,10 +23,8 @@ h1 {
 }
 
 
-
-
-
-h1, h3, h2, h5, li, h6, h4 {
+h1, h3, h2, h5, li, h6, h4 
+{
     font-family: 'Afacad';
     font-weight: lighter;
 }
@@ -44,16 +42,17 @@ h1, h3, h2, h5, li, h6, h4 {
 
 button {
     border: none;
+    font-family: 'Afacad';
 }
 
 
 .button-29 {
     align-items: center;
     appearance: none;
-    background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
+    background: rgb(241,13,128);
+    background: linear-gradient(0deg, rgba(241,13,128,1) 0%, rgba(246,72,168,1) 5%, rgba(251,37,123,1) 92%);
     border: 0;
-    border-radius: 6px;
-    box-shadow: rgba(255, 29, 165, .6) 0 4px 6px, rgba(255, 29, 165, .5) 0 8px 16px -4px, rgba(255, 29, 165, .7) 0 -3px 0 inset, rgba(0, 0, 0, .1) 0 1px 0 inset;
+    border-radius: 30px;
     box-sizing: border-box;
     color: #fff;
     cursor: pointer;
