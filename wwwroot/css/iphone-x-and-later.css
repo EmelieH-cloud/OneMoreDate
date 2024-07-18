@@ -1,7 +1,7 @@
 ﻿
 
 
-/* iPhone X, iPhone XS */
+ iPhone X, iPhone XS 
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
     body {
         padding-top: env(safe-area-inset-top);
@@ -12,7 +12,7 @@
 }
 
 
-/* iPhone XR, iPhone 11 */
+ iPhone XR, iPhone 11 
 @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
     body {
         padding-top: env(safe-area-inset-top);
@@ -22,7 +22,7 @@
     }
 }
 
-/* iPhone XS Max, iPhone 11 Pro Max */
+ iPhone XS Max, iPhone 11 Pro Max 
 @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
     body {
         padding-top: env(safe-area-inset-top);
@@ -32,7 +32,7 @@
     }
 }
 
-/* iPhone 11 Pro */
+ iPhone 11 Pro 
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
     body {
         padding-top: env(safe-area-inset-top);
@@ -42,7 +42,7 @@
     }
 }
 
-/* iPhone 12 mini */
+ iPhone 12 mini 
 @media only screen and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) {
     body {
         padding-top: env(safe-area-inset-top);
@@ -52,7 +52,7 @@
     }
 }
 
-/* iPhone 12, iPhone 12 Pro */
+ iPhone 12, iPhone 12 Pro 
 @media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
     body {
         padding-top: env(safe-area-inset-top);
@@ -62,7 +62,7 @@
     }
 }
 
-/* iPhone 12 Pro Max */
+ iPhone 12 Pro Max 
 @media only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     body {
         padding-top: env(safe-area-inset-top);
@@ -72,7 +72,7 @@
     }
 }
 
-/* iPhone 13 mini */
+ iPhone 13 mini 
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
     body {
         padding-top: env(safe-area-inset-top);
@@ -82,7 +82,7 @@
     }
 }
 
-/* iPhone 13, iPhone 13 Pro */
+ iPhone 13, iPhone 13 Pro 
 @media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
     body {
         padding-top: env(safe-area-inset-top);
@@ -92,7 +92,7 @@
     }
 }
 
-/* iPhone 13 Pro Max */
+ iPhone 13 Pro Max 
 @media only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     body {
         padding-top: env(safe-area-inset-top);
@@ -102,7 +102,7 @@
     }
 }
 
-/* iPhone 14 */
+ iPhone 14 
 @media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
     body {
         padding-top: env(safe-area-inset-top);
@@ -112,7 +112,7 @@
     }
 }
 
-/* iPhone 14 Plus */
+ iPhone 14 Plus 
 @media only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     body {
         padding-top: env(safe-area-inset-top);
@@ -122,7 +122,7 @@
     }
 }
 
-/* iPhone 14 Pro */
+ iPhone 14 Pro 
 @media only screen and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) {
     body {
         padding-top: env(safe-area-inset-top);
@@ -132,7 +132,7 @@
     }
 }
 
-/* iPhone 14 Pro Max */
+ iPhone 14 Pro Max 
 @media only screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) {
     body {
         padding-top: env(safe-area-inset-top);

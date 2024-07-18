@@ -75,6 +75,10 @@
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="wwwroot\css\Media queries\" />
+    </ItemGroup>
+
     <ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionOneMoreDateHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>
