@@ -1,0 +1,300 @@
+﻿
+
+@media (max-height: 700px) {
+
+
+    .one{
+
+        background-color:orange;
+
+
+    }
+    .oval-frame {
+        width: 100%; /* Justera bredden efter behov */
+        height: 150%; /* Justera höjden efter behov */
+        /* Justera tjockleken på ramen efter behov */
+        border-top-left-radius: 170px; /* Skapar rundade hörn */
+        border-top-right-radius: 170px; /* Skapar rundade hörn */
+        /* Platt botten */
+        position: absolute; /* Behövs för att positionera pseudo-elementet */
+        overflow: hidden; /* För att dölja pseudo-elementet utanför ramen */
+
+        background: rgba(241, 13, 128, 0.1);
+        top: 25%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .oval-frame img {
+            opacity: 1; /* Återställer opacity för bilden till full opacity */
+            /* Eventuella andra stilar för bilden */
+        }
+
+
+    .table-image-new {
+        width: 100%;
+        margin-bottom: 20%;
+    }
+
+
+    .circle-frame {
+        width: 150%; /* Justera bredden efter behov */
+        height: 250px; /* Justera höjden efter behov */
+        border-radius: 50%; /* Skapar en rund form */
+        position: absolute; /* Positioneras relativt till närmaste positionerade förälder (oval-frame) */
+        bottom: -10%; /* Placeras under den övre ovalen */
+        /* Justera horisontell positionering efter behov */
+        background-color: rgba(255, 255, 255, 0.8); /* Bakgrundsfärgen med opacity */
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Skugga för effekt */
+        display: flex; /* Använder flexbox för att centrera barn-elementen */
+        justify-content: center; /* Centrerar horisontellt */
+        align-items: center;
+    }
+
+    .menu-start-btn {
+        height: 50px;
+        width: 50%;
+  
+        position: absolute;
+        bottom: 50%;
+        margin-bottom: 5%;
+    }
+
+ 
+
+    .menu-rules-btn {
+        margin-top: 5%;
+        height: 50px;
+        position: absolute;
+        bottom: 35%;
+        width: 50%;
+    }
+
+
+
+
+
+@media (min-width: 400px) and (max-width: 799px) {
+    .one {
+        font-size: 145px;
+        background-color: blue;
+    }
+
+    .more {
+        font-size: 130px;
+        
+    }
+
+    .date {
+        font-size: 128px;
+    }
+
+
+    h1 {
+        font-size: 3em;
+    }
+
+    img {
+        width: 90vw;
+    }
+
+    .inner-menu-container {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 70vw;
+    }
+
+    .modal-bg {
+        background-color: rgba(255, 192, 203, 0.5);
+        opacity: .8;
+        width: 95%;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    .container-players {
+        width: 65vw;
+    }
+
+
+    .menu-start-btn {
+        position: absolute;
+        width: 85vw;
+        top: 68%;
+    }
+
+    .menu-rules-btn {
+        position: absolute;
+        width: 85vw;
+        top: 78%;
+    }
+
+
+    .players-btn {
+        width: 70px;
+        height: 70px;
+    }
+
+
+    /* 10.3 InputPlayerNames:*/
+
+    .outer-container-inputplayernames {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        background-color: green;
+    }
+
+
+    .names-header {
+        padding: 1%;
+        color: white;
+        font-size: 2.5rem;
+    }
+
+    .player-names-header {
+        color: black;
+        position: absolute;
+        width: 100%;
+        background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .done-btn {
+        height: 80%;
+        color: white;
+        width: 55px;
+        display: flex;
+        border-radius: 5px;
+        justify-content: center;
+        align-items: center;
+        background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
+    }
+
+    .done-btn-disabled {
+        height: 80%;
+        color: white;
+        width: 55px;
+        display: flex;
+        border-radius: 5px;
+        justify-content: center;
+        align-items: center;
+        cursor: not-allowed;
+        background-color: #6c757d;
+    }
+
+    .add-btn {
+        margin-right: 2%;
+        margin-left: 2%;
+        color: white;
+        width: 55px;
+        border-radius: 5px;
+        background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80%;
+    }
+
+    .add-btn-disabled {
+        margin-right: 2%;
+        margin-left: 2%;
+        color: white;
+        background-color: #6c757d;
+        width: 70px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80%;
+    }
+
+    .input-container {
+        width: 100vw;
+        display: flex;
+        background-color: gray;
+        position: fixed;
+        bottom: 0%;
+        z-index: 1000;
+        height: 70px;
+        justify-content: start;
+        align-items: center;
+    }
+
+
+    .name-input {
+        width: 80%;
+        height: 80%;
+        font-size: 1rem;
+    }
+
+
+    .name-p {
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2%;
+        border-radius: 20px;
+        color: white;
+        background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
+    }
+
+
+    .remove-btn {
+        width: 40px;
+        height: 40px;
+        margin: 2%;
+        border-radius: 10px;
+        color: white;
+        background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* 10.3 GoBackButton*/
+
+    .back-btn {
+        position: absolute;
+        left: 1%;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .custom-margin {
+        margin-bottom: 70%;
+    }
+
+    .navigate-btn-container {
+        margin: 1%;
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        top: 5px;
+    }
+
+    .back-button-svg {
+        width: 40%;
+    }
+
+
+    /* Select Deck */
+
+    .p-text {
+        font-size: 25px;
+        line-height: 35px;
+    }
+
+    .deck-modal-header {
+        font-size: 45px;
+    }
+}
