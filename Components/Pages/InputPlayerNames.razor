@@ -6,18 +6,17 @@
 
 
 
-<div class="outer-container-inputplayernames ">
 
-<div class="background-image-container">
+        <div class="hearts-bg">
+    <img src="images/bghearts.png" alt="hearts" style="width: 100%;" />
+
+        </div>
         <GoBackBtn BackUrl="menu" /> 
-        
-
             <div class="added-names-container">
                 @foreach (var name in Names)
                 {
-                    <div class="name-container  rounded">
-
-                        <div class="inner-name-container  animate__animated animate__slideInLeft">
+                    <div class="name-container rounded">
+                        <div class="inner-name-container animate__animated animate__slideInLeft">
                             <p class=" name-p ">
                                 @name
                             </p>
@@ -33,7 +32,14 @@
                     </div>
                 }
             </div>
-         
+
+
+<div class="playernames-header-container">
+    <h2 class="fw-bold">Player names</h2>
+</div>
+            <div class="outer-input-container">
+           
+
             <div class="input-container rounded animate__animated animate__slideInLeft ">
                     <input @bind="InputValue" placeholder="Name" class="name-input form-control custom-color" disabled="@inputIsDone" @oninput="UpdateInputValue" @ref=" playerNameInput" @onkeydown="HandleKeyPress"  />
             <button @onclick="AddPlayers" class="@(string.IsNullOrWhiteSpace(InputValue) ? "add-btn-disabled" : "add-btn")">
@@ -47,9 +53,10 @@
                         </svg>
                     </button>
                 </div>
-
-        </div>
 </div>
+
+
+
 
 
 @code {
