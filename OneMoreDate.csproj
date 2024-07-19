@@ -66,6 +66,13 @@
         <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
         <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
     </ItemGroup>
+    <ItemGroup>
+      <AndroidResource Remove="wwwroot\css\Media queries\**" />
+      <Compile Remove="wwwroot\css\Media queries\**" />
+      <Content Remove="wwwroot\css\Media queries\**" />
+      <EmbeddedResource Remove="wwwroot\css\Media queries\**" />
+      <None Remove="wwwroot\css\Media queries\**" />
+    </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Blazor.Bootstrap" Version="3.0.0-preview.2" />
@@ -73,10 +80,6 @@
         <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="wwwroot\css\Media queries\" />
     </ItemGroup>
 
     <ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionOneMoreDateHideInfoBar="True" /></VisualStudio></ProjectExtensions>

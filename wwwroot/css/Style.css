@@ -285,18 +285,31 @@ img {
 /* 4.  --------------------------------*/
     /* 5. InputPlayerNames------------------------------------*/
 
+    .hearts-bg
+    {
+        position: absolute; 
+        opacity: .1;
+        top: 25%; 
+        width: 100vw;
+        z-index: -1;
 
-    .background-image-container {
+    }
 
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
+
 .name-input {
     border-radius: 20px;
     width: 80%;
 }
 
+.outer-input-container
+{
+
+    display: flex;
+
+    align-items: flex-end;
+
+
+}
 
 
 .custom-color {
@@ -304,10 +317,9 @@ img {
 }
 
 .input-container {
-    width: 85vw;
+    width: 100vw;
     display: flex;
-    padding: 2%;
-   margin: 0 auto;
+    padding: 2%; 
     z-index: 1000;
 }
 
@@ -319,7 +331,7 @@ img {
     justify-content: space-between;
     align-items: center;
 
-    margin: 0 auto;
+ 
 }
 
 .done-btn-svg{
@@ -330,8 +342,8 @@ img {
     color: white;
     width: 42px;
     height: 42px;
-    background-color: #FF1DA5;
-   
+    background: rgb(241,13,128);
+    background: linear-gradient(0deg, rgba(241,13,128,1) 0%, rgba(246,72,168,1) 5%, rgba(251,37,123,1) 92%);
     display: flex;
     border-radius: 50%;
     justify-content: center;
@@ -345,7 +357,8 @@ img {
     border-radius: 50%;
     display: flex;
     opacity: .6;
-    background-color: #FF1DA5;
+    background: rgb(241,13,128);
+    background: linear-gradient(0deg, rgba(241,13,128,1) 0%, rgba(246,72,168,1) 5%, rgba(251,37,123,1) 92%);
     justify-content: center;
     align-items: center;
     cursor: not-allowed;
@@ -355,14 +368,14 @@ img {
 
 .name-p {
   
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+   
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     margin: 2%;
+    padding: 2%; 
     border-radius: 20px;
-   
-    color: black;
     background-color: white;
 }
 
@@ -372,7 +385,8 @@ img {
     color: white;
     height: 42px;
     margin-left: 1%;
-    background-color: #FF1DA5;
+    background: rgb(241,13,128);
+    background: linear-gradient(0deg, rgba(241,13,128,1) 0%, rgba(246,72,168,1) 5%, rgba(251,37,123,1) 92%);
     opacity: .6;
     width: 42px;
     border-radius: 50%;
@@ -387,13 +401,15 @@ img {
     margin-right: 1%;
     margin-left: 1%;
     border-radius: 50%;
-    background-color: #FF1DA5;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: rgb(241,13,128);
+    background: linear-gradient(0deg, rgba(241,13,128,1) 0%, rgba(246,72,168,1) 5%, rgba(251,37,123,1) 92%);
 }
 
-.add-btn-svg{
+.add-btn-svg
+{
     width:100%;
 }
 
@@ -403,29 +419,24 @@ img {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background-color: #FF1DA5;
+    background: rgb(241,13,128);
+    background: linear-gradient(0deg, rgba(241,13,128,1) 0%, rgba(246,72,168,1) 5%, rgba(251,37,123,1) 92%);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 
-.outer-container-inputplayernames {
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    background-color:orange;
-   
-}
 
 
-.added-names-container {
-    margin-top: 20%;
+.added-names-container 
+{
+    top: 32%;
     z-index: 1;
     width: 100%;
-    max-height: 70%;
     overflow-y: auto;
     position: absolute;
+    margin-left: 2%; 
 }
 
     .added-names-container::-webkit-scrollbar 
@@ -453,40 +464,45 @@ img {
     
 }
 
-.names-header {
+.playernames-header-container
+{
 
-    padding:2%;
-    color: white;
+    text-align: left;
+    padding-left: 4%; 
+    align-self: flex-start;
+    width: 100vw;
+    margin-top: 16%; 
 }
 
 
-/* 6. SelectDeck ---------------------------*/
 
+/* 6. SelectDeck ---------------------------*/
 .deck-header {
-   
     padding: 1%;
     margin-top: 2%;
     font-size: 1.8rem;
     width: 80%;
-    color: white;
+ 
     border-radius: 20px;
-    text-align:center;
+    text-align: center;
 }
 
-.my-decks-container 
-{
+.my-decks-container {
     padding: 3%;
-    width: 90%;
+    width: 100%;
+    border: 2px solid red;
     margin: 0 auto;
+    background: linear-gradient(to bottom, #FAE4E4, white);
+  
 }
 
-.fixed-back-btn 
-{
+.fixed-back-btn {
     position: fixed;
     width: 55px;
     padding: 1%;
     left: 1%;
-    top: 0;
+    background-color: #FAE4E4;
+    top: 3%;
     transform: translateY(-50%);
     z-index: 1000; /* Se till att knappen ligger över annat innehåll */
 }
@@ -536,7 +552,8 @@ img {
 
 .p-text 
 {
-    font-size: 17px;
+    font-size: 14px;
+    font-weight: bold;
     line-height:26px;
 }
 
@@ -571,18 +588,18 @@ img {
     border-radius: 35px;
     left: 50%;
     transform: translate(-50%, -50%);
-
+    background-color: #F9BFD7;
     z-index: 1000;
-    
 }
 
 .modal-btn {
     position: absolute;
     bottom: 8%;
     width: 80%;
-    background-color: rgba(180, 29, 100, 0.7);
+    background: rgb(241,13,128);
+    background: linear-gradient(0deg, rgba(241,13,128,1) 0%, rgba(246,72,168,1) 5%, rgba(251,37,123,1) 92%);
     border-radius: 30px;
-    font-size: 25px;
+    font-size: 16px;
     padding: 5%;
     font-weight: bold;
 }
@@ -592,7 +609,8 @@ img {
 }
 
 
-.deckmodal-outer-container {
+.deckmodal-outer-container
+{
     width: 100%;
     height: 100%;
     position: absolute;
@@ -612,7 +630,7 @@ img {
 {
     border: 2px solid red;
     width: 100vw;
- 
+
     display:flex;
     justify-content:center;
     align-items:center;
@@ -693,16 +711,8 @@ img {
 /* 9. Go Back Btn */
 
 .back-btn {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #FF1DA5;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-left: 2%;
-    margin-right: 2%;
+  
+    background-color: #FCDDDD;
 }
 
 .custom-margin {
@@ -716,11 +726,11 @@ img {
     top: 2%; 
 }
 
-.back-btn-svg {
-    width: 100%;
-
-    height:100%;
+.back-btn-size
+{
+    width: 22px;
 }
+
 
 .table-img {
     width: 100vw;
@@ -756,8 +766,7 @@ img {
 
 .ShowCards-Container {
     position: absolute;
-
-  
+    background: linear-gradient(to bottom, #FAE4E4, white);
     height: 100%;
 }
 
@@ -777,8 +786,9 @@ img {
 .forward-btn {
     width: 15%;
     position: absolute;
-    bottom: 1%;
-    right: 1%;
+    bottom: 5%; 
+    left: 48%;
+
 }
 
 p {
@@ -801,8 +811,8 @@ p {
 }
 
 .first-card-p {
-    font-size: 1.5rem;
-    font-family: 'Afacad';
+    font-size: 1.2rem;
+
 }
 
 .question-container {
@@ -813,7 +823,9 @@ p {
 }
 
 .activeplayer-header {
-    font-size: 3rem;
+   
+    font-size: 2rem;
+  
     padding-bottom: 8%;
 }
 
@@ -890,12 +902,10 @@ p {
     padding: 3%;
 }
 
-.hamburger-icon 
-{
+.hamburger-icon {
     width: 40px;
-    color: white;
-    background-image: radial-gradient(100% 100% at 100% 0, #FF6FCF 0, #FF1DA5 100%);
- 
+    color: black;
+    background-color: #FAE4E4;
 }
 
 

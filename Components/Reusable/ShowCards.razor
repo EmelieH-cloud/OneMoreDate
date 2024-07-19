@@ -4,7 +4,7 @@
 @using OneMoreDate.Models
 @using Microsoft.AspNetCore.Components.Web
 
-<GoBackBtn BackUrl="menu" />
+
 
 <div class="ShowCards-Container rounded animate__animated animate__fadeIn">
 
@@ -26,7 +26,7 @@
                     </div>
 
 
-                    <h2 class="activeplayer-header text-white">@($"{ActivePlayer.Name}'s turn")</h2>
+                    <h2 class="activeplayer-header">@($"{ActivePlayer.Name}'s turn")</h2>
                 </div>
 
 
@@ -73,7 +73,7 @@
             </div>
         }
 
-        <button @onclick=CloseButton><img src="./images/pinkarrow.png" alt="btn" class="forward-btn" /></button>
+        <button @onclick=CloseButton><img src="./images/continue.png" alt="btn" class="forward-btn animate__animated animate__heartBeat animate__infinite infinite" /></button>
     </div>
 
 </div>

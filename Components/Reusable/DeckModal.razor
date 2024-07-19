@@ -1,7 +1,7 @@
 ﻿@inject NavigationManager Navigation;
 
 <div class="deckmodal-outer-container">
-    <div class="deck-modal @AddAnimationClass border border-danger">
+    <div class="deck-modal @AddAnimationClass">
     <div class="deck-modal-btn-container  ">
     <button type="button" class=" btn-close small " aria-label="Close" @onclick=CloseButton></button>
     </div>
@@ -9,11 +9,11 @@
 
     @if(DeckNumber ==1) 
     {
- <h2 class=" text-white deck-modal-header" >Trial Deck</h2>
+ <h2 class=" deck-modal-header" >Trial Deck</h2>
 
  <div class="deck-modal-text-container ">
-                <p class="modal-font p-text text-white">Ready to dive into the joy of our game but not sure where to start?</p>
-                <p class="modal-font p-text text-white ">The trial version lets you experience the fun but without the commitment</p>
+                <p class="modal-font p-text">Ready to dive into the joy of our game but not sure where to start?</p>
+                <p class="modal-font p-text">The trial version lets you experience the fun but without the commitment</p>
                 </div>
     }
         <button @onclick=btnClick class="text-white modal-btn ">PLAY</button>
