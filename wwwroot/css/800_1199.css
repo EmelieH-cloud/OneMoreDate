@@ -5,6 +5,7 @@
     .one {
         background-color: purple;
         font-size: 200px;
+        margin-top:3%;
     }
 
     .more {
@@ -16,16 +17,69 @@
         font-size: 180px;
     }
 
+
+    .oval-frame {
+        width: 100%; /* Justera bredden efter behov */
+        height: 100vh; /* Justera höjden efter behov */
+        top: 0%;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0; /**/
+
+        position: absolute; /* Behövs för att positionera pseudo-elementet */
+        overflow: hidden; /* För att dölja pseudo-elementet utanför ramen */
+
+        background: rgba(241, 13, 128, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .oval-frame-menu {
+        width: 100%; /* Justera bredden efter behov */
+       height:100%; /* Justera höjden efter behov */
+        margin-top: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0; /**/
+
+        position: absolute; /* Behövs för att positionera pseudo-elementet */
+        overflow: hidden; /* För att dölja pseudo-elementet utanför ramen */
+
+        background: rgba(241, 13, 128, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .circle-frame {
+        width: 150%;
+        height: 300px;
+        border-radius: 90% 90% 0 0; /* Runda endast de övre hörnen */
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        clip-path: inset(0px 0px -10px 0px); /* Justera detta värde för att göra botten rak */
+    }
+
     .menu-start-btn {
         position: absolute;
         width: 80vw;
-        top: 70%;
+        margin-bottom:7%;
+        height:30%;
+       
     }
 
     .menu-rules-btn {
         position: absolute;
         width: 80vw;
-        top: 78%;
+        margin-bottom: 2%;
+        height: 30%;
     }
 
 
@@ -35,6 +89,7 @@
     }
 
     .inner-menu-container {
+        
         display: flex;
         justify-content: center;
         flex-direction: column;
