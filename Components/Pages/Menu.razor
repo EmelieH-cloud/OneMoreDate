@@ -3,21 +3,27 @@
 @using OneMoreDate.Components.Reusable;
 @inject NavigationManager Navigation
 
-<div class="animate__animated animate__fadeIn">
+<div class='outer-container  '>
+ <div class='outer-image-container  '>
+    <div class="oval-frame-menu ">
 
-<Background/>
-<div >
-    <div class="outer-btn-container border border-primary">
-       
-        <div class="inner-menu-container">
-           
-                <button @onclick="StartGame" class="button-29 menu-start-btn"> Start Game </button>
-                <button @onclick="GoToRules" class="button-29 menu-rules-btn"> Rules </button>
+        <img class="table-image-new" src="images/newtable.png" />
+    </div>
+
+    </div>
+
+    <div >
+        <div class="outer-btn-container ">
+            <div class="inner-menu-container  ">
+                <div class="circle-frame">
+                    <button @onclick="StartGame" class="button-29 menu-start-btn p-1"> Start game </button>
+                    <button @onclick="GoToRules" class="button-29 menu-rules-btn p-1"> Rules </button>
+                </div>
+
+            </div>
+        </div>
         </div>
     </div>
-</div>
-
-</div>
 
 
 

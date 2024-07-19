@@ -3,12 +3,10 @@
 @media (max-height: 700px) {
 
 
-    .one{
-
-        background-color:orange;
-
-
+    .one {
+        background-color: orange;
     }
+
     .oval-frame {
         width: 100%; /* Justera bredden efter behov */
         height: 150%; /* Justera höjden efter behov */
@@ -55,13 +53,12 @@
     .menu-start-btn {
         height: 50px;
         width: 50%;
-  
         position: absolute;
         bottom: 50%;
         margin-bottom: 5%;
     }
 
- 
+
 
     .menu-rules-btn {
         margin-top: 5%;
@@ -70,6 +67,9 @@
         bottom: 35%;
         width: 50%;
     }
+}
+
+
 
 
 
@@ -77,17 +77,19 @@
 
 @media (min-width: 400px) and (max-width: 799px) {
     .one {
-        font-size: 145px;
+        margin-top:5%;
+        font-size: 110px;
         background-color: blue;
     }
 
     .more {
-        font-size: 130px;
+        font-size: 110px;
         
     }
 
     .date {
-        font-size: 128px;
+        top:70%;
+        font-size: 120px;
     }
 
 
@@ -121,17 +123,7 @@
     }
 
 
-    .menu-start-btn {
-        position: absolute;
-        width: 85vw;
-        top: 68%;
-    }
 
-    .menu-rules-btn {
-        position: absolute;
-        width: 85vw;
-        top: 78%;
-    }
 
 
     .players-btn {
