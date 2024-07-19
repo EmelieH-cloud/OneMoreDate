@@ -51,6 +51,7 @@ img {
     /*    position: absolute;*/
     /* Positionerar elementet absolut relativt till närmaste positionerade parent */
     width: 100vw;
+    height:100vh;
     /* Sätter bredden till 100% av viewportens bredd */
     /*  top: 28%;*/
     /* Placerar elementet 30% från toppen av dess närmaste positionerade parent*/
@@ -92,7 +93,7 @@ img {
     color: #FF1DA5;
     position: absolute;
     /* Positionerar elementet absolut relativt till närmaste positionerade parent */
-    top: 70%;
+    top: 75%;
     /* Placerar elementet 55% från toppen av dess närmaste positionerade parent */
     text-align: center;
     width: 100%;
@@ -164,10 +165,10 @@ img {
 /* 3. Menu -----------------------------------------------------*/
 .oval-frame {
     width: 100%; /* Justera bredden efter behov */
-    height: 100vh; /* Justera höjden efter behov */
-  
+    height: 70vh; /* Justera höjden efter behov */
+    top:20%;
     border-top-left-radius: 170px;  
-    border-top-right-radius: 170px;  
+    border-top-right-radius: 170px;  /**/
  
     position: absolute; /* Behövs för att positionera pseudo-elementet */
     overflow: hidden; /* För att dölja pseudo-elementet utanför ramen */
@@ -178,6 +179,23 @@ img {
     justify-content:center;
     align-items:center;
   
+}
+
+.oval-frame-menu {
+    width: 100%; /* Justera bredden efter behov */
+    height: 70vh; /* Justera höjden efter behov */
+   
+    border-top-left-radius: 170px;
+    border-top-right-radius: 170px; /**/
+
+    position: absolute; /* Behövs för att positionera pseudo-elementet */
+    overflow: hidden; /* För att dölja pseudo-elementet utanför ramen */
+
+    background: rgba(241, 13, 128, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20%;
 }
 
     .oval-frame img {
@@ -195,21 +213,24 @@ img {
 
 
 
-.circle-frame {
-    width: 150%;  
-    height: 250px;  
-    border-radius: 70%;  
-    position: absolute;  
-    bottom: -5%;  
-   
-    background-color: rgba(255, 255, 255, 0.8);  
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);  
-    display: flex; 
-    justify-content: center;  
-    align-items: center;
-}
 
- 
+
+.circle-frame {
+    width: 150%;
+    height: 250px;
+    border-radius: 90% 90% 0 0; /* Runda endast de övre hörnen */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clip-path: inset(0px 0px -10px 0px); /* Justera detta värde för att göra botten rak */
+   
+}
 
     
 .outer-btn-container {
@@ -223,7 +244,7 @@ img {
 
 .menu-start-btn {
     height: 50px;
-    width: 60%;
+    width: 50%;
   
    position:relative;
    margin-bottom:10%;
@@ -237,7 +258,7 @@ img {
     height: 50px;
     position: absolute;
 
-    width: 60%;
+    width: 50%;
     margin-bottom:10%;
     bottom:0%;
 }
@@ -256,7 +277,7 @@ img {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    border:2px solid red;
+
     align-items:center;
   
 }
