@@ -166,7 +166,7 @@ img {
 .oval-frame {
     width: 100%; /* Justera bredden efter behov */
     height: 70vh; /* Justera höjden efter behov */
-    top:20%;
+    top:4%;
     border-top-left-radius: 170px;  
     border-top-right-radius: 170px;  /**/
  
@@ -207,6 +207,7 @@ img {
     .table-image-new
     {
         width:100%;
+        
         
     }
 
