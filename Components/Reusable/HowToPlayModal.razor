@@ -1,0 +1,25 @@
+﻿
+
+
+<div class="how-to-play-container animate__animated @AnimationClass">
+    <div class="close-container-cross">
+        <button class="make-cross-btn-round" @onclick="CloseHowToPlayModal">
+        <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-x cross-btn" viewBox="0 0 16 16">
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+        </svg>
+    </button>
+    </div>
+    <h2 class="how-to-play-header">How to play</h2>
+    <div class="how-to-play-text-container">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <button @onclick="CloseHowToPlayModal" class="button-29 got-it-btn">Got it</button>
+</div>
+
+@code {
+    [Parameter]
+    public EventCallback CloseHowToPlayModal { get; set; }
+
+    [Parameter]
+    public string AnimationClass { get; set; }
+}
