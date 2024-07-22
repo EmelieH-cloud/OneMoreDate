@@ -2,157 +2,114 @@
 
 @media (max-height: 700px) {
 
-
-    .one
+    .circle-frame 
     {
+        height: 40%;
+        border-radius: 50% 50% 0 0; /* Runda endast de övre hörnen */
+    }
 
-        background-color:orange;
+    .how-to-play-container 
+    {
+        height: 70%;
+    }
 
-  }
+    .one 
+    {
+        font-size: 100px;
+        margin-top: 18%;
+        background-color: orange;
+    }
+
+    .more {
+    
+        margin-top: 1%;
+        font-size: 90px;
+    }
+
 
 
     .oval-frame {
-        width: 100%; /* Justera bredden efter behov */
-        height: 150%; /* Justera höjden efter behov */
-        /* Justera tjockleken på ramen efter behov */
-        border-top-left-radius: 170px; /* Skapar rundade hörn */
-        border-top-right-radius: 170px; /* Skapar rundade hörn */
-        /* Platt botten */
-        position: absolute; /* Behövs för att positionera pseudo-elementet */
-        overflow: hidden; /* För att dölja pseudo-elementet utanför ramen */
-
-        background: rgba(241, 13, 128, 0.1);
-        top: 25%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        height: 70vh; 
+    
     }
 
-        .oval-frame img 
-        {
-            opacity: 1; /* Återställer opacity för bilden till full opacity */
-            /* Eventuella andra stilar för bilden */
-        }
-
-
-    .table-image-new {
-        width: 100%;
-        margin-bottom: 20%;
-    }
-
-
-    .circle-frame {
-        width: 150%; /* Justera bredden efter behov */
-        height: 250px; /* Justera höjden efter behov */
-        border-radius: 50%; /* Skapar en rund form */
-        position: absolute; /* Positioneras relativt till närmaste positionerade förälder (oval-frame) */
-        bottom: -10%; /* Placeras under den övre ovalen */
-        /* Justera horisontell positionering efter behov */
-        background-color: rgba(255, 255, 255, 0.8); /* Bakgrundsfärgen med opacity */
-        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Skugga för effekt */
-        display: flex; /* Använder flexbox för att centrera barn-elementen */
-        justify-content: center; /* Centrerar horisontellt */
-        align-items: center;
-    }
-
-    .menu-start-btn {
-        height: 50px;
-        width: 50%;
-        position: absolute;
-        bottom: 50%;
-        margin-bottom: 5%;
-    }
-
-
-
-    .menu-rules-btn {
-        margin-top: 5%;
-        height: 50px;
-        position: absolute;
-        bottom: 35%;
-        width: 50%;
-    }
 }
 
 
-
-
-
-
-
 @media (min-width: 400px) and (max-width: 799px) {
-    .one {
-        margin-top:5%;
+
+    /* Home -------------------------*/
+    .one 
+    {
+        /* större font och lägre margin-top */
+        margin-top: 5%;
         font-size: 110px;
         background-color: blue;
     }
 
-    .more {
+    .more 
+    {
+        /* större font*/
         font-size: 110px;
         
     }
 
-    .date {
-        top:70%;
-        font-size: 120px;
+
+    .oval-frame 
+    {
+        height: 80vh; /* Högre höjd */
+        border-top-left-radius: 300px; /*  mer böj på cirkeln*/
+        border-top-right-radius: 300px; /*  mer böj på cirkeln*/
     }
 
-
-    h1 {
-        font-size: 3em;
+    .date 
+    {
+        top:60%; /* mindre top-marginal så att date centreras vertikalt på glaset. */
+        font-size: 120px; /* större font */
     }
 
-    img {
-        width: 90vw;
+    .circle-frame {
+        height: 30%;
+        border-radius: 70% 70% 0 0; 
     }
-
-    .inner-menu-container {
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        margin: 0 auto;
-        width: 70vw;
-    }
-
-    .modal-bg {
-        background-color: rgba(255, 192, 203, 0.5);
-        opacity: .8;
-        width: 95%;
-        height: 100%;
-        margin: 0 auto;
-    }
-
-    .container-players {
-        width: 65vw;
-    }
-
-
-
-
-
-    .players-btn {
-        width: 70px;
-        height: 70px;
-    }
-
-
-    /* 10.3 InputPlayerNames:*/
-
-
-
-    /* 10.3 GoBackButton*/
-
    
+    /* Inputplayernames---------------------*/
+    .name-p {
+        font-size: 1.2rem; /* större font */
+        margin-left: 1.5%;
 
-    /* Select Deck */
-
-    .p-text {
-        font-size: 25px;
-        line-height: 35px;
     }
 
-    .deck-modal-header {
-        font-size: 45px;
+    .added-names-container 
+    {
+        top: 25%; /* minskad top-marginal */
+        width: 100%; /* minskad bredd */
+        margin-left: 0%;
+    }
+
+    .name-container 
+    {
+
+        justify-content: center; /* istället för space-between */
+
+    }
+
+    .remove-btn 
+    {
+        width: 42px; /* större knapp */
+        height: 42px;
+ 
+    }
+
+    .input-container
+    {
+        width: 84%;
+        padding: 0%; 
+        margin-left: 3%;
+        
+    }
+    /* select deck */
+    .back-btn-size {
+        width: 32px;
     }
 }

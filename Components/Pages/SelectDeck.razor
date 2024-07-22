@@ -14,30 +14,24 @@
     </div>
 }
 
-<div class="back-btn-no-background">
+<GoBackBtn BackUrl="menu" />
 
-    <button @onclick="GoBack" class=" animate__animated animate__fadeIn">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-chevron-left back-btn-size fixed-back-btn" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
-        </svg>
-    </button>
-</div>
 
 <div class="my-decks-container mb-4 text-center animate__animated animate__fadeIn animate__slower rounded">
 
         <div class="select-deck-container " @onclick="()=>selectDeck(1)" >
         <img src="./images/deck.png" alt="deck" class="img-smaller" />
-     <h4 class="deck-header">The trial Deck</h4>
+     <h4 class="deck-header">The Trial Deck</h4>
     </div>
 
     <div class="select-deck-container" @onclick="()=>selectDeck(2)">
         <img src="./images/partydeck.png" alt="deck" class="img-smaller" />
-          <h4 class="deck-header">The original Deck</h4>
+          <h4 class="deck-header">The Original Deck</h4>
     </div>
 
     <div class="select-deck-container" @onclick="()=>selectDeck(3)">
         <img src="./images/naughtydeck.png" alt="deck" class="img-smaller" />
-           <h4 class="deck-header">The naughty Deck </h4>
+           <h4 class="deck-header">The Naughty Deck </h4>
         </div>
 
     
