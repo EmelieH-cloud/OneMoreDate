@@ -463,14 +463,24 @@ img {
 
 }
 
+.player-names-header
+{
+    font-size:1.2rem;
+}
+
 .playernames-header-container
 {
 
-    text-align: left;
-    padding-left: 4%; 
-    align-self: flex-start;
+   
+ margin-top:5%;
+    
     width: 100vw;
-    margin-top: 16%; 
+  display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:10%;
+ 
+   
 
 }
 
@@ -724,9 +734,10 @@ img {
 .navigate-btn-container {
     position: absolute;
     z-index: 1;
-    width: 100%;
+    
     top: 2%; 
     border-radius: 50%;
+
 }
 
 .back-btn-size
@@ -929,24 +940,31 @@ p {
 }
 
 .links-container {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     display: flex;
     flex-direction: column;
 }
 
 .hamburger-icon {
 
-    width: 40px;
+    width: 50px;
+ 
     color: black;
     background-color: #FAE4E4;
 }
 
+.hamburger-icon-svg{
+    width:30px;
+}
+
 .toggle-menu-header {
     font-family: "Playwrite SK";
-    text-align: center;
-    margin: 0;
+    text-align: left;
+    margin:0;
     padding-top: 15%;
     padding-bottom: 15%;
+    padding-left:4%;
+
     
 }
 
@@ -974,6 +992,11 @@ p {
     padding: 2%; 
     text-align: left;
     font-size: .8rem;
+    
+}
+
+.how-to-play-text {
+    line-height: 1.8;
 }
 
 .got-it-btn 
@@ -1005,4 +1028,96 @@ p {
     width: 100%; 
     display: flex;
     justify-content: flex-end;
+}
+
+/*
+Quit-komponent*/
+
+.quit-main-container {
+   
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999; /* Säkerställ att den ligger ovanpå annat innehåll */
+}
+
+.quit-modal-container 
+{
+    
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+  
+    background-color: white;
+    display:flex;
+   flex-direction:column;
+   justify-content:center;
+
+
+
+
+    z-index: 1000;
+    border-radius: 20px;
+ 
+}
+
+.continue-playing-btn {
+    border-radius: 10px;
+    font-weight: 700;
+    width: 60%;
+    background-color: rgba(211, 211, 211, 0.5);
+    padding: 4%;
+}
+
+.quit-playing-btn {
+    border-radius: 10px;
+    color: white;
+    padding: 6%;
+    font-weight: 700;
+    background: linear-gradient(102.2deg, rgb(250, 45, 66) 9.6%, rgb(245, 104, 104) 96.1%);
+   
+  
+}
+
+
+
+.quit-modal-text{
+    padding:5%;
+    margin-top:10%;
+}
+
+
+
+
+
+
+.quit-btn-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding:5%;
+    margin-bottom:5%;
+    
+}
+
+.my-close-btn-container
+{
+    width: 100%;
+
+   padding:2%;
+  
+
+}
+
+.close-quit-modal-container{
+  padding:3%;
+    display:flex;
+    justify-content:end;
+ position:absolute;
+ top:0%;
+   width:100%;
 }

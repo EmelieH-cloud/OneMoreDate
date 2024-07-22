@@ -1,9 +1,9 @@
 ﻿@inject NavigationManager NavigationManager
 
-<div>
+<div >
     <button @onclick="HandleModal" class="hamburger-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+        <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="hamburger-icon-svg bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
         </svg>
     </button>
 
@@ -13,9 +13,9 @@
             <div class="toggle-screen" @onclick="HandleScreenClick"></div>
             <div class="my-menu-modal @CurrentMenuAnimation">
                 <div class="links-container">
-                    <h4 class="bg-light toggle-menu-header">Menu</h4>
+                    <h5 class="bg-light toggle-menu-header">Menu</h5>
                     <button @onclick="OpenHowToPlayModal" class="link-border bg-light rules-menu-link">How to play</button>
-                    <button @onclick="NavigateToSomething" class="link-border bg-light quit-menu-link">Quit Game</button>
+                    <button @onclick="OpenQuitModal" class="link-border bg-light quit-menu-link">Quit Game</button>
                 </div>
             </div>
         </div>
@@ -25,9 +25,18 @@
     {
         <HowToPlayModal CloseHowToPlayModal="CloseTheHowToPlayModal" AnimationClass="@CurrentHowToPlayAnimation" />
     }
+
+
+    @if(quitModalIsShowing)
+    {
+        <QuitModal CloseQuitModal ="CloseQuitModal"/>
+    }
+
+
 </div>
 
 @code {
+    private bool quitModalIsShowing = false;
     private bool modalShowing = false;
     private bool howToPlayModalisShowing = false;
     private string slideInLeftAnimation = "animate__animated animate__slideInLeft";
@@ -36,6 +45,22 @@
     public string SlideOutAnimation = "animate__animated animate__slideOutDown";
     public string CurrentMenuAnimation = "";
     public string CurrentHowToPlayAnimation = "";
+
+
+    private void CloseQuitModal()
+    {
+        quitModalIsShowing = false;
+    }
+
+
+    private async Task OpenQuitModal()
+    {
+
+        modalShowing = false;
+        await SetMenuModalAnimation();
+        quitModalIsShowing = true;
+    }
+
 
     private async Task CloseTheHowToPlayModal() // click-event för kryssknappen
     {
@@ -53,11 +78,11 @@
             StateHasChanged();
 
         }
-        else
+        else if (!modalShowing)
         {
             CurrentMenuAnimation = slideOutLeftAnimation;
             StateHasChanged();
-           
+
         }
     }
 
@@ -106,15 +131,9 @@
 
     private async Task HandleScreenClick()
     {
-        if (modalShowing)
-        {
-            modalShowing = false;
-            await SetMenuModalAnimation();
-        }
-        else if (howToPlayModalisShowing)
-        {
-            howToPlayModalisShowing = false;
-            await SetHowToPlayModalAnimation();
-        }
+        CurrentMenuAnimation = slideOutLeftAnimation;
+        StateHasChanged();
+        await Task.Delay(500);
+        modalShowing = false; 
     }
 }
