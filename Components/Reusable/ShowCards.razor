@@ -6,7 +6,7 @@
 
 
 
-<div class="ShowCards-Container rounded animate__animated animate__fadeIn">
+<div class="ShowCards-Container rounded">
 
     <div class="toggle-menu-container">
         <ToggleMenu />
@@ -27,6 +27,7 @@
 
 
                     <h2 class="activeplayer-header">@($"{ActivePlayer.Name}'s turn")</h2>
+                    <img src="images/underline.png" class="line-class" alt="line"/>
                 </div>
 
 
@@ -43,7 +44,8 @@
                 {
                     <div class="first-card">
                         <div class=" first-card-p">
-                            <p><span class="fw-bolder">@ActivePlayer.Name </span> is on the first date and meets someone who seems absolutely perfect...</p>
+                            <p class="first-card-text mb-3 animate__animated animate__fadeIn animate__delay-1s animate_slower"><span class="fw-bolder">@ActivePlayer.Name </span> is on the date and meets someone who seems absolutely perfect...</p>
+                            <p class="first-card-text but-during animate__animated animate__fadeIn animate__delay-2s animate_slower">But during the date it turns out that he/she...</p>
                         </div>
                     </div>
                 }

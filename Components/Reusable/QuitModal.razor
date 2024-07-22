@@ -1,6 +1,9 @@
-﻿
+﻿@using OneMoreDate.Managers;
+@using OneMoreDate.Models;
+@inject NavigationManager Navigation
 
-<div class="quit-main-container">
+
+<div class="dark-background-modal">
     <div class="quit-modal-container">
 
         <div class="close-quit-modal-container">
@@ -11,14 +14,12 @@
                 </button>
       </div>
 
-
-   
             <p class="quit-modal-text">Are you sure you want to quit? Your data won't be saved!</p>
 
             <div class="quit-btn-container">
 
                 <button @onclick="CloseQuitModal"class="continue-playing-btn">Continue playing</button>
-                <button class="quit-playing-btn"> Quit</button>
+                <button class="quit-playing-btn" @onclick="QuitGame"> Quit</button>
             </div>
            
         </div>
@@ -32,5 +33,15 @@
 
     [Parameter]
     public EventCallback CloseQuitModal { get; set; }
+
+
+
+    private void QuitGame()
+    {
+
+        PlayerManager.ClearAllPlayerHands();
+
+        Navigation.NavigateTo("deck");
+    }
 
 }
