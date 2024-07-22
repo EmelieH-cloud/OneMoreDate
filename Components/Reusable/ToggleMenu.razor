@@ -2,8 +2,8 @@
 
 <div>
     <button @onclick="HandleModal" class="hamburger-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-list " viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
         </svg>
     </button>
 
@@ -11,7 +11,7 @@
     {
         <div class="container">
             <div class="toggle-screen" @onclick="HandleScreenClick"></div>
-            <div class="my-menu-modal @slideInOrOut">
+            <div class="my-menu-modal @CurrentMenuAnimation">
                 <div class="links-container">
                     <h4 class="bg-light toggle-menu-header">Menu</h4>
                     <button @onclick="OpenHowToPlayModal" class="link-border bg-light rules-menu-link">How to play</button>
@@ -21,47 +21,72 @@
         </div>
     }
 
-    @if(howToPlayModalisShowing || isAnimating)
+    @if (howToPlayModalisShowing)
     {
-        <HowToPlayModal CloseHowToPlayModal="CloseTheHowToPlayModal" AnimationClass="@SlideInAnimation"/>
+        <HowToPlayModal CloseHowToPlayModal="CloseTheHowToPlayModal" AnimationClass="@CurrentHowToPlayAnimation" />
     }
 </div>
 
 @code {
-    private string slideInOrOut = "animate__animated animate__slideInLeft";
     private bool modalShowing = false;
     private bool howToPlayModalisShowing = false;
-    private bool isAnimating = false;
+    private string slideInLeftAnimation = "animate__animated animate__slideInLeft";
+    private string slideOutLeftAnimation = "animate__animated animate__slideOutLeft";
+    public string SlideInAnimation = "animate__animated animate__slideInUp";
+    public string SlideOutAnimation = "animate__animated animate__slideOutDown";
+    public string CurrentMenuAnimation = "";
+    public string CurrentHowToPlayAnimation = "";
 
-    public string SlideInAnimation = "animate__slideInUp";
-    private string SlideOutAnimation = "animate__slideOutDown";
-
-    private async Task CloseTheHowToPlayModal()
+    private async Task CloseTheHowToPlayModal() // click-event för kryssknappen
     {
-        SlideInAnimation = SlideOutAnimation;
-        slideInOrOut = "animate__animated animate__slideInLeft";
-        // Vänta tills animationen är klar (1s).
-        isAnimating = true;
+        CurrentHowToPlayAnimation = SlideOutAnimation;
         StateHasChanged();
-        await Task.Delay(1000);  // Vänta tills animationen är klar (1s).
+        await Task.Delay(500); // Vänta på att animationen ska slutföras
         howToPlayModalisShowing = false;
-        isAnimating = false;
-        StateHasChanged();
     }
 
-    private void HandleModal()
+    private async Task SetMenuModalAnimation()
     {
-
-        modalShowing = !modalShowing;
-
-        if (!modalShowing)
+        if (modalShowing)
         {
-            slideInOrOut = "animate__animated animate__slideInLeft";
+            CurrentMenuAnimation = slideInLeftAnimation;
+            StateHasChanged();
+
         }
-
-        else if (modalShowing)
+        else
         {
-            slideInOrOut = "animate__animated animate__slideOutLeft";
+            CurrentMenuAnimation = slideOutLeftAnimation;
+            StateHasChanged();
+           
+        }
+    }
+
+    private async Task SetHowToPlayModalAnimation()
+    {
+        if (howToPlayModalisShowing)
+        {
+            CurrentHowToPlayAnimation = SlideInAnimation;
+            StateHasChanged();
+        }
+        else if (!howToPlayModalisShowing)
+        {
+            CurrentHowToPlayAnimation = SlideOutAnimation;
+            StateHasChanged();
+            await Task.Delay(500); // Vänta på att animationen ska slutföras
+        }
+    }
+
+    private async Task HandleModal() // click event
+    {
+        if (modalShowing)
+        {
+            modalShowing = false;
+            await SetMenuModalAnimation();
+        }
+        else if (!modalShowing)
+        {
+            modalShowing = true;
+            await SetMenuModalAnimation();
         }
     }
 
@@ -70,28 +95,26 @@
         NavigationManager.NavigateTo("/");
     }
 
-    private async Task OpenHowToPlayModal()
+    private async Task OpenHowToPlayModal() // onclick-event
     {
+        modalShowing = false;
+        await SetMenuModalAnimation();
 
-        // // slideInOrOut = "animate__animated animate__slideOutLeft";
-        // // slideInOrOut = "animate__animated animate__slideInLeft";
-        // // modalShowing = false;
-     
-        // // SlideInAnimation = "animate__slideInUp"; // Återställ animation för att slida upp igen när den öppnas
-        // // howToPlayModalisShowing = true;
-        // // isAnimating = false;
+        howToPlayModalisShowing = true;
+        await SetHowToPlayModalAnimation();
     }
 
     private async Task HandleScreenClick()
     {
         if (modalShowing)
         {
-            slideInOrOut = "animate__animated animate__slideOutLeft";
             modalShowing = false;
-            await Task.Delay(2000);
-          
-         
-            StateHasChanged();
+            await SetMenuModalAnimation();
+        }
+        else if (howToPlayModalisShowing)
+        {
+            howToPlayModalisShowing = false;
+            await SetHowToPlayModalAnimation();
         }
     }
 }
