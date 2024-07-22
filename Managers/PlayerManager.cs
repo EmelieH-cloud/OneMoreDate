@@ -40,5 +40,16 @@ namespace OneMoreDate.Managers
 
             PlayerCount = Players.Count;
         }
+
+        public static void ClearAllPlayerHands()
+        {
+            for(int i = 0; i<Players.Count; i++)
+            {
+                if (Players[i].Hand.Count > 0)
+                {
+                    Players[i].Hand.Clear();
+                }
+            }
+        }
     }
 }
