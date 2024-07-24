@@ -13,24 +13,20 @@
     }
 
 
-@if (ActivePlayer.LivesTogether)
-{
-    <h5>Relationship status: Lives together</h5>
-}
-
-else if (ActivePlayer.IsMarried)
-{
-    <h5>Relationship status: Married</h5>
-}
-
-
 else
 {
        <div class="gamepage-outer-container ">
 
 
            <div class="card-btns-container">
-            <StandardCard Question="@currentQuestion" Animation="@animationClass" />
+
+               @if (ShowHeart)
+                {
+                    <div class="yes-image animate__animated animate__fadeIn">
+                        <img src="images/heartbeat.png" alt="yesimg" class="animate__animated animate__zoomIn" />
+                   </div>
+                }
+                <StandardCard Question="@currentQuestion" Animation="@animationClass" />
 
 
             <div class="game-btns-container ">
@@ -76,6 +72,8 @@ else
     private string currentQuestion;
     private PlayerCard ActiveCard = new PlayerCard(); 
     private bool ShowCards = false; 
+    private bool ShowHeart = false;
+    private bool HeartIsAnimating = true;
 
     protected override void OnInitialized()
     {
@@ -103,47 +101,44 @@ else
         }
     }
 
-    private void DeletePlayerHand()
+    private async Task DeletePlayerHand()
     {
+        animationClass = "animate__animated animate__rotateOutUpLeft";
+        currentQuestion = "";
+        StateHasChanged();
+        await Task.Delay(1000); 
         ActivePlayer.Hand.Clear();
         SwitchPlayer();
+        animationClass = ""; 
     }
 
-    private void SaveCardOnPlayer()
+    private async void SaveCardOnPlayer()
     {
         ActivePlayer.Hand.Add(ActiveCard);
-        if (ActivePlayer.Hand.Count >= 5)
-        {
-            ActivePlayer.LivesTogether = true;
-
-        }
-        else if (ActivePlayer.Hand.Count == 10)
-        {
-            ActivePlayer.IsMarried = true;
-
-        }
-
-
+        ShowHeart = true;
+        HeartIsAnimating = true;
+        StateHasChanged();
+        await Task.Delay(1500);
+        ShowHeart = false; 
+        animationClass = "animate__animated animate__slideOutRight";
+        currentQuestion = "";
+        StateHasChanged();
+        await Task.Delay(1500);
         SwitchPlayer();
+       
     }
 
-    private bool CheckMarriageStatus(int index)
-    {
-        Player potentiallyMarriedPlayer = players[index];
-        return potentiallyMarriedPlayer.IsMarried;
-    }
 
     private void SwitchPlayer()
     {
-        do
-        {
+       
             ActivePlayerIndex = (ActivePlayerIndex + 1) % players.Count;
-        } while (CheckMarriageStatus(ActivePlayerIndex));
+     
 
         ActiveCardIndex = (ActiveCardIndex + 1) % (IsStarterDeck ? ActiveStarterDeck.Cards.Count : ActivePartyDeck.Cards.Count);
 
-        InitializeActiveCard();
         InitializeActivePlayer();
+        InitializeActiveCard();
         lastQuestionCounter = 0;
         CalculateActivePlayerDate();
 
