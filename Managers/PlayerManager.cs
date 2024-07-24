@@ -8,11 +8,7 @@ namespace OneMoreDate.Managers
         public static Player ActivePlayer { get; set; } = new Player();
         public static int PlayerCount { get; set; }
 
-        private static bool CheckMarriageStatus(int index)
-        {
-            Player potentiallyMarriedPlayer = Players[index];
-            return potentiallyMarriedPlayer.IsMarried;
-        }
+      
 
         public static void SetActivePlayer(Player player)
         {
