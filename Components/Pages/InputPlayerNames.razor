@@ -19,27 +19,23 @@
             <div class="added-names-container">
                 @foreach (var name in Names)
                 {
-                    <div class="name-container rounded">
+                    
                         <div class="inner-name-container animate__animated animate__slideInLeft">
-                            <p class=" name-p ">
+                            <p class=" name-p">
                                 @name
                             </p>
+                <div class="animate__animated animate__fadeIn">
+                    <button class="remove-btn" @onclick="() => RemovePlayer(name)">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="white" class="bi bi-dash bg-svg-pink " viewBox="0 0 16 16">
+                            <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
+                        </svg>
+                    </button>
+                </div>
                         </div>
-
-                        <div class="animate__animated animate__fadeIn  pink-bg">
-                            <button class="remove-btn" @onclick="() => RemovePlayer(name)">
-                                <svg xmlns="http://www.w3.org/2000/svg"  fill="white"  class="bi bi-dash bg-svg-pink " viewBox="0 0 16 16">
-                                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
-                                </svg>
-                            </button>
-                        </div>
-         
-                    </div>
-  
                 }
-    <div class="done-btn-container ">
+    <div class="done-btn-container">
         <button @onclick="AddActivePlayers" class="@(disableDoneBtn ? "done-btn-disabled" : "done-btn")" disabled="@disableDoneBtn">
-            OK
+            Done
         </button>
                 </div>
    
