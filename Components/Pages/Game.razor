@@ -118,10 +118,10 @@ else if (StandardCardIsShowing)
     {
         IsMovingInTogether = false;
         IsGettingMarried = false;
-       
+
         currentQuestion = "";
         StateHasChanged();
-     
+
         SwitchPlayer();
     }
 
@@ -190,9 +190,10 @@ else if (StandardCardIsShowing)
 
         }
 
-        else if (ActivePlayer.Hand.Count==1)
+        else if (ActivePlayer.Hand.Count==10)
         {
             IsGettingMarried = true;
+            ActivePlayer.Hand.Clear();
             StateHasChanged();
         }
 
