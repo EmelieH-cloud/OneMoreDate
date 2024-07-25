@@ -86,9 +86,8 @@ img {
 }
 
 
-
 .date {
-    position:relative;
+    position: relative;
     font-family: "Playwrite SK", cursive;
     color: #FF1DA5;
     position: absolute;
@@ -98,7 +97,6 @@ img {
     text-align: center;
     width: 100%;
     font-size: 100px;
- 
 }
 
 .fade-out {
@@ -555,8 +553,8 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999; /* Säkerställ att den ligger ovanpå annat innehåll */
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000; /* Säkerställ att den ligger ovanpå annat innehåll */
 }
 
 
@@ -651,15 +649,44 @@ img {
 }
 /* 7. Game */
 
-.gamepage-outer-container
+.marriage-message-header 
 {
+    margin-bottom: 5%;
+    padding: 3%; 
+    background-color: white;
+    border-radius: 20px;
+    font-size: 1rem;
+    width: 70%;
+    margin: 2%;
+    line-height:2;
+}
+
+.move-in-message-header {
+    margin-bottom: 5%;
+    background-color: white;
+    padding: 3%;
+    width: 70%;
+    border-radius: 20px;
+    font-size: 1rem;
+    line-height: 2;
+}
+
+.move-in-forward-button {
+    margin-top: 4%;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    padding: 2%;
+    border-radius: 50%;
+}
+
+.gamepage-outer-container {
     height: 100vh;
     width: 100vw;
-   
-    display:flex;
-    align-items:center;
-    justify-content:end;
-    flex-direction:column;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex-direction: column;
 }
 
 .card-btns-container{
@@ -676,6 +703,16 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.yes-btn-hidden
+{
+    display: none;
+}
+
+.no-btn-hidden
+{
+    display: none;
 }
 
 .yes-btn, .no-btn {
@@ -724,8 +761,13 @@ img {
 {
     position: absolute;
     z-index: 1000;
-    top: 35%;
+    height: 100vh;
+    width: 100vw;
+    border: 2px solid red;
+    text-align: center;
+
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     opacity: .6;
@@ -802,7 +844,15 @@ img {
   
     border-radius: 50%;
     opacity: .8;
-    background-color: #FCDDDD;
+    background-color: inherit;
+}
+
+.back-btn-standard-card{
+    position:absolute;
+    top:0;
+    left:0;
+    margin:5%;
+
 }
 
 .custom-margin {
@@ -1224,4 +1274,168 @@ Quit-komponent*/
 .line-class
 {
     width:  70%;
+}
+
+/* confetti animation------------------- */
+
+.confetti {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 8px;
+    height: 16px;
+    background: #ffd300;
+    top: 0;
+    opacity: 0;
+}
+
+    .confetti-piece:nth-child(1) {
+        left: 7%;
+        transform: rotate(-79deg);
+        animation: makeItRain 5000ms infinite ease-out;
+        animation-delay: 1s;
+        animation-duration: 2s;
+    }
+
+    .confetti-piece:nth-child(2) {
+        left: 14%;
+        transform: rotate(-42deg);
+        animation: makeItRain 5000ms infinite ease-out;
+        animation-delay: 2s;
+        animation-duration: 2.5s;
+    }
+
+    .confetti-piece:nth-child(3) {
+        left: 21%;
+        transform: rotate(-25deg);
+        animation: makeItRain 5000ms infinite ease-out;
+        animation-delay: 3s;
+        animation-duration: 3.5s;
+    }
+
+    .confetti-piece:nth-child(4) {
+        left: 28%;
+        transform: rotate(-10deg);
+        animation: makeItRain 5000ms infinite ease-out;
+        animation-delay: 4s;
+        animation-duration: 3.5s;
+    }
+
+    .confetti-piece:nth-child(5) {
+        left: 35%;
+        transform: rotate(24deg);
+        animation: makeItRain 5000ms infinite ease-out;
+        animation-delay: 5s;
+        animation-duration: 3.5s;
+    }
+
+    .confetti-piece:nth-child(6) {
+        left: 42%;
+        transform: rotate(-9deg);
+        animation: makeItRain 5000ms infinite ease-out;
+        animation-delay: 1s;
+        animation-duration: 2s;
+    }
+
+    .confetti-piece:nth-child(7) {
+        left: 49%;
+        transform: rotate(-28deg);
+        animation: makeItRain 5000ms infinite ease-out;
+        animation-delay: 2s;
+        animation-duration: 2.5s;
+    }
+
+    .confetti-piece:nth-child(8) {
+        left: 56%;
+        transform: rotate(-49deg);
+        animation: makeItRain 5000ms infinite ease-out;
+        animation-delay: 3s;
+        animation-duration: 3.5s;
+    }
+
+    .confetti-piece:nth-child(9) {
+        left: 63%;
+        transform: rotate(-11deg);
+        animation: makeItRain 5000ms infinite ease-out;
+        animation-delay: 4s;
+        animation-duration: 3s;
+    }
+
+    .confetti-piece:nth-child(10) {
+        left: 70%;
+        transform: rotate(63deg);
+        animation: makeItRain 5000ms infinite ease-out;
+        animation-delay: 5s;
+        animation-duration: 3.5s;
+    }
+
+    .confetti-piece:nth-child(11) {
+        left: 77%;
+        transform: rotate(27deg);
+        animation: makeItRain 5000ms infinite ease-out;
+        animation-delay: 1s;
+        animation-duration: 2s;
+    }
+
+    .confetti-piece:nth-child(12) {
+        left: 84%;
+        transform: rotate(24deg);
+        animation: makeItRain 5000ms infinite ease-out;
+        animation-delay: 2s;
+        animation-duration: 2.5s;
+    }
+
+    .confetti-piece:nth-child(13) {
+        left: 91%;
+        transform: rotate(54deg);
+        animation: makeItRain 5000ms infinite ease-out;
+        animation-delay: 3s;
+        animation-duration: 3s;
+    }
+
+    .confetti-piece:nth-child(odd) {
+        background: #17d3ff;
+    }
+
+    .confetti-piece:nth-child(even) {
+        z-index: 1;
+    }
+
+    .confetti-piece:nth-child(4n) {
+        width: 5px;
+        height: 12px;
+        animation-duration: 5000ms;
+    }
+
+    .confetti-piece:nth-child(3n) {
+        width: 3px;
+        height: 10px;
+        animation-duration: 5000ms;
+        animation-delay: 2000ms;
+    }
+
+    .confetti-piece:nth-child(4n-7) {
+        background: #ff4e91;
+    }
+
+@keyframes makeItRain {
+    from {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(300px);
+    }
 }

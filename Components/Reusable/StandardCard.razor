@@ -1,7 +1,14 @@
 ﻿
+<button @onclick="GoBackShowCards" class="back-btn back-btn-standard-card">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-chevron-left back-btn-size" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+    </svg>
 
 
+</button>
 <div class="outer-card-container">
+ 
+   
     <div class="the-card-container animate__animated animate__slideInLeft ">
         <img src="./images/card.png" alt="card" class="the-card rounded @Animation" />
         <p class="card-question">@Question</p>
@@ -10,6 +17,11 @@
 </div>
 
 @code {
+
+
+    [Parameter]
+    public EventCallback GoBackShowCards { get; set; }
+    
     [Parameter]
     public string Question { get; set; }
     [Parameter]
