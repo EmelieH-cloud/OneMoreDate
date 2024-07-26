@@ -1,9 +1,47 @@
 ﻿@page "/rules"
+@inject NavigationManager Navigation
 
+<button class="back-btn back-btn-rules" @onclick="GoBack">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-chevron-left back-btn-size" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+    </svg>
+
+
+</button>
+ <div class="rules-outer-container">
+  
+    <img class="rules-img-woman"src="images/woman_2.png"/>
+    <img class="rules-img-man" src="images/mansitting.png" />
+
+   <div class="rules-text-container border border-danger">
+
+ 
+       <h2 class="rules-header-text">How to play</h2>
+       <p class="rules-text">
+            Imagine you're going on a date. It's thrilling, nerve-wracking, but also exciting and fun. Who are you meeting? Could this be your future partner? <br/> <br/>
+
+            You meet at a bar and at first, your date seems absolutely perfect. They're attractive, smart, ask a lot of questions, and even make you laugh.<br/> <br/>
+
+            <span class="fw-bold">But</span> suddenly, something happens during the date. You find out something about your date that makes them seem not so perfect anymore. Do they chew with their mouth open? Have they had 4 glasses of wine in an hour, or did they just say they don't know which country Paris is in? The good feeling you had earlier is gradually being replaced by concern. Is this really your future partner?
+
+            Now it's up to you to decide. Do you want to end your relationship with this mysterious person, or can you imagine going on <br /> <br/> 
+            
+            <div class="fw-bold rules-one-more-date-text">ONE MORE DATE? </div>
+
+
+       </p>
+   </div>
+
+
+</div>
 
 
 
 
 @code {
 
+    private void GoBack()
+    {
+        Navigation.NavigateTo("/menu");
+    }
 }
