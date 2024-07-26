@@ -1439,3 +1439,70 @@ Quit-komponent*/
         transform: translateY(300px);
     }
 }
+
+
+/*Rules-page*/
+
+.rules-outer-container {
+    height: 100vh;
+    width: 100vw;
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
+.rules-img-woman {
+    width: 20%;
+    opacity: 0.4;
+  
+    margin-top: 10%;
+}
+
+
+.rules-img-man {
+    align-self: flex-end;
+    width: 80%;
+    opacity: 0.4;
+}
+
+.rules-text-container {
+    position: absolute;
+    width: 85vw;
+    height: 92vh;
+    top: 51%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    padding: 2%;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 1px solid white;
+}
+
+.rules-text {
+
+    font-size: 1rem;
+    padding: 2%;
+    font-weight: 500;
+    line-height: 1.5;
+    border-radius: 20px;
+
+    
+    
+}
+
+.rules-header-text{
+    text-align:center;
+}
+
+.rules-one-more-date-text
+{
+    text-align:center;
+}
+
+.back-btn-rules{
+    margin-top:2%;
+}
