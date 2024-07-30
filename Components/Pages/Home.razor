@@ -4,58 +4,32 @@
 @inject NavigationManager Navigation
 
 
-<div class='outer-container '>
+    <div class='outer-container '>
 
-    <div class='outer-image-container fade-out '>
-        <div class='inner-container  fade-out'>
 
-            <h1 class="animate__animated animate__slideInLeft w-50 one">One</h1>
-            <h1 class="animate__animated animate__slideInLeft animate__delay-1s w-60   more">more</h1>
 
+        <div class="oval-frame">
+
+            <img class="table-image-new" src="images/dateee.png" />
         </div>
 
-        <h1 class="animate__animated animate__slideInRight animate__delay-2s date">Date?</h1>
-
-        <div class='  image-container'>
-
-            <img src=@images[currentImageIndex] alt="logo" class="logo" />
-        </div>
-    </div>
-
-    <div class='outer-image-container fade-in'>
-
-     <div class="oval-frame">
-
-         <img class="table-image-new" src="images/dateee.png"/>
-     </div>
-        <div class='image-container'>
-            <img id="logo" src=@images[currentImageIndex] alt="logo" class="logo fade-out-after-animations" />
-        </div>
-    </div>
 
 
-
-
-
-</div>
-
-
-@if (showButtons)
-{
-    <div class="fade-in-btns ">
-
-        <div class="outer-btn-container ">
-            <div class="inner-menu-container ">
-               <div class="circle-frame">
-                <button @onclick="StartGame" class="button-29 menu-start-btn p-1"> Start game </button>
-                <button @onclick="GoToRules" class="button-29 menu-rules-btn p-1"> How to play</button>
-                </div>
+        <div class="outer-btn-container">
               
+
+                    <button @onclick="StartGame" class="button-29 menu-start-btn "> Start game </button>
+                    <button @onclick="GoToRules" class="button-29 menu-rules-btn "> How to play</button>
+            
             </div>
-        </div>
+
     </div>
 
-}
+
+
+
+
+
 
 
 @code {

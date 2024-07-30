@@ -3,7 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:OneMoreDate"
              x:Class="OneMoreDate.MainPage"
-             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+            
+
+
+
+xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="True">
+
+
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#FCDDDD" Offset="0.08" />
+            <GradientStop Color="#F7F7F7" Offset="0.76" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
 
     <BlazorWebView x:Name="blazorWebView" HostPage="wwwroot/index.html">
         <BlazorWebView.RootComponents>

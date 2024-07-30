@@ -13,93 +13,102 @@
 
 
 /* 2. Home ----------------------------------------------------*/
-img {
+img
+{
     width: 75%;
     /* Automatisk höjd för att behålla bildens proportioner */
 }
 
+
+
+
 .outer-container {
-    position: absolute;
-    z-index: -1;
+
+    display:flex;
+    overflow: hidden;
     height: 100vh;
     width: 100vw;
-    background: rgb(252,174,217);
-    background: linear-gradient(0deg, rgba(252,174,217,1) 15%, rgba(250,249,218,0.557387920988708) 82%, rgba(252,244,206,0.680637220708596) 97%);
+    background: linear-gradient(0deg, rgb(247, 247, 247) 23.8%, rgb(252, 221, 221) 92%);
 }
 
-.inner-container {
-  
-    overflow: hidden;
-    /* Döljer innehåll som överskrider containerens gränser */
-    width: 100vw;
- 
-    /* Sätter höjden till det minsta innehållet som behövs för att passa in allt */
-    display: flex;
-    text-align: right;
-    flex-direction: column;
-}
 
-.image-container {
-   
+
+.oval-frame
+{
+    width: 100%;
+   height:80vh;
+    top: 7%;
+    border-top-left-radius: 180px;
+    border-top-right-radius: 180px; 
+
+    position: absolute;  
+    overflow:hidden;
+    background-color: #F7B4DD;
     display: flex;
     justify-content: center;
-    align-items:center; 
+    align-items: end;
+    z-index:1;
+    
+}
+
+
+
+
+
+.outer-btn-container {
+    background: linear-gradient(0deg, rgb(247, 247, 247) 23.8%, rgb(252, 221, 221) 92%);
+  
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    align-self: flex-end;
+    z-index: 2;
+    margin-bottom:3%;
+    padding-top:10%;
+}
+
+.menu-start-btn
+{
+  
+    height: 50px;
+    width: 70%;
    
 }
 
-.outer-image-container {
-    position: absolute;
-  
-    /*    position: absolute;*/
-    /* Positionerar elementet absolut relativt till närmaste positionerade parent */
-    width: 100vw;
-    height:100vh;
-    /* Sätter bredden till 100% av viewportens bredd */
-    /*  top: 28%;*/
-    /* Placerar elementet 30% från toppen av dess närmaste positionerade parent*/
-    z-index: -1;
-    /* Sätter z-index till -1 så att elementet hamnar bakom andra element med högre z-index */
+.menu-rules-btn
+{
+    margin-top: 5%;
+    height: 50px;
+   
+    width: 70%;
+   
+
 }
 
-.one {
-    /* Ta bort eventuell border */
-    outline: none; /* Ta bort eventuell outline */
-    box-shadow: none; /* Ta bort eventuell box-shadow */
-    text-decoration: none; /* Ta bort eventuell text-dekoration */
-    font-family: "Nanum Myeongjo", serif;
-    margin-left: 20%;
-    padding: 0%;
-    font-weight: 100;
-    font-size:120px;
-    background-color:green;
-    margin-top:40%;
-}
-
-.more {
-    position:relative;
-    margin-top: 3%;
-    /* Sätter en bottenmarginal på 79% av elementets bredd */
-    font-family: "Nanum Myeongjo", serif;
-    text-align: right;
-    margin-right: 5%;
-    font-weight: 100;
-   bottom:22%;
-   font-size:100px;
-}
-
-
-.date {
-    position: relative;
-    font-family: "Playwrite SK", cursive;
-    color: #FF1DA5;
-    position: absolute;
-    /* Positionerar elementet absolut relativt till närmaste positionerade parent */
-    top: 75%;
-    /* Placerar elementet 55% från toppen av dess närmaste positionerade parent */
-    text-align: center;
+.table-image-new {
     width: 100%;
-    font-size: 100px;
+
+    border-bottom: 150px solid #5a023e;
+   
 }
+
+
+
+
+.modal-bg {
+    opacity: .8;
+    width: 85%;
+    height: 40%;
+    margin: 0 auto;
+    margin-bottom: 20%;
+}
+
+
+
+
+
 
 .fade-out {
     opacity: 1;
@@ -163,111 +172,13 @@ img {
     }
 }
 /* 3. Menu -----------------------------------------------------*/
-.oval-frame {
-    width: 100%; /* Justera bredden efter behov */
-    height: 85vh; /* Justera höjden efter behov */
-    top: 14%;
-    border-top-left-radius: 180px;
-    border-top-right-radius: 180px; /**/
-
-    position: absolute; /* Behövs för att positionera pseudo-elementet */
-    overflow: hidden; /* För att dölja pseudo-elementet utanför ramen */
-    background-color: #F7B4DD;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.oval-frame-menu {
-    width: 95%; /* Justera bredden efter behov */
-    height: 80vh; /* Justera höjden efter behov */
-
-    border-radius: 50% 50% 0 0;
-    position: absolute; /* Behövs för att positionera pseudo-elementet */
-    overflow: hidden; /* För att dölja pseudo-elementet utanför ramen */
-    background: #FFC9EA;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 25%;
-}
-
-    .oval-frame img {
-        opacity: 1; /* Återställer opacity för bilden till full opacity */
-        /* Eventuella andra stilar för bilden */
-    }
 
 
-.table-image-new {
-    width: 100%;
-    border-bottom: 150px solid #5a023e;
-}
 
-.circle-frame {
-    width: 100%;
-    height: 200px;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: /*mörkrosa #6C024C; */ #f8cfeb;
-    /* Lägg till box-shadow för att skapa en skugga längs cirkelns kant */
-    box-shadow: 0px 0px 40px 20px rgba(90, 2, 62, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-    
-.outer-btn-container {
-
-  
-    position: absolute;
-    height: 100%;
-    width: 100%;
-
-  
-}
-
-.menu-start-btn {
-    height: 50px;
-    width: 50%;
-  
-   position:relative;
-   margin-bottom:10%;
-
-    
    
-}
 
-.menu-rules-btn {
-    margin-top: 5%;
-    height: 50px;
-    position: absolute;
 
-    width: 50%;
-    margin-bottom:10%;
-    bottom:0%;
-}
-
-.modal-bg {
-    opacity: .8;
-    width: 85%;
-    height: 40%;
-    margin: 0 auto;
-    margin-bottom: 20%;
-}
-
-.inner-menu-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-
-    align-items:center;
-  
-}
 
     /* 5. InputPlayerNames------------------------------------*/
 
@@ -392,7 +303,7 @@ img {
 
 .add-btn-svg
 {
-    width:100%;
+   width:70%;
 }
 
 
