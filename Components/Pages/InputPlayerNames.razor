@@ -6,12 +6,13 @@
 
 
 
-
         <div class="hearts-bg">
-    <img src="images/bghearts.png" alt="hearts" style="width: 100%;" />
+    <img src="images/bghearts.png" alt="hearts" style="width: 100%;" class="animate__animated animate__zoomIn animate__delay-5s" />
 
         </div>
 
+
+   
 <div class="playernames-header-container">
     <h2 class=" player-names-header fw-bold">Player names</h2>
 </div>
@@ -44,17 +45,26 @@
 
 
             <div class="outer-input-container">
-           
 
-            <div class="input-container rounded animate__animated animate__slideInLeft ">
-                    <input @bind="InputValue" placeholder="Name" class="name-input form-control custom-color" disabled="@inputIsDone" @oninput="UpdateInputValue" @ref=" playerNameInput" @onkeydown="HandleKeyPress"  />
-            <button @onclick="AddPlayers" class="@(string.IsNullOrWhiteSpace(InputValue) ? "add-btn-disabled" : "add-btn")">
-                        <svg xmlns="http://www.w3.org/2000/svg"  fill="white" class=" add-btn-svg bi bi-plus" viewBox="0 0 16 16">
+    <div class="envelope-container">
+        <div class="el-flap"></div>
+        <div class="el-inner-space"></div>
+        <div class="el-base">
+            <div class="animate__animated animate__fadeIn animate__delay-5s">
+                <div class="input-container rounded animate__animated animate__slideInLeft ">
+                    <input @bind="InputValue" placeholder="Name" class="name-input form-control custom-color" disabled="@inputIsDone" @oninput="UpdateInputValue" @ref=" playerNameInput" @onkeydown="HandleKeyPress" />
+                    <button @onclick="AddPlayers" class="@(string.IsNullOrWhiteSpace(InputValue) ? "add-btn-disabled" : "add-btn")">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="white" class=" add-btn-svg bi bi-plus" viewBox="0 0 16 16">
                             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
                         </svg>
                     </button>
-           
+
                 </div>
+
+            </div>
+        </div>
+    </div>
+            
 </div>
 
 
@@ -69,6 +79,7 @@
     public string InputValue { get; set; }
     public List<string> Names { get; set; } = new List<string>();
     private ElementReference playerNameInput;
+
 
     private void AddPlayers()
     {

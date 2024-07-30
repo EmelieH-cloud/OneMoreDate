@@ -14,7 +14,7 @@
 
 /* 2. Home ----------------------------------------------------*/
 img {
-    width: 85%;
+    width: 75%;
     /* Automatisk höjd för att behålla bildens proportioner */
 }
 
@@ -23,6 +23,8 @@ img {
     z-index: -1;
     height: 100vh;
     width: 100vw;
+    background: rgb(252,174,217);
+    background: linear-gradient(0deg, rgba(252,174,217,1) 15%, rgba(250,249,218,0.557387920988708) 82%, rgba(252,244,206,0.680637220708596) 97%);
 }
 
 .inner-container {
@@ -163,8 +165,8 @@ img {
 /* 3. Menu -----------------------------------------------------*/
 .oval-frame {
     width: 100%; /* Justera bredden efter behov */
-    height: 75vh; /* Justera höjden efter behov */
-    top: 8%;
+    height: 85vh; /* Justera höjden efter behov */
+    top: 14%;
     border-top-left-radius: 180px;
     border-top-right-radius: 180px; /**/
 
@@ -180,9 +182,7 @@ img {
     width: 95%; /* Justera bredden efter behov */
     height: 80vh; /* Justera höjden efter behov */
 
-    border-top-left-radius: 170px;
-    border-top-right-radius: 170px; /**/
-
+    border-radius: 50% 50% 0 0;
     position: absolute; /* Behövs för att positionera pseudo-elementet */
     overflow: hidden; /* För att dölja pseudo-elementet utanför ramen */
     background: #FFC9EA;
@@ -198,26 +198,24 @@ img {
     }
 
 
-    .table-image-new
-    {
-        width:100%;
-
-       
-    }
+.table-image-new {
+    width: 100%;
+    border-bottom: 150px solid #5a023e;
+}
 
 .circle-frame {
-    width: 150%;
-    height: 250px;
+    width: 100%;
+    height: 200px;
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    background-color: /*mörkrosa #6C024C; */ #ffe4e1;
-    /*box-shadow: 0px 0px 20px #FF1DA5;*/
+    background-color: /*mörkrosa #6C024C; */ #f8cfeb;
+    /* Lägg till box-shadow för att skapa en skugga längs cirkelns kant */
+    box-shadow: 0px 0px 40px 20px rgba(90, 2, 62, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
-    clip-path: inset(0px 0px -10px 0px); /* Justera detta värde för att göra botten rak */
 }
 
     
@@ -285,15 +283,15 @@ img {
 
 
 .name-input {
-    border-radius: 20px;
-    width: 80%;
+    border-radius: 10px;
+    width: 75%;
+
 }
 
 .outer-input-container
 {
 
     display: flex;
-
     align-items: flex-end;
 
 
@@ -305,9 +303,9 @@ img {
 }
 
 .input-container {
-    width: 100vw;
+    width: 70vw;
     display: flex;
-    padding: 2%; 
+  
     z-index: 1000;
 
 }
@@ -418,12 +416,12 @@ img {
 
 .added-names-container 
 {
-    top: 22%;
+    top: 45%;
     z-index: 1;
-    width: 80%;
+    width: 85%;
     overflow-y: auto;
     position: absolute;
-    margin-left: 4%; 
+    margin-left: 5%; 
 }
 
     .added-names-container::-webkit-scrollbar 
@@ -1500,4 +1498,99 @@ Quit-komponent*/
 
 .back-btn-rules{
     margin-top:2%;
+}
+
+/* envelope -----------*/
+
+/*Envelope CSS*/
+
+/* Envelope CSS */
+.envelope-container {
+    position: absolute;
+    height: 300px; /* Increased height */
+    width: 400px; /* Increased width */
+    display: flex;
+    top: 20%; 
+ 
+    justify-content: center;
+  
+
+}
+
+.el-base {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 28px; /* Adjusted position */
+    height: 100px; /* Increased height */
+    width: 268px; /* Increased width */
+    background: pink;
+    border-radius: 6px; /* Adjusted for larger size */
+    animation: paper-slide 2s forwards;
+    animation-delay: 1s; /* Starts after the flap animation */
+}
+
+    .el-base h1 {
+        text-align: center;
+        margin: 0;
+        padding: 40px 0; /* Adjusted padding */
+        font-size: 32px; /* Increased font size */
+        color: #321;
+    }
+
+.el-inner-space {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    height: 180px; /* Increased height */
+    width: 280px; /* Increased width */
+    background-color: pink;
+    border-radius: 6px; /* Adjusted for larger size */
+    border-top: solid 90px transparent; /* Adjusted */
+    border-right: solid 140px #ff55a3; /* Adjusted */
+    border-bottom: solid 90px #f77fbe; /* Adjusted */
+    border-left: solid 140px #ff69b4; /* Adjusted */
+    z-index: 1;
+}
+
+.el-flap {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    height: 0;
+    width: 0;
+    border-radius: 6px; /* Adjusted for larger size */
+    border-top: solid 90px #f6adc6; /* Adjusted */
+    border-right: solid 140px transparent; /* Adjusted */
+    border-left: solid 140px transparent; /* Adjusted */
+    animation: el-open 1s forwards;
+    z-index: -1;
+}
+
+/* Envelope Opening Animation */
+@keyframes el-open {
+    0% {
+        transform: rotateX(0deg);
+        transform-origin: center top;
+    }
+
+    100% {
+        transform: rotateX(180deg);
+        transform-origin: center top;
+        opacity: 0;
+    }
+}
+
+/* Paper Sliding Animation */
+@keyframes paper-slide {
+    0% {
+        transform: translateY(0);
+
+    }
+
+    100% {
+        transform: translateY(-100px); /* Adjusted for larger size */
+    }
 }
