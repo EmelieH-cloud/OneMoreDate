@@ -1,8 +1,11 @@
 ﻿﻿ /* 1. Globala stilar ---------------------------*/
-body {
-    background: linear-gradient(0deg, rgb(247, 247, 247) 23.8%, rgb(252, 221, 221) 92%);
-    height: 100vh;
+html,body {
+    background: #FCDDDD;
     width: 100vw;
+    overflow:hidden;
+    margin:0;
+    padding:0;
+
 }
 
 
