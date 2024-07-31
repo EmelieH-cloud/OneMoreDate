@@ -1,0 +1,33 @@
+﻿@page "/Menu"
+@using Microsoft.AspNetCore.Components
+@using OneMoreDate.Components.Reusable;
+@inject NavigationManager Navigation
+
+
+<div class='outer-container '>
+    <div class="oval-frame">
+        <img class="table-image-new" src="images/dateee.png" />
+    </div>
+    <div class="outer-btn-container">
+        <button @onclick="StartGame" class="button-29 menu-start-btn "> Start game </button>
+        <button @onclick="GoToRules" class="button-29 menu-rules-btn "> How to play</button>
+
+    </div>
+</div>
+
+
+
+@code{
+ 
+
+    private void StartGame()
+    {
+        Navigation.NavigateTo("/inputPlayerNames");
+    }
+
+    private void GoToRules()
+    {
+        Navigation.NavigateTo("/rules");
+    }
+
+}
