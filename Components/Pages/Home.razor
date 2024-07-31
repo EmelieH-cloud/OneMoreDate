@@ -1,94 +1,22 @@
 ﻿@page "/"
 @using Microsoft.AspNetCore.Components
-@using OneMoreDate.Components.Reusable;
 @inject NavigationManager Navigation
 
-
-    <div class='outer-container '>
-
-
-
-        <div class="oval-frame">
-
-            <img class="table-image-new" src="images/dateee.png" />
-        </div>
-
-
-
-        <div class="outer-btn-container">
-              
-
-                    <button @onclick="StartGame" class="button-29 menu-start-btn "> Start game </button>
-                    <button @onclick="GoToRules" class="button-29 menu-rules-btn "> How to play</button>
-            
-            </div>
-
+<div class="outer-home-container">
+    <div class="inner-home-container">
+        <img src="images/firstpic.png" alt="first-pic" class="home-pic" />
     </div>
-
-
-
-
-
-
-
+</div>
 
 @code {
-    private bool showLogo = false;
-    private bool showButtons = false;
-    private string[] images = new string[]
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        "images/Bild_1.png",
-        "images/Bild_2.png",
-        "images/Bild_3.png",
-        "images/Bild_4.png",
-        "images/Bild_5.png"
-        };
-
-    private int currentImageIndex = 0;
-    private Timer _timer; // timer för bildbyte
-
-
-    protected override async Task OnInitializedAsync()
-    {
-        _timer = new Timer(ChangeImage, null, 3500, 500);
-
-    }
-
-
-    private void ChangeImage(object state)
-    {
-        InvokeAsync(() =>
+        if (firstRender)
         {
-            currentImageIndex = (currentImageIndex + 1) % images.Length;
-            if (currentImageIndex == images.Length - 1)
-            {
-                _timer?.Dispose();
-                showButtons = true;
-                showLogo = true;
-            }
-
-            StateHasChanged();
-
-        });
+            // Vänta 3 sekunder
+            await Task.Delay(3000);
+            // Navigera till en annan sida
+            Navigation.NavigateTo("/Menu");
+        }
     }
-
-    public void Dispose()
-    {
-        _timer?.Dispose();
-    }
-
-    private void StartGame()
-    {
-        Navigation.NavigateTo("/inputPlayerNames");
-    }
-
-    private void GoToRules()
-    {
-        Navigation.NavigateTo("/rules");
-    }
-
-
-
-
-
 }

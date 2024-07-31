@@ -191,13 +191,13 @@ img
 }
 
 .hearts-bg {
-    top:10%;
+    top:20%;
     border:2px solid blue;
     position: absolute;
     opacity: .1;
    
     width: 100vw;
-    z-index: 1;
+    z-index: -1;
     background: inherit;
 }
 
@@ -208,7 +208,7 @@ img
 
 .playernames-header-container {
     padding: 20px;
-    background: inherit;
+    background-color: #FCDDDD;
     margin-top: 5%;
     width: 100vw;
     display: flex;
@@ -217,7 +217,7 @@ img
     margin-bottom: 10%;
     background-clip: border-box;
     box-sizing: border-box;
-    z-index:1;
+    z-index: 1;
 }
 
 
@@ -346,21 +346,18 @@ img
     display: flex;
     justify-content: center;
     align-items: center;
- 
-
 }
-
-
 
 
 .added-names-container 
 {
     top: 45%;
     z-index: 1;
-    width: 85%;
+    width: 100%;
     overflow-y: auto;
     position: absolute;
-    margin-left: 5%; 
+    display: flex;
+    justify-content: center;
 }
 
     .added-names-container::-webkit-scrollbar 
@@ -1513,4 +1510,33 @@ Quit-komponent*/
     100% {
         transform: translateY(-100px); /* Adjusted for larger size */
     }
+}
+
+
+/* home--------------------------------------------------------*/
+
+.outer-home-container 
+{
+
+    width: 100vw;
+    height: 100vh;
+    background-color: #FCDDDD;
+
+
+}
+
+.inner-home-container
+{
+    width: 100%;
+    height: 100%;
+
+
+}
+
+.home-pic
+{
+
+    width: 100%;
+    
+
 }
