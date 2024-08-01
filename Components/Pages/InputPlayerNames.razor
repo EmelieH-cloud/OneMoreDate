@@ -8,14 +8,52 @@
 
 
 <div class="inputPlayerNames-outer-container">
-    <div class="hearts-bg">
-        <img src="images/bghearts.png" alt="hearts" style="width: 100%;" class="animate__animated animate__zoomIn animate__delay-5s" />
+
+    <div class="logo-bg">
+        <img src="images/pinksky.png" alt="sky" class="logo-img animate__animated animate__fadeIn" />
+    
+    </div>
+
+    <div class="clouds-bg">
+        <img src="images/cloud1.png" alt="cloud1" class="cloud1-img animate__animated animate__slideInLeft"/>
+        <img src="images/cloud2.png" alt="cloud2" class="cloud2-img animate__animated animate__slideInRight" />
+        <img src="images/cloud3.png" alt="cloud3" class="cloud3-img animate__animated animate__slideInRight" />
+        <img src="images/cloud1.png" alt="cloud4" class="cloud4-img animate__animated animate__slideInRight" />
+        <img src="images/cloud1.png" alt="cloud5" class="cloud5-img"/>
+        <img src="images/cloud1.png" alt="cloud6" class="cloud6-img animate__animated animate__slideInLeft" />
+    </div>
+
+    <div class="couple-kiss-bg">
+        <img src="images/kiss.png" alt="kissing-couple" class="kiss-img animate__animated animate__fadeInUp" />
+        
+    </div>
+
+    <div class="outer-input-container">
+
+        <div class="animate__animated animate__fadeIn">
+            <div class="input-container rounded animate__animated animate__slideInLeft ">
+               
+                <input @bind="InputValue" placeholder="Add player" class="name-input form-control custom-color" disabled="@inputIsDone" @oninput="UpdateInputValue" @ref=" playerNameInput" @onkeydown="HandleKeyPress" />
+
+                <button @onclick="AddPlayers" class="@(string.IsNullOrWhiteSpace(InputValue) ? "add-btn-disabled" : "add-btn")">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="white" class=" add-btn-svg bi bi-plus" viewBox="0 0 16 16">
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+                    </svg>
+                </button>
+            </div>
+            <div class="done-btn-container">
+                <button @onclick="AddActivePlayers" class="@(disableDoneBtn ? "done-btn-disabled" : "done-btn")" disabled="@disableDoneBtn">
+                    Done
+                </button>
+            </div>
+        </div>
+
+
 
     </div>
-    <div class="playernames-header-container">
-        <h2 class=" player-names-header fw-bold">Player names</h2>
-    </div>
+   
     <GoBackBtn BackUrl="" />
+   
     <div class="added-names-container">
         @foreach (var name in Names)
         {
@@ -25,49 +63,24 @@
                     @name
                 </p>
                 <div class="animate__animated animate__fadeIn">
+      
                     <button class="remove-btn" @onclick="() => RemovePlayer(name)">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="white" class="bi bi-dash bg-svg-pink " viewBox="0 0 16 16">
                             <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
                         </svg>
                     </button>
+                   
                 </div>
             </div>
         }
-        <div class="done-btn-container">
-            <button @onclick="AddActivePlayers" class="@(disableDoneBtn ? "done-btn-disabled" : "done-btn")" disabled="@disableDoneBtn">
-                Done
-            </button>
-        </div>
-
+      
+      
     </div>
 
+  
 
 
-    <div class="outer-input-container">
-
-        <div class="envelope-container">
-            <div class="el-flap"></div>
-            <div class="el-inner-space"></div>
-            <div class="el-base">
-                <div class="animate__animated animate__fadeIn animate__delay-5s">
-                    <div class="input-container rounded animate__animated animate__slideInLeft ">
-                        <input @bind="InputValue" placeholder="Name" class="name-input form-control custom-color" disabled="@inputIsDone" @oninput="UpdateInputValue" @ref=" playerNameInput" @onkeydown="HandleKeyPress" />
-
-
-
-                        <button @onclick="AddPlayers" class="@(string.IsNullOrWhiteSpace(InputValue) ? "add-btn-disabled" : "add-btn")">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="white" class=" add-btn-svg bi bi-plus" viewBox="0 0 16 16">
-                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
-                            </svg>
-                        </button>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-    </div>
+  
 
 </div>
 
@@ -88,7 +101,8 @@
 
         if (!string.IsNullOrEmpty(InputValue) && Names.Count<=9)
         {
-            Names.Add(InputValue);
+
+            Names.Insert(0, InputValue);
             InputValue = "";
         }
         // Uppdatera disableDoneBtn baserat på antalet namn

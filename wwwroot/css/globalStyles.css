@@ -21,17 +21,20 @@ h1 {
 
 
 
-h1, h3, h2, h5, li, h6, h4, p {
+h1, h3, h2, h5, li, h6, h4, p 
+{
     font-family: "Poppins";
 }
 
-.back-btn-no-background {
+.back-btn-no-background 
+{
     margin: 3%;
     position: fixed;
     z-index: 2;
 }
 
-.back-btn-no-background-svg {
+.back-btn-no-background-svg 
+{
     width: 32px;
 }
 
