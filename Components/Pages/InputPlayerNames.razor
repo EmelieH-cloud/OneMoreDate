@@ -7,9 +7,6 @@
 
 
 
-
-
-
 <div class="inputPlayerNames-outer-container">
 
     <div class="logo-bg">
@@ -43,15 +40,20 @@
                         <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
                     </svg>
                 </button>
-
             </div>
-
+            <div class="done-btn-container">
+                <button @onclick="AddActivePlayers" class="@(disableDoneBtn ? "done-btn-disabled" : "done-btn")" disabled="@disableDoneBtn">
+                    Done
+                </button>
+            </div>
         </div>
 
 
 
     </div>
+   
     <GoBackBtn BackUrl="" />
+   
     <div class="added-names-container">
         @foreach (var name in Names)
         {
@@ -61,11 +63,13 @@
                     @name
                 </p>
                 <div class="animate__animated animate__fadeIn">
+      
                     <button class="remove-btn" @onclick="() => RemovePlayer(name)">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="white" class="bi bi-dash bg-svg-pink " viewBox="0 0 16 16">
                             <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
                         </svg>
                     </button>
+                   
                 </div>
             </div>
         }
@@ -74,11 +78,7 @@
     </div>
 
   
-      <div class="done-btn-container">
-        <button @onclick="AddActivePlayers" class="@(disableDoneBtn ? "done-btn-disabled" : "done-btn")" disabled="@disableDoneBtn">
-            Done
-        </button>
-    </div>
+
 
   
 
@@ -101,7 +101,8 @@
 
         if (!string.IsNullOrEmpty(InputValue) && Names.Count<=9)
         {
-            Names.Add(InputValue);
+
+            Names.Insert(0, InputValue);
             InputValue = "";
         }
         // Uppdatera disableDoneBtn baserat på antalet namn
