@@ -770,12 +770,14 @@ img
     flex-direction: column;
 }
 
-.card-btns-container{
-    margin-bottom:10%;
-}
 
-.game-btns-container{
-    margin-top:10%;
+
+.game-btns-container
+{
+    z-index: 1000;
+    width: 100vw;
+    height: 20vh;
+    position: absolute;
 }
 
 .my-show-cards-container {
@@ -800,6 +802,7 @@ img
     width: 70px;
     height: 70px;
     border-radius: 50%;
+    margin-top: 5%;
 }
 
 
@@ -808,35 +811,44 @@ img
 
 .the-card-container
 {
-    position: relative;
-    width: 15rem;
-    height: auto;
-    z-index: 3;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
   
 }
 
 .the-card {
-    width: 100%;
-    display: block;
+    position: absolute;
+    width: 15rem;
+    height: auto;
+    z-index: 3;
+    background-color: black;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 1);
 }
 
 .card-question {
    
     position: absolute;
-    top: 40%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%;
+    width: 60%;
     text-align: center;
+    z-index: 1000;
 }
 
-.outer-card-container {
+.outer-card-container 
+{
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
 
-    align-items: flex-end;
-    height: 70vh;
-    border:2px solid red;
     
 }
 
@@ -983,11 +995,6 @@ img
     width: 50%;
 }
 
-.inner-showcard-container
-{
- 
-    padding-top: 3%;
-}
 
 .borderimg 
 {
@@ -1004,28 +1011,32 @@ img
     border: 2px solid black;
 }
 
-.previous-card-container {
+.previous-cards-container {
     display: flex;
-
     font-family: "Playwrite SK";
     flex-direction: column;
-    height: 100%;
-    justify-content: end;
+    height: 100vh;
+    width: 100vw;
+    justify-content: flex-start;
+    align-items: center;
+   text-align: center;
+    padding-top: 5%;
  
+}
+
+.go-forward-btn
+{
+    padding: 5%;
+    width: 60%;
 }
 
 .showCards-Container {
     position: fixed;
-    
     height: 100vh;
-    width:100vw;
+    width: 100vw;
 }
 
-.text-container {
-    height: 100%;
-    border: 5px green;
-   
-}
+
 
 .first-card {
     display: flex;
@@ -1138,7 +1149,7 @@ line-height:2;
     background-color: white;
 }
 
-/* toggle menu komponent ------------------*/
+/* togglemenu ------------------*/
 
 .toggle-menu-container {
     position: absolute;

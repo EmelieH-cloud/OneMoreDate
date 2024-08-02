@@ -12,18 +12,10 @@
     </div>
 
 
-
-
-    <div class="previous-card-container">
+    <div class="previous-cards-container">
         @if (ActivePlayer != null)
         {
-            <div class="text-container">
-                <div class="background-pink">
-
-                    <div class="inner-showcard-container">
                         <h2 class="activeplayer-header">@($"{ActivePlayer.Name}'s turn")</h2>
-                      
-
                         @if (ActivePlayer.Hand.Count == 0 || ActivePlayer.Hand == null)
                         {
                             <div class="first-card">
@@ -54,20 +46,19 @@
                                 delayCounter++;
                             }
                         }
-                    </div>
-                </div>
-            </div>
+            <button @onclick="HandleCloseButton" class="button-29 go-forward-btn">
+                        READ CARD
+                    </button>
+
         }
 
     </div>
 
-    <button @onclick="HandleCloseButton">
-       READ CARD
-    </button>
+  
 </div>
 
 
-@* Gamepage-------------------------------- *@
+@*----------- Gamepage (StandardCardIsShowing) --------- *@
 
 @if (ShowHeart)
 {
@@ -98,9 +89,6 @@ else if (IsMovingInTogether)
     <div class="yes-image animate__animated animate__fadeIn">
         <h1 class="move-in-message-header animate__animated animate__zoomIn"> Congratulations! <br/> <br/> You just moved in together!</h1>
         <img src="images/house.png" alt="houseimg" class="animate__animated animate__zoomIn" />
-        
-
-
         <img src="./images/continue.png" alt="btn" class="move-in-forward-button animate__animated animate__heartBeat animate__infinite infinite" @onclick="GoForwardMovingIn"/>
            
     </div>
@@ -112,17 +100,8 @@ else if (IsMovingInTogether)
 
 @if (StandardCardIsShowing)
 {
-   
-
-       <div class="gamepage-outer-container ">
-
-
-           <div class="card-btns-container">
-
-
+       <div class="gamepage-outer-container">
                 <StandardCard Question="@currentQuestion" Animation="@animationClass"  GoBackShowCards = "GoBackShowCards" />
-
-
             <div class="game-btns-container ">
                 <button @onclick="DeletePlayerHand" class=" no-btn bg-light border border-1">
                     <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="red" class="bi bi-x" viewBox="0 0 16 16">
@@ -136,13 +115,10 @@ else if (IsMovingInTogether)
                 </button>
 
             </div>
-            </div>
+          
 
         </div>
-       
-     
-       
-      
+        
 }
 
 
@@ -155,9 +131,6 @@ else if (IsMovingInTogether)
     private bool IsGettingMarried = false; 
     private bool YesButtonIsEnabled;
     private bool StandardCardIsShowing; 
-
-
-
     private string animationClass = "";
     private string dateNumber;
     private int lastQuestionCounter = 0;
@@ -174,12 +147,7 @@ else if (IsMovingInTogether)
     private bool ShowCards = false; 
     private bool ShowHeart = false;
     private bool yesBtnIsDisabled = false; 
-
     private bool IsMovingInTogether = false; 
-
-
-
-
 
 
     // showcards
@@ -214,33 +182,19 @@ else if (IsMovingInTogether)
     private async Task HandleCloseButton()
     {
         StandardCardIsShowing = true;
+        YesButtonIsEnabled = true;
         await Task.Delay(500);
         await CloseButton.InvokeAsync(null);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
- //Game page
+    //Game page
 
     private async Task GoForwardMovingIn()
     {
         IsMovingInTogether = false;
         IsGettingMarried = false;
-
         currentQuestion = "";
         StateHasChanged();
-
         SwitchPlayer();
     }
 
@@ -256,8 +210,6 @@ else if (IsMovingInTogether)
         StandardCardIsShowing = false;
         animationClass = "";
     }
-
-
 
     protected override void OnInitialized()
     {
@@ -304,7 +256,7 @@ else if (IsMovingInTogether)
     {
 
         YesButtonIsEnabled = false;
-
+        StandardCardIsShowing = false;
         ActivePlayer.Hand.Add(ActiveCard);
         if (ActivePlayer.Hand.Count==5)
         {
@@ -324,18 +276,13 @@ else if (IsMovingInTogether)
         else
         {
             ShowHeart = true;
-
             StateHasChanged();
             await Task.Delay(1500);
-
-
-
             animationClass = "animate__animated animate__slideOutRight";
             currentQuestion = "";
             ShowHeart = false;
             StateHasChanged();
             await Task.Delay(1500);
-
             SwitchPlayer();
             StandardCardIsShowing = false;
         }
@@ -349,17 +296,12 @@ else if (IsMovingInTogether)
 
     private void SwitchPlayer()
     {
-
         ActivePlayerIndex = (ActivePlayerIndex + 1) % players.Count;
-
-
         ActiveCardIndex = (ActiveCardIndex + 1) % (IsStarterDeck ? ActiveStarterDeck.Cards.Count : ActivePartyDeck.Cards.Count);
-
         InitializeActivePlayer();
         InitializeActiveCard();
         lastQuestionCounter = 0;
         CalculateActivePlayerDate();
-
     }
 
     private void CloseBtn()
