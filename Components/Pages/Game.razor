@@ -48,8 +48,8 @@
                             @foreach (PlayerCard card in ActivePlayer.Hand)
                             {
                                 <div class="question-container">
-                                    <img src="images/heart.png" alt="heart" class="heart-image fade-in-previous @GetDelayClass(delayCounter)" />
-                                    <p class="fade-in-previous @GetDelayClass(delayCounter) mb-2 ">@card.Question</p>
+                                    <img src="images/heart.png" alt="heart" class="heart-image fade-in-previous " />
+                                    <p class="fade-in-previous  mb-2 ">@card.Question</p>
                                 </div>
                                 delayCounter++;
                             }
@@ -120,7 +120,7 @@ else if (IsMovingInTogether)
            <div class="card-btns-container">
 
 
-                <StandardCard Question="@currentQuestion" Animation="@animationClass"  GoBackShowCards = "GoBackShowCards" />
+                <StandardCard Question="@currentQuestion" Animation="@animationClass"  />
 
 
             <div class="game-btns-container ">
@@ -157,26 +157,37 @@ else if (IsMovingInTogether)
     private bool StandardCardIsShowing; 
 
 
+    private Player ActivePlayer = new Player();
+
+
 
     private string animationClass = "";
-    private string dateNumber;
+
     private int lastQuestionCounter = 0;
+
+
     private int ActivePlayerIndex = 0;
+
     private int ActiveCardIndex = 0;
-    private bool IsStarterDeck;
-    private Player ActivePlayer = new Player(); 
+
+
+
+
     private List<Player> players = new List<Player>(); 
-    private TrialDeck ActiveStarterDeck = new TrialDeck(); 
+
+
+
+    private TrialDeck ActiveTrialDeck = new TrialDeck(); 
     private PartyDeck ActivePartyDeck = new PartyDeck();
-    private string deckName;
-    private string currentQuestion;
+
+
     private PlayerCard ActiveCard = new PlayerCard(); 
     private bool ShowCards = false; 
     private bool ShowHeart = false;
     private bool yesBtnIsDisabled = false; 
 
-    private bool IsMovingInTogether = false; 
-
+    private bool IsMovingInTogether = false;
+    private string currentQuestion;
 
 
 
@@ -193,23 +204,62 @@ else if (IsMovingInTogether)
 
 
 
-    private string GetDelayClass(int delayCounter)
+
+
+    protected override void OnInitialized()
     {
-        return delayCounter switch
-        {
-            1 => "delay-1s",
-            2 => "delay-2s",
-            3 => "delay-3s",
-            4 => "delay-4s",
-            5 => "delay-5s",
-            6 => "delay-6s",
-            7 => "delay-7s",
-            8 => "delay-8s",
-            9 => "delay-9s",
-            10 => "delay-10s",
-            _ => ""
-        };
+
+        //Get all players 
+        players = PlayerManager.Players;
+
+        //Get first player 
+        ActivePlayer = players[0];
+
+
+        //Convert and add ActiveDeck 
+        ConvertActiveDeck();
+
+
+        //
+        ActiveCardIndex = 0;
+
+        GameManager.ActiveDeck.Shuffle();
+
+
+        // showcards
+
+
+
     }
+
+
+    public void ConvertActiveDeck()
+    {
+
+        //Convert to right deck 
+
+        if (GameManager.ActiveDeck is TrialDeck trialDeck)
+        {
+
+            ActiveTrialDeck = trialDeck;
+
+
+        }
+        else if (GameManager.ActiveDeck is PartyDeck partyDeck)
+        {
+
+
+            ActivePartyDeck = partyDeck;
+
+
+        }
+
+
+    }
+
+
+
+
 
     private async Task HandleCloseButton()
     {
@@ -220,18 +270,7 @@ else if (IsMovingInTogether)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
- //Game page
+    //Game page
 
     private async Task GoForwardMovingIn()
     {
@@ -244,58 +283,6 @@ else if (IsMovingInTogether)
         SwitchPlayer();
     }
 
-
-
-    private async Task GoBackShowCards()
-    {
-        currentQuestion = "";
-        animationClass = "animate__animated animate__slideOutLeft";
-        StateHasChanged();
-        await Task.Delay(1000);
-        ShowCards = true;
-        StandardCardIsShowing = false;
-        animationClass = "";
-    }
-
-
-
-    protected override void OnInitialized()
-    {
-        players = PlayerManager.Players;
-        ConvertActiveDeck();
-        InitializeActiveCard();
-        InitializeActivePlayer();
-        CalculateActivePlayerDate();
-        GameManager.ActiveDeck.Shuffle();
-
-
-        // showcards
-        ActivePlayer = PlayerManager.GetActivePlayer();
-
-
-    }
-
-    public void ConvertActiveDeck()
-    {
-        if (GameManager.ActiveDeck is TrialDeck starterDeck)
-        {
-            deckName = starterDeck.Name;
-            ActiveStarterDeck = starterDeck;
-           
-
-            IsStarterDeck = true;
-        }
-        else if (GameManager.ActiveDeck is PartyDeck partyDeck)
-        {
-            deckName = partyDeck.Name;
-
-            ActivePartyDeck = partyDeck;
-        
-
-        }
-
-        
-    }
 
     private async Task DeletePlayerHand()
     {
@@ -358,15 +345,19 @@ else if (IsMovingInTogether)
     private void SwitchPlayer()
     {
 
+
+        // Switch active player 
         ActivePlayerIndex = (ActivePlayerIndex + 1) % players.Count;
+        ActivePlayer = players[ActivePlayerIndex];
 
 
-        ActiveCardIndex = (ActiveCardIndex + 1) % (IsStarterDeck ? ActiveStarterDeck.Cards.Count : ActivePartyDeck.Cards.Count);
+        //Switch active card 
+        ActiveCardIndex = (ActiveCardIndex + 1);
 
-        InitializeActivePlayer();
-        InitializeActiveCard();
-        lastQuestionCounter = 0;
-        CalculateActivePlayerDate();
+        // OM LEKEN ÄR SLUT SKA DET GÖRAS NÅGOT 
+
+
+     
 
     }
 
@@ -377,37 +368,15 @@ else if (IsMovingInTogether)
         ShowCards = false;
         StandardCardIsShowing = true;
      
-        InitializeActiveCard();
+  
 
     }
 
 
-    private void InitializeActivePlayer()
-    {
+  
 
-        // Byt spelare 
-        ActivePlayer = players[ActivePlayerIndex];
-        PlayerManager.SetActivePlayer(ActivePlayer);
 
-            ShowCards = true; 
-       
-
-    }
-
-    private void InitializeActiveCard()
-    {
-        if (IsStarterDeck)
-        {
-            ActiveCard = ActiveStarterDeck.Cards[ActiveCardIndex];
-        }
-        else
-        {
-            ActiveCard = ActivePartyDeck.Cards[ActiveCardIndex];
-        }
-        currentQuestion = ActiveCard.Question;
-        FlipCard();
-
-    }
+    
 
     private async void FlipCard()
     {
@@ -420,20 +389,5 @@ else if (IsMovingInTogether)
     }
     
 
-    private void CalculateActivePlayerDate()
-    {
-        switch (ActivePlayer.Hand.Count)
-        {
-            case 1: dateNumber = "second"; break;
-            case 2: dateNumber = "third"; break;
-            case 3: dateNumber = "fourth"; break;
-            case 4: dateNumber = "fifth"; break;
-            case 5: dateNumber = "sixth"; break;
-            case 6: dateNumber = "seventh"; break;
-            case 7: dateNumber = "eighth"; break;
-            case 8: dateNumber = "ninth"; break;
-            case 9: dateNumber = "tenth"; break;
-            default: dateNumber = "first"; break;
-        }
-    }
+    
 }
