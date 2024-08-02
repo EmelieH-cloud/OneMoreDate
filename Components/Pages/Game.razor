@@ -4,272 +4,193 @@
 @using OneMoreDate.Components.Reusable;
 @inject NavigationManager Navigation
 
-@* showcards *@
-
 <div class="showCards-Container rounded @(isFadingOut ? "animate__animated animate__slideOutRight" : "")" @ref="showCardsContainer">
     <div class="toggle-menu-container">
         <ToggleMenu />
     </div>
 
-
     <div class="previous-cards-container">
         @if (ActivePlayer != null)
         {
-                        <h2 class="activeplayer-header">@($"{ActivePlayer.Name}'s turn")</h2>
-                        @if (ActivePlayer.Hand.Count == 0 || ActivePlayer.Hand == null)
-                        {
-                            <div class="first-card">
-                                <div class="first-card-p">
-                                    <p class="first-card-text mb-3 animate__animated animate__fadeIn animate__delay-1s animate_slower">
-                                        <span class="fw-bolder">@ActivePlayer.Name</span> is on the date and meets someone who seems absolutely perfect...
-                                    </p>
-                                    <p class="first-card-text but-during animate__animated animate__fadeIn animate__delay-2s animate_slower">
-                                        But during the date it turns out that he/she...
-                                    </p>
-                                </div>
-                            </div>
-                        }
+            <h2 class="activeplayer-header">@($"{ActivePlayer.Name}'s turn")</h2>
 
-                        @if (ActivePlayer.Hand != null && ActivePlayer.Hand.Count > 0)
-                        {
+            @if (ActivePlayer.Hand == null || ActivePlayer.Hand.Count == 0)
+            {
+                <div class="first-card">
+                    <div class="first-card-p">
+                        <p class="first-card-text mb-3 animate__animated animate__fadeIn animate__delay-1s animate_slower">
+                            <span class="fw-bolder">@ActivePlayer.Name</span> is on the date and meets someone who seems absolutely perfect...
+                        </p>
+                        <p class="first-card-text but-during animate__animated animate__fadeIn animate__delay-2s animate_slower">
+                            But during the date it turns out that he/she...
+                        </p>
+                    </div>
+                </div>
+            }
 
-                            <p class="mt-3 mb-3"><span class="fw-bolder">@ActivePlayer.Name is dating someone who...</span></p>
+            @if (ActivePlayer.Hand != null && ActivePlayer.Hand.Count > 0)
+            {
+                <p class="mt-3 mb-3 text-white"><span class="fw-bolder">@ActivePlayer.Name is dating someone who...</span></p>
 
+                @foreach (PlayerCard card in ActivePlayer.Hand)
+                {
+                    <div class="question-container">
+                        <img src="images/heart.png" alt="heart" class="heart-image fade-in-previous" />
+                        <p class="fade-in-previous mb-2">@card.Question</p>
+                    </div>
+                }
+            }
 
-                            int delayCounter = 1;
-                            @foreach (PlayerCard card in ActivePlayer.Hand)
-                            {
-                                <div class="question-container">
-                                    <img src="images/heart.png" alt="heart" class="heart-image fade-in-previous " />
-                                    <p class="fade-in-previous  mb-2 ">@card.Question</p>
-                                </div>
-                                delayCounter++;
-                            }
-                        }
-            <button @onclick="ReadCard" class="button-29 go-forward-btn">
-                        READ CARD
-                    </button>
-
+            <button @onclick="ReadCard" class="button-29 go-forward-btn">READ CARD</button>
         }
-
+        else
+        {
+            <p>Active player is null</p>
+        }
     </div>
-
-  
 </div>
-
-
-@*----------- Gamepage (StandardCardIsShowing) --------- *@
 
 @if (ShowHeart)
 {
-    
     <div class="yes-image animate__animated animate__fadeIn">
         <img src="images/heartbeat.png" alt="yesimg" class="animate__animated animate__zoomIn" />
-
     </div>
 }
-
 else if (IsGettingMarried)
 {
-     <div class="overlay-background">
-    <Confetti/>
-    <div class="yes-image animate__animated animate__fadeIn">
-       
-        <img src="images/newlymarried.png" alt="marriage" class="animate__animated animate__zoomIn" />
-            <h1 class="marriage-message-header animate__animated animate__zoomIn">Congratulations! <br /><br /> @ActivePlayer.Name just got married and will live happily ever after! <br /> <br /> Your search for true love has finally come to an end.</h1>
+    <div class="overlay-background">
+        <Confetti />
+        <div class="yes-image animate__animated animate__fadeIn">
+            <img src="images/newlymarried.png" alt="marriage" class="animate__animated animate__zoomIn" />
+            <h1 class="marriage-message-header animate__animated animate__zoomIn">
+                Congratulations! <br /><br /> @ActivePlayer.Name just got married and will live happily ever after! <br /> <br /> Your search for true love has finally come to an end.
+            </h1>
             <img src="./images/continue.png" alt="btn" class="move-in-forward-button animate__animated animate__heartBeat animate__infinite infinite" @onclick="GoForwardMovingIn" />
+        </div>
     </div>
-    </div>
-  
 }
-
 else if (IsMovingInTogether)
 {
     <div class="overlay-background">
-    <div class="yes-image animate__animated animate__fadeIn">
-        <h1 class="move-in-message-header animate__animated animate__zoomIn"> Congratulations! <br/> <br/> You just moved in together!</h1>
-        <img src="images/house.png" alt="houseimg" class="animate__animated animate__zoomIn" />
-        <img src="./images/continue.png" alt="btn" class="move-in-forward-button animate__animated animate__heartBeat animate__infinite infinite" @onclick="GoForwardMovingIn"/>
-           
-    </div>
+        <div class="yes-image animate__animated animate__fadeIn">
+            <h1 class="move-in-message-header animate__animated animate__zoomIn">Congratulations! <br /> <br /> You just moved in together!</h1>
+            <img src="images/house.png" alt="houseimg" class="animate__animated animate__zoomIn" />
+            <img src="./images/continue.png" alt="btn" class="move-in-forward-button animate__animated animate__heartBeat animate__infinite infinite" @onclick="GoForwardMovingIn" />
+        </div>
     </div>
 }
-<div class="animate__animated animate__fadeIn rounded text-center"/>
-    
-   
+
+<div class="animate__animated animate__fadeIn rounded text-center" />
 
 @if (StandardCardIsShowing)
 {
-
-
-       <div class="gamepage-outer-container ">
-
-
-         
-
-
-                <StandardCard Question="@currentQuestion" Animation="@animationClass"  />
-
-
-
-            <div class="game-btns-container ">
-                <button @onclick="DeletePlayerHand" class=" no-btn bg-light border border-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="red" class="bi bi-x" viewBox="0 0 16 16">
-                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
-                    </svg>
-                </button>
-                    <button @onclick="SaveCardOnPlayer" class="m-1 yes-btn bg-light border border-1" disabled="@(!YesButtonIsEnabled)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="green" class="bi bi-check" viewBox="0 0 16 16">
-                        <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
-                    </svg>
-                </button>
-
-          
-          
-
+    <div class="gamepage-outer-container">
+        <StandardCard Question="@currentQuestion" Animation="@animationClass" />
+        <div class="game-btns-container">
+            <button @onclick="DeletePlayerHand" class="no-btn bg-light border border-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="red" class="bi bi-x" viewBox="0 0 16 16">
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                </svg>
+            </button>
+            <button @onclick="SaveCardOnPlayer" class="yes-btn bg-light border border-1" disabled="@(!YesButtonIsEnabled)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="green" class="bi bi-check" viewBox="0 0 16 16">
+                    <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                </svg>
+            </button>
         </div>
-
-
     </div>
 }
 
-
-
- 
-
-
-
 @code {
-
-
-    private bool IsGettingMarried = false; 
+    private bool IsGettingMarried = false;
     private bool YesButtonIsEnabled;
-    private bool StandardCardIsShowing; 
-
-
-
+    private bool StandardCardIsShowing;
     private Player ActivePlayer = new Player();
-
-
-
-
     private string animationClass = "";
-
     private int lastQuestionCounter = 0;
-
-
     private int ActivePlayerIndex = 0;
-
     private int ActiveCardIndex = 0;
-
-
-
-
-    private List<Player> players = new List<Player>(); 
-
-
-
-    private TrialDeck ActiveTrialDeck = new TrialDeck(); 
-    private PartyDeck ActivePartyDeck = new PartyDeck();
-
-
-    private PlayerCard ActiveCard = new PlayerCard(); 
-    private bool ShowCards = false; 
+    private List<Player> players = new List<Player>();
+    private PlayerCard ActiveCard = new PlayerCard();
     private bool ShowHeart = false;
-    private bool yesBtnIsDisabled = false; 
-
-
+    private bool yesBtnIsDisabled = false;
     private bool IsMovingInTogether = false;
-    private string currentQuestion;
-
-
-
-
-
+    private string currentQuestion = "";
     private ElementReference showCardsContainer;
     private bool isFadingOut = false;
 
-    [Parameter]
-    public EventCallback CloseButton { get; set; }
-
-
-
-
-
+    // Use one of the following instances to initialize the deck
+    private TrialDeck ActiveTrialDeck = new TrialDeck();
+    private PartyDeck ActivePartyDeck = new PartyDeck();
+    private NaughtyDeck ActiveNaughtyDeck = new NaughtyDeck();
 
     protected override void OnInitialized()
     {
-
-        //Get all players 
+        // Save all players in the 'players' array 
         players = PlayerManager.Players;
 
-        //Get first player 
-        ActivePlayer = players[0];
 
+        if (players.Count > 0)
+        {
+            ActivePlayer = players[0];
+        }
 
-        //Convert and add ActiveDeck 
-        ConvertActiveDeck();
+        // Check chosen type and initialize the deck to that type
+        InitializeActiveDeck();
 
-
-        //
         ActiveCardIndex = 0;
-
-    
     }
 
-
-    private async Task ReadCard()
+    private void ReadCard()
     {
+        // Get the new question 
         SetCurrentQuestion();
-      
+        animationClass = "animate__animated animate__slideIn";
         StandardCardIsShowing = true;
-     
         YesButtonIsEnabled = true;
-
-        await Task.Delay(500);
-        await CloseButton.InvokeAsync(null);
+        StateHasChanged();
     }
+
 
     public void SetCurrentQuestion()
     {
-        if (GameManager.ActiveDeck is TrialDeck)
-        {
-            currentQuestion = ActiveTrialDeck.Cards[ActiveCardIndex].Question;
-
-        }
-
-
-        if (GameManager.ActiveDeck is PartyDeck)
-        {
-            currentQuestion = ActivePartyDeck.Cards[ActiveCardIndex].Question;
-
-        }
-    }
-
-
-    public void ConvertActiveDeck()
-    {
-
-
-        //Convert to right deck 
-
+        // Use the ActiveCardIndex to set the currentQuestion 
         if (GameManager.ActiveDeck is TrialDeck trialDeck)
         {
-
-            IsMovingInTogether = false;
-            IsGettingMarried = false;
-            currentQuestion = "";
-            StateHasChanged();
+            currentQuestion = ActiveTrialDeck.Cards[ActiveCardIndex].Question;
+            ActiveCard = ActiveTrialDeck.Cards[ActiveCardIndex];
         }
 
         else if (GameManager.ActiveDeck is PartyDeck partyDeck)
         {
-            ActivePartyDeck = partyDeck;
+            currentQuestion = ActivePartyDeck.Cards[ActiveCardIndex].Question;
+            ActiveCard = ActivePartyDeck.Cards[ActiveCardIndex];
+
         }
+        else if (GameManager.ActiveDeck is NaughtyDeck naughtyDeck)
+        {
+            currentQuestion = ActiveNaughtyDeck.Cards[ActiveCardIndex].Question;
+            ActiveCard = ActiveNaughtyDeck.Cards[ActiveCardIndex];
+
+        }
+
     }
 
-
-
+    public void InitializeActiveDeck()
+    {
+        if (GameManager.ActiveDeck is TrialDeck trialDeck)
+        {
+            ActiveTrialDeck = trialDeck;
+        }
+        else if (GameManager.ActiveDeck is PartyDeck partyDeck)
+        {
+            ActivePartyDeck = partyDeck;
+        }
+        else if (GameManager.ActiveDeck is NaughtyDeck naughtyDeck)
+        {
+            ActiveNaughtyDeck = naughtyDeck;
+        }
+    }
 
     private async Task GoBackShowCards()
     {
@@ -277,119 +198,87 @@ else if (IsMovingInTogether)
         animationClass = "animate__animated animate__slideOutLeft";
         StateHasChanged();
         await Task.Delay(1000);
-        ShowCards = true;
         StandardCardIsShowing = false;
         animationClass = "";
     }
 
-
-
-    private async Task GoForwardMovingIn()
+    private void GoForwardMovingIn()
     {
         IsMovingInTogether = false;
         IsGettingMarried = false;
-
         currentQuestion = "";
         StateHasChanged();
-
         SwitchPlayer();
     }
 
-
     private async Task DeletePlayerHand()
     {
+        YesButtonIsEnabled = false;
         animationClass = "animate__animated animate__rotateOutUpLeft";
         currentQuestion = "";
         StateHasChanged();
-        await Task.Delay(1000); 
+        await Task.Delay(1000);
+        StandardCardIsShowing = false;
         ActivePlayer.Hand.Clear();
         SwitchPlayer();
-        animationClass = ""; 
+        animationClass = "";
     }
 
     private async Task SaveCardOnPlayer()
     {
-
+        // Disable the yes button
         YesButtonIsEnabled = false;
-        StandardCardIsShowing = false;
+         
+        // Add the card to the player
         ActivePlayer.Hand.Add(ActiveCard);
 
-
-
-        if (ActivePlayer.Hand.Count==5)
+        // Check if this is the players fifth card 
+        if (ActivePlayer.Hand.Count == 5)
         {
             IsMovingInTogether = true;
             StateHasChanged();
-
         }
 
-        else if (ActivePlayer.Hand.Count==6)
+        // Check if this is the players sixth card 
+        else if (ActivePlayer.Hand.Count == 6)
         {
             IsGettingMarried = true;
             ActivePlayer.Hand.Clear();
             StateHasChanged();
         }
-
-
         else
         {
+          
+            // Show the yes-animation
             ShowHeart = true;
             StateHasChanged();
+            // wait 1.5 second
             await Task.Delay(1500);
+            // Update the card's animation class
             animationClass = "animate__animated animate__slideOutRight";
             currentQuestion = "";
+            // Hide the yes-animation
             ShowHeart = false;
             StateHasChanged();
             await Task.Delay(1500);
             SwitchPlayer();
             StandardCardIsShowing = false;
         }
-
     }
-
 
     private void SwitchPlayer()
     {
-        // Switch active player 
         ActivePlayerIndex = (ActivePlayerIndex + 1) % players.Count;
         ActivePlayer = players[ActivePlayerIndex];
-
-
-        //Switch active card 
         ActiveCardIndex = (ActiveCardIndex + 1);
-
-    // OM LEKEN ÄR SLUT SKA DET GÖRAS NÅGOT
-
-
-        //Switch current question 
-
-      
-
-
-       
+        SetCurrentQuestion();
     }
 
     private void CloseBtn()
     {
         YesButtonIsEnabled = true;
-        ShowCards = false;
         StandardCardIsShowing = true;
     }
 
-    
-
-    private async void FlipCard()
-    {
-        animationClass = "animate__animated animate__fadeIn";
-        StateHasChanged();
-        await Task.Delay(1000); // Vänta på att animeringen ska slutföras
-        animationClass = ""; // Återställ klassnamnet efter animeringen
-        StateHasChanged();
-    }
-    
-
-
-
-
-    
+ 
 }

@@ -1,49 +1,38 @@
 ﻿@inject NavigationManager Navigation;
 
 <div class="deckmodal-outer-container">
- 
     <div class="deck-modal @AddAnimationClass">
         <img src="images/bghearts.png" alt="hearts" class="modal-hearts-bg" />
-    <div class="deck-modal-btn-container  ">
-    <button type="button" class=" btn-close small " aria-label="Close" @onclick=CloseButton></button>
-    </div>
-    <div class="deck-modal-inner-container">
+        <div class="deck-modal-btn-container">
 
-    @if(DeckNumber ==1) 
-    {
- <h2 class=" deck-modal-header" >Trial Deck</h2>
-
- <div class="deck-modal-text-container ">
-                <p class="modal-font p-text">Ready to dive into the joy of our game but not sure where to start?</p>
-                <p class="modal-font p-text">Try it out without any commitment with our trial version!</p>
+            <button type="button" class="btn-close small" aria-label="Close" @onclick="CloseButton"></button>
+        </div>
+        <div class="deck-modal-inner-container">
+            @if (DeckNumber == 1)
+            {
+                <h2 class="deck-modal-header">Trial Deck</h2>
+                <div class="deck-modal-text-container">
+                    <p class="modal-font p-text">Ready to dive into the joy of our game but not sure where to start?</p>
+                    <p class="modal-font p-text">Try it out without any commitment with our trial version!</p>
                 </div>
-    }
-        <button @onclick=btnClick class="text-white modal-btn ">PLAY</button>
+            }
+            <button @onclick=StartGame class="text-white modal-btn">PLAY</button>
         </div>
     </div>
- 
-    </div>
+</div>
 
-@code
-{
+@code {
+    [Parameter]
+    public int DeckNumber { get; set; }
 
-    private void btnClick()
+    [Parameter]
+    public string AddAnimationClass { get; set; }
+
+    [Parameter]
+    public Action CloseButton { get; set; }
+
+    private void StartGame()
     {
         Navigation.NavigateTo("/startGame");
     }
-
-    [Parameter]
-    public int DeckNumber{ get; set; }
-    
-
-    [Parameter]
-    public string AddAnimationClass { get; set; } 
-    
-    
-    [Parameter]
-    public EventCallback CloseButton{ get; set; }
-
-   
-
-   
 }

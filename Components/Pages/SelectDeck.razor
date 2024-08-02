@@ -6,7 +6,7 @@
 
 
 <div class="deck-outer-container">
-   
+    <GoBackBtn BackUrl="inputPlayerNames" />
 
 @if (showModal)
 {
@@ -19,7 +19,6 @@
     <div class="select-deck-header-container">
         <h1 class="select-deck-header animate__animated animate__slideInLeft">Select Deck</h1>
     </div>
-<GoBackBtn BackUrl="inputPlayerNames" />
 
 
 <div class="my-decks-container mb-4 text-center animate__animated animate__fadeIn animate__slower rounded">
@@ -31,7 +30,7 @@
     </div>
 
     <div class="select-deck-container" @onclick="()=>selectDeck(2)">
-            <h4 class="deck-header">The Original Deck</h4>
+            <h4 class="deck-header">The Party Deck</h4>
         <img src="./images/partydeck.png" alt="deck" class="img-smaller" />
          
     </div>
@@ -48,34 +47,42 @@
 
 @code {
     private string addAnimationClass = "";
-
-
     private bool showModal = false;
-  
     private int deckNumber;
-
-
 
     private void GoBack()
     {
-        Navigation.NavigateTo($"/startGame");
+        Navigation.NavigateTo("/startGame");
     }
 
     private void selectDeck(int deckId)
     {
         addAnimationClass = "animate__animated animate__fadeIn";
-
         deckNumber = deckId;
         showModal = true;
-    
+        StateHasChanged(); 
+
+        // Convert deck number to deck name
+        string deckName = deckId switch
+        {
+            1 => "trialDeck",
+            2 => "partyDeck",
+            3 => "naughtyDeck",
+            _ => throw new InvalidOperationException("Invalid deck ID")
+        };
+
+        // Use GameManager to set (not initialize) the active deck
+        GameManager.AddActiveDeck(deckName);
+
+        // Navigate to game page 
+        Navigation.NavigateTo("/game");
     }
 
     private void closeBtn()
     {
         showModal = false;
-        addAnimationClass = "";
+        addAnimationClass = "animate__animated animate__fadeOut";
+        StateHasChanged();
     }
-
-   
-
 }
+
