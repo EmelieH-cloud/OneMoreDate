@@ -4,6 +4,71 @@
 @using OneMoreDate.Components.Reusable;
 @inject NavigationManager Navigation
 
+@* showcards *@
+
+<div class="showCards-Container rounded @(isFadingOut ? "animate__animated animate__slideOutRight" : "")" @ref="showCardsContainer">
+    <div class="toggle-menu-container">
+        <ToggleMenu />
+    </div>
+
+
+
+
+    <div class="previous-card-container">
+        @if (ActivePlayer != null)
+        {
+            <div class="text-container">
+                <div class="background-pink">
+
+                    <div class="inner-showcard-container">
+                        <h2 class="activeplayer-header">@($"{ActivePlayer.Name}'s turn")</h2>
+                      
+
+                        @if (ActivePlayer.Hand.Count == 0 || ActivePlayer.Hand == null)
+                        {
+                            <div class="first-card">
+                                <div class="first-card-p">
+                                    <p class="first-card-text mb-3 animate__animated animate__fadeIn animate__delay-1s animate_slower">
+                                        <span class="fw-bolder">@ActivePlayer.Name</span> is on the date and meets someone who seems absolutely perfect...
+                                    </p>
+                                    <p class="first-card-text but-during animate__animated animate__fadeIn animate__delay-2s animate_slower">
+                                        But during the date it turns out that he/she...
+                                    </p>
+                                </div>
+                            </div>
+                        }
+
+                        @if (ActivePlayer.Hand != null && ActivePlayer.Hand.Count > 0)
+                        {
+
+                            <p class="mt-3 mb-3"><span class="fw-bolder">@ActivePlayer.Name is dating someone who...</span></p>
+
+
+                            int delayCounter = 1;
+                            @foreach (PlayerCard card in ActivePlayer.Hand)
+                            {
+                                <div class="question-container">
+                                    <img src="images/heart.png" alt="heart" class="heart-image fade-in-previous @GetDelayClass(delayCounter)" />
+                                    <p class="fade-in-previous @GetDelayClass(delayCounter) mb-2 ">@card.Question</p>
+                                </div>
+                                delayCounter++;
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+    <button @onclick="HandleCloseButton">
+       READ CARD
+    </button>
+</div>
+
+
+@* Gamepage-------------------------------- *@
+
 @if (ShowHeart)
 {
     
@@ -43,12 +108,9 @@ else if (IsMovingInTogether)
 }
 <div class="animate__animated animate__fadeIn rounded text-center">
     
-    @if (ShowCards)
-    {
-        <ShowCards CloseButton="CloseBtn"/>
-    }
+   
 
-else if (StandardCardIsShowing)
+@if (StandardCardIsShowing)
 {
    
 
@@ -93,6 +155,9 @@ else if (StandardCardIsShowing)
     private bool IsGettingMarried = false; 
     private bool YesButtonIsEnabled;
     private bool StandardCardIsShowing; 
+
+
+
     private string animationClass = "";
     private string dateNumber;
     private int lastQuestionCounter = 0;
@@ -113,6 +178,60 @@ else if (StandardCardIsShowing)
     private bool IsMovingInTogether = false; 
 
 
+
+
+
+
+    // showcards
+
+
+    private ElementReference showCardsContainer;
+    private bool isFadingOut = false;
+
+    [Parameter]
+    public EventCallback CloseButton { get; set; }
+
+
+
+    private string GetDelayClass(int delayCounter)
+    {
+        return delayCounter switch
+        {
+            1 => "delay-1s",
+            2 => "delay-2s",
+            3 => "delay-3s",
+            4 => "delay-4s",
+            5 => "delay-5s",
+            6 => "delay-6s",
+            7 => "delay-7s",
+            8 => "delay-8s",
+            9 => "delay-9s",
+            10 => "delay-10s",
+            _ => ""
+        };
+    }
+
+    private async Task HandleCloseButton()
+    {
+        StandardCardIsShowing = true;
+        await Task.Delay(500);
+        await CloseButton.InvokeAsync(null);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ //Game page
 
     private async Task GoForwardMovingIn()
     {
@@ -148,6 +267,10 @@ else if (StandardCardIsShowing)
         InitializeActivePlayer();
         CalculateActivePlayerDate();
         GameManager.ActiveDeck.Shuffle();
+
+
+        // showcards
+        ActivePlayer = PlayerManager.GetActivePlayer();
 
 
     }
