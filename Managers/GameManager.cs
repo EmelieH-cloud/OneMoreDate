@@ -4,49 +4,41 @@ namespace OneMoreDate.Managers
 {
     public static class GameManager
     {
-        // Klass som ansvarar för att konvertera deck till rätt decktyp (party, starter osv)
-        public static Deck ActiveDeck { get; set; } = new();
 
+        public static Deck ActiveDeck { get; set; } = new Deck();
 
-        public static TrialDeck? ConvertDeckToStarterDeck(Deck deck)
-        {
-            if (deck.GetType() == typeof(TrialDeck))
-            {
-                TrialDeck starterDeck = (TrialDeck)deck;
-                return starterDeck;
-            }
-            else
-            {
-                return null;
-            }
-
-        }
-
-        public static PartyDeck? ConvertDeckToPartyDeck(Deck deck)
-        {
-            if (deck.GetType() == typeof(PartyDeck))
-            {
-                PartyDeck partyDeck = (PartyDeck)deck;
-                return partyDeck;
-            }
-            else
-            {
-                return null;
-            }
-
-        }
         public static void AddActiveDeck(string deckName)
         {
-            if (deckName == "starterDeck")
+            switch (deckName)
             {
-                TrialDeck starterDeck = new();
-                ActiveDeck = starterDeck;
-            }
-            if (deckName == "partyDeck")
-            {
-                PartyDeck partyDeck = new();
-                ActiveDeck = partyDeck;
+                case "trialDeck":
+                    ActiveDeck = new TrialDeck();
+                    break;
+                case "partyDeck":
+                    ActiveDeck = new PartyDeck();
+                    break;
+                case "naughtyDeck":
+                    ActiveDeck = new NaughtyDeck();
+                    break;
+                default:
+                    throw new ArgumentException("Invalid deck name");
             }
         }
+
+        public static TrialDeck? GetActiveTrialDeck()
+        {
+            return ActiveDeck as TrialDeck;
+        }
+
+        public static PartyDeck? GetActivePartyDeck()
+        {
+            return ActiveDeck as PartyDeck;
+        }
+
+        public static NaughtyDeck? GetActiveNaughtyDeck()
+        {
+            return ActiveDeck as NaughtyDeck;
+        }
     }
+
 }
