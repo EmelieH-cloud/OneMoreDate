@@ -46,7 +46,7 @@
                                 delayCounter++;
                             }
                         }
-            <button @onclick="HandleCloseButton" class="button-29 go-forward-btn">
+            <button @onclick="ReadCard" class="button-29 go-forward-btn">
                         READ CARD
                     </button>
 
@@ -94,7 +94,7 @@ else if (IsMovingInTogether)
     </div>
     </div>
 }
-<div class="animate__animated animate__fadeIn rounded text-center">
+<div class="animate__animated animate__fadeIn rounded text-center"/>
     
    
 
@@ -105,7 +105,7 @@ else if (IsMovingInTogether)
        <div class="gamepage-outer-container ">
 
 
-           <div class="card-btns-container">
+         
 
 
                 <StandardCard Question="@currentQuestion" Animation="@animationClass"  />
@@ -124,20 +124,24 @@ else if (IsMovingInTogether)
                     </svg>
                 </button>
 
-            </div>
+          
           
 
         </div>
-        
+
+
+    </div>
 }
 
 
+
  
-</div>
 
 
 
 @code {
+
+
     private bool IsGettingMarried = false; 
     private bool YesButtonIsEnabled;
     private bool StandardCardIsShowing; 
@@ -179,7 +183,7 @@ else if (IsMovingInTogether)
     private string currentQuestion;
 
 
-    // showcards
+
 
 
     private ElementReference showCardsContainer;
@@ -210,25 +214,37 @@ else if (IsMovingInTogether)
         //
         ActiveCardIndex = 0;
 
-        GameManager.ActiveDeck.Shuffle();
-
-
-        // showcards
-
-
-
+    
     }
 
 
-    private async Task HandleCloseButton()
+    private async Task ReadCard()
     {
+        SetCurrentQuestion();
+      
         StandardCardIsShowing = true;
+     
         YesButtonIsEnabled = true;
+
         await Task.Delay(500);
         await CloseButton.InvokeAsync(null);
     }
 
-    //Game page
+    public void SetCurrentQuestion()
+    {
+        if (GameManager.ActiveDeck is TrialDeck)
+        {
+            currentQuestion = ActiveTrialDeck.Cards[ActiveCardIndex].Question;
+
+        }
+
+
+        if (GameManager.ActiveDeck is PartyDeck)
+        {
+            currentQuestion = ActivePartyDeck.Cards[ActiveCardIndex].Question;
+
+        }
+    }
 
 
     public void ConvertActiveDeck()
@@ -240,23 +256,21 @@ else if (IsMovingInTogether)
         if (GameManager.ActiveDeck is TrialDeck trialDeck)
         {
 
-        IsMovingInTogether = false;
-        IsGettingMarried = false;
-        currentQuestion = "";
-        StateHasChanged();
-        SwitchPlayer();
+            IsMovingInTogether = false;
+            IsGettingMarried = false;
+            currentQuestion = "";
+            StateHasChanged();
+        }
+
+        else if (GameManager.ActiveDeck is PartyDeck partyDeck)
+        {
+            ActivePartyDeck = partyDeck;
+        }
     }
 
 
 
 
-        }
-        else if (GameManager.ActiveDeck is PartyDeck partyDeck)
-        {
-
-
-            ActivePartyDeck = partyDeck;
-=======
     private async Task GoBackShowCards()
     {
         currentQuestion = "";
@@ -268,25 +282,7 @@ else if (IsMovingInTogether)
         animationClass = "";
     }
 
-   
 
-
-    }
-
-
-
-
-
-    private async Task HandleCloseButton()
-    {
-        StandardCardIsShowing = true;
-        await Task.Delay(500);
-        await CloseButton.InvokeAsync(null);
-    }
-
-
-
-    //Game page
 
     private async Task GoForwardMovingIn()
     {
@@ -311,12 +307,15 @@ else if (IsMovingInTogether)
         animationClass = ""; 
     }
 
-    private async void SaveCardOnPlayer()
+    private async Task SaveCardOnPlayer()
     {
 
         YesButtonIsEnabled = false;
         StandardCardIsShowing = false;
         ActivePlayer.Hand.Add(ActiveCard);
+
+
+
         if (ActivePlayer.Hand.Count==5)
         {
             IsMovingInTogether = true;
@@ -346,18 +345,11 @@ else if (IsMovingInTogether)
             StandardCardIsShowing = false;
         }
 
-
-
-
-
     }
 
 
     private void SwitchPlayer()
     {
-
-
-
         // Switch active player 
         ActivePlayerIndex = (ActivePlayerIndex + 1) % players.Count;
         ActivePlayer = players[ActivePlayerIndex];
@@ -366,36 +358,28 @@ else if (IsMovingInTogether)
         //Switch active card 
         ActiveCardIndex = (ActiveCardIndex + 1);
 
-        // OM LEKEN ÄR SLUT SKA DET GÖRAS NÅGOT 
-}
-
-     
+    // OM LEKEN ÄR SLUT SKA DET GÖRAS NÅGOT
 
 
-     
+        //Switch current question 
 
+      
+
+
+       
     }
 
     private void CloseBtn()
     {
-
         YesButtonIsEnabled = true;
         ShowCards = false;
         StandardCardIsShowing = true;
-     
-  
-
     }
-
-
-  
-
 
     
 
     private async void FlipCard()
     {
-    
         animationClass = "animate__animated animate__fadeIn";
         StateHasChanged();
         await Task.Delay(1000); // Vänta på att animeringen ska slutföras
@@ -403,6 +387,9 @@ else if (IsMovingInTogether)
         StateHasChanged();
     }
     
+
+
+
 
     
 }
