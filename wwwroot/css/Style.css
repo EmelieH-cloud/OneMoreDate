@@ -211,13 +211,6 @@ img
 
 }
 
-.bottomlogo-img {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    border-top: 1px solid #FCDDDD;
-    z-index: -1;
-}
 
 .playernames-img
 {
@@ -225,32 +218,44 @@ img
     width: 60%;
 }
 
-.players-header {
-    font-family: "Playfair Display", serif;
-  
+.playernames-header-container
+{
+    position: absolute;
+    width: 100%;
+    top: 4%;
+    display: flex;
+    justify-content: center;
 }
 
-.deck-outer-container
+.players-header {
+    font-family: "Playwrite AT", cursive;
+    color: white;
+    font-size: 2.2rem;
+}
+
+.deck-outer-container 
 {
     position: fixed;
     height: 100vh;
     width: 100vw;
     overflow: scroll;
+    background: rgb(247,137,209);
+    background: linear-gradient(0deg, rgba(247,137,209,1) 8%, rgba(210,146,189,1) 38%, rgba(164,32,118,1) 96%);
 }
 
 .select-deck-header-container {
     position: absolute;
-    color: white;
-    top: 10%;
+    top: 5%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     width: 100vw;
+
 }
 
 
 .name-input {
-    border-radius: 10px;
+    border-radius: 20px;
     width: 75%;
     margin-bottom: 4%;
 
@@ -389,7 +394,7 @@ img
 
 
 .kiss-img {
-    width: 85%;
+    width: 65%;
     position: absolute;
     bottom: 0;
   
@@ -484,7 +489,8 @@ img
 }
 
 
-.remove-btn {
+.remove-btn 
+{
     width: 35px;
     height: 35px;
     border-radius: 50%;
@@ -533,37 +539,45 @@ img
 .deck-header {
     padding: 1%;
     margin-top: 2%;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     width: 80%;
-
     border-radius: 20px;
     text-align: center;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 1);
+    color: white;
+
 }
 
-.my-decks-container {
+.my-decks-container 
+{
     padding: 3%;
     width: 100%;
     margin: 0 auto;
-    margin-top: 25%;
+    margin-top: 20%;
     display: flex;
     flex-direction: column;
 
 }
 
 .select-deck-header-container {
-    width: 100vw;
-    color: white;
-    font-family: "Playfair Display", serif;
-    text-align: center;
-    display: flex;
     position: absolute;
-    top: 4%;
+    color: white;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100vw;
+}
+
+.select-deck-header
+{
+    margin-top: 3%;
 }
 
 .select-deck-header {
-    font-family: "Playfair Display", serif;
-    padding: 2%;
-    font-weight: bold;
+    font-family: "Playwrite AT", cursive;
+    color: white;
+    font-size: 2.2rem;
 }
 
 .fixed-back-btn {
@@ -581,16 +595,11 @@ img
     max-width: 60%;
     height: auto;
     border-radius: 10px;
-    background-color: rgba(255, 192, 203, 0.5);
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
-    padding: 5%;
 }
 
 .select-deck-img {
-    width: 25%;
-    border-radius: 50%;
+    width: 50%;
 
-  
 }
 
 .select-deck-container 
@@ -601,12 +610,13 @@ img
     align-items: center;
     margin-bottom: 8%;
     border-radius: 10%;
+
 }
 
 .modal-hearts-bg
 {
     position: absolute;
-    opacity: .1;
+    opacity: .3;
     width: 95%;
 
 }
@@ -641,9 +651,10 @@ img
 }
 
 .deck-modal-header {
-    font-size: 25px;
+    font-size: 2rem;
     font-weight: 600;
     padding: 4%;
+    color: white;
     font-family: "Playwrite SK";
 }
 
@@ -669,8 +680,8 @@ img
     border-radius: 25px;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgb(250,208,228);
-    background: radial-gradient(circle, rgba(250,208,228,1) 0%, rgba(239,227,234,1) 100%);
+    background: rgb(247,137,209);
+    background: linear-gradient(0deg, rgba(247,137,209,1) 8%, rgba(210,146,189,1) 38%, rgba(227,66,170,1) 96%);
     z-index: 1000;
 }
 
@@ -705,6 +716,7 @@ img
     transform: translate(-50%, -50%); /* Flytta tillbaka 50% av elementets egna höjd och bredd */
     width: 80%;
     padding: 5%;
+    color: white;
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(2.9px);
@@ -799,7 +811,7 @@ img
     position: relative;
     width: 15rem;
     height: auto;
-    z-index: -1;
+    z-index: 3;
   
 }
 
@@ -824,6 +836,8 @@ img
 
     align-items: flex-end;
     height: 70vh;
+    border:2px solid red;
+    
 }
 
 .yes-image
@@ -931,18 +945,22 @@ img
 .navigate-btn-container {
     position: absolute;
     z-index: 1;
-    border: 2px solid white;
     top: 2%; 
     border-radius: 50%;
 
 
 }
 
-.back-btn-size
-{
+.forward-btn-size {
     width: 25px;
     height: 25px;
+    color: white;
+}
 
+.back-btn-size {
+    width: 25px;
+    height: 25px;
+    color: white;
 }
 
 
@@ -993,13 +1011,14 @@ img
     flex-direction: column;
     height: 100%;
     justify-content: end;
-    background: linear-gradient(0deg, rgb(247, 247, 247) 23.8%, rgb(252, 221, 221) 92%);
+ 
 }
 
-.ShowCards-Container {
-    position: absolute;
-    background: linear-gradient(0deg, rgb(247, 247, 247) 23.8%, rgb(252, 221, 221) 92%);
-    height: 100%;
+.showCards-Container {
+    position: fixed;
+    
+    height: 100vh;
+    width:100vw;
 }
 
 .text-container {
@@ -1023,17 +1042,24 @@ img
 {
     position: absolute;
     top: 2%;
-    right: 15%;
+    right: 7%;
     
 }
 
+.continue-btn
+{
+    position: absolute;
+      bottom: 50%;
+}
+
 .forward-btn {
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
+    color: white;
     padding: 1%;
     z-index: 1;
     position: absolute;
-    border-radius: 50%;
+    background-color: inherit;
 }
 
 p {

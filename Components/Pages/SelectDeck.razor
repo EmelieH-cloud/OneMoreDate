@@ -6,9 +6,7 @@
 
 
 <div class="deck-outer-container">
-    <div class="select-deck-header-container">
-        <img src="images/namesheader.png"  alt="head" img />
-    </div>
+   
 
 @if (showModal)
 {
@@ -18,25 +16,30 @@
         <DeckModal CloseButton="closeBtn"  DeckNumber =@deckNumber AddAnimationClass=@addAnimationClass />
     </div>
 }
-
+    <div class="select-deck-header-container">
+        <h1 class="select-deck-header animate__animated animate__slideInLeft">Select Deck</h1>
+    </div>
 <GoBackBtn BackUrl="inputPlayerNames" />
 
 
 <div class="my-decks-container mb-4 text-center animate__animated animate__fadeIn animate__slower rounded">
 
         <div class="select-deck-container " @onclick="()=>selectDeck(1)" >
+            <h4 class="deck-header">The Trial Deck</h4>
         <img src="./images/deck.png" alt="deck" class="img-smaller" />
-     <h4 class="deck-header">The Trial Deck</h4>
+   
     </div>
 
     <div class="select-deck-container" @onclick="()=>selectDeck(2)">
+            <h4 class="deck-header">The Original Deck</h4>
         <img src="./images/partydeck.png" alt="deck" class="img-smaller" />
-          <h4 class="deck-header">The Original Deck</h4>
+         
     </div>
 
     <div class="select-deck-container" @onclick="()=>selectDeck(3)">
+            <h4 class="deck-header">The Naughty Deck </h4>
         <img src="./images/naughtydeck.png" alt="deck" class="img-smaller" />
-           <h4 class="deck-header">The Naughty Deck </h4>
+         
         </div>
 
     

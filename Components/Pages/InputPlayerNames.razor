@@ -36,14 +36,15 @@
     </div>
 
     <div class="outer-input-container animate__animated animate__slideInDown">
-        <div class="select-deck-header-container">
-            <img src="images/namesheader.png" class="playernames-img" alt="head"img/>
+
+        <div class="playernames-header-container">
+            <h1 class="players-header">Add players </h1>
         </div>
      
         <div class="animate__animated animate__fadeIn">
             <div class="input-container rounded  ">
                
-                <input @bind="InputValue" placeholder="Playername" class="name-input form-control custom-color" disabled="@inputIsDone" @oninput="UpdateInputValue" @ref=" playerNameInput" @onkeydown="HandleKeyPress" />
+                <input @bind="InputValue" placeholder="Player name" class="name-input form-control custom-color" disabled="@inputIsDone" @oninput="UpdateInputValue" @ref=" playerNameInput" @onkeydown="HandleKeyPress" />
 
                 <button @onclick="AddPlayers" class="@(string.IsNullOrWhiteSpace(InputValue) ? "add-btn-disabled" : "add-btn")">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="white" class=" add-btn-svg bi bi-plus" viewBox="0 0 16 16">
@@ -62,7 +63,7 @@
     <GoBackBtn BackUrl="" />
     <div class="forward-btn-container">
         <button @onclick="GoForward" class="forward-btn animate__animated animate__fadeIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-chevron-right forward-btn-size" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
             </svg>
         </button>
