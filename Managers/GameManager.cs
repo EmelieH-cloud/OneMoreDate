@@ -8,11 +8,11 @@ namespace OneMoreDate.Managers
         public static Deck ActiveDeck { get; set; } = new();
 
 
-        public static StarterDeck? ConvertDeckToStarterDeck(Deck deck)
+        public static TrialDeck? ConvertDeckToStarterDeck(Deck deck)
         {
-            if (deck.GetType() == typeof(StarterDeck))
+            if (deck.GetType() == typeof(TrialDeck))
             {
-                StarterDeck starterDeck = (StarterDeck)deck;
+                TrialDeck starterDeck = (TrialDeck)deck;
                 return starterDeck;
             }
             else
@@ -39,7 +39,7 @@ namespace OneMoreDate.Managers
         {
             if (deckName == "starterDeck")
             {
-                StarterDeck starterDeck = new();
+                TrialDeck starterDeck = new();
                 ActiveDeck = starterDeck;
             }
             if (deckName == "partyDeck")

@@ -166,7 +166,7 @@ else if (IsMovingInTogether)
     private bool IsStarterDeck;
     private Player ActivePlayer = new Player(); 
     private List<Player> players = new List<Player>(); 
-    private StarterDeck ActiveStarterDeck = new StarterDeck(); 
+    private TrialDeck ActiveStarterDeck = new TrialDeck(); 
     private PartyDeck ActivePartyDeck = new PartyDeck();
     private string deckName;
     private string currentQuestion;
@@ -266,6 +266,7 @@ else if (IsMovingInTogether)
         InitializeActiveCard();
         InitializeActivePlayer();
         CalculateActivePlayerDate();
+        GameManager.ActiveDeck.Shuffle();
 
 
         // showcards
@@ -276,17 +277,24 @@ else if (IsMovingInTogether)
 
     public void ConvertActiveDeck()
     {
-        if (GameManager.ActiveDeck is StarterDeck starterDeck)
+        if (GameManager.ActiveDeck is TrialDeck starterDeck)
         {
             deckName = starterDeck.Name;
             ActiveStarterDeck = starterDeck;
+           
+
             IsStarterDeck = true;
         }
         else if (GameManager.ActiveDeck is PartyDeck partyDeck)
         {
             deckName = partyDeck.Name;
+
             ActivePartyDeck = partyDeck;
+        
+
         }
+
+        
     }
 
     private async Task DeletePlayerHand()
