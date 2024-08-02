@@ -33,6 +33,7 @@ h1, h3, h2, h5, li, h6, h4, p
     z-index: 2;
 }
 
+
 .back-btn-no-background-svg 
 {
     width: 32px;
@@ -46,6 +47,7 @@ button {
 
 
 .button-29 {
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 1);
     align-items: center;
     appearance: none;
     background: rgb(241,13,128);
