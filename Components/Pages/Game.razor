@@ -213,11 +213,15 @@ else if (IsMovingInTogether)
 
     private async Task DeletePlayerHand()
     {
+        // Disable the yes-button
         YesButtonIsEnabled = false;
+        // Update the card-animation
         animationClass = "animate__animated animate__rotateOutUpLeft";
         currentQuestion = "";
         StateHasChanged();
+        // Wait for animation to finish
         await Task.Delay(1000);
+        // Hide the card
         StandardCardIsShowing = false;
         ActivePlayer.Hand.Clear();
         SwitchPlayer();
