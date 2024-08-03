@@ -17,7 +17,7 @@ namespace OneMoreDate.Managers
                 {
                     Name = player,
                     HasCard = false,
-                    MaxHandSize = 10
+                    
                 };
 
                 Players.Add(playerObj);
