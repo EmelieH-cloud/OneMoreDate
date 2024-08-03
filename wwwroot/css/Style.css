@@ -805,6 +805,10 @@ img
     align-items: center;
 }
 
+.read-card-btn{
+    margin-top:10%;
+}
+
 .yes-btn-hidden
 {
     display: none;
@@ -821,6 +825,7 @@ img
     height: 70px;
     border-radius: 50%;
     margin: 2%;
+   
 
 }
 
@@ -1073,8 +1078,10 @@ color: white;
     font-size: .9rem;
     color: white;
     padding-left: 3%;
+ 
 
 }
+
 
 .activeplayer-header {
     font-size: 1.8rem;
