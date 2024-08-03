@@ -181,14 +181,17 @@ else if (IsMovingInTogether)
         if (GameManager.ActiveDeck is TrialDeck trialDeck)
         {
             ActiveTrialDeck = trialDeck;
+            ActiveTrialDeck.Shuffle();
         }
         else if (GameManager.ActiveDeck is PartyDeck partyDeck)
         {
             ActivePartyDeck = partyDeck;
+            ActivePartyDeck.Shuffle();
         }
         else if (GameManager.ActiveDeck is NaughtyDeck naughtyDeck)
         {
             ActiveNaughtyDeck = naughtyDeck;
+            ActiveNaughtyDeck.Shuffle();
         }
     }
 
