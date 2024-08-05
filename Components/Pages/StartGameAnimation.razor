@@ -4,24 +4,21 @@
 @using OneMoreDate.Components.Reusable;
 @inject NavigationManager Navigation
 
-<div class="start-game-container @currentAnimationClass" @ref="animationElement">
-    <img class="logo-img" src='./images/Bild_5.png' alt="logo" />
+<div class="start-game-container">
+    <div class="start-game-header-container animate__animated animate__slideInDown">
+        <h1 class="start-game-header">Time to go on a date</h1>
+    </div>
+    <p class="start-game-paragraph  animate__animated animate__slideInLeft">Tonight, you'll meet someone who seems perfect in every way. Charming, funny, and seemingly flawless. <br /> <br /> But beware, hidden beneath the surface might be that one dealbreaker. Will you discover it, or will this be the night you find your true connection? Your date is waiting. Are you ready to find out if they’re perfect for you or if there’s a dealbreaker hidden in the mix?</p>
+    <button @onclick="NavigateToGame" class="button-29 start-game-animation-btn">I'm ready</button>
+    <img class="before-game-img animate__animated animate__slideInRight" src="./images/before-game.png" alt="logo" />
 </div>
 
  
 @code {
-    private ElementReference animationElement;
-    private string currentAnimationClass = "animate__animated animate__zoomIn";
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+   
+    private void NavigateToGame()
     {
-        if (firstRender)
-        {
-            await Task.Delay(2000);
-            currentAnimationClass = "animate__animated animate__zoomOut";
-            StateHasChanged();
-            await Task.Delay(2000);
-            Navigation.NavigateTo("/game");
-        }
+        Navigation.NavigateTo("/game");
     }
+
 }

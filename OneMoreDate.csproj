@@ -58,7 +58,7 @@
 
         <!-- Splash Screen -->
 	
-			<MauiSplashScreen Include="Resources\Splash\mysplash.png" Color="Pink" BaseSize="168, 168"/>
+			<MauiSplashScreen Include="Resources\Splash\mysplash.png" Color="Pink" BaseSize="168, 168" />
 	
 
         <!-- Images -->
@@ -78,6 +78,7 @@
       <EmbeddedResource Remove="wwwroot\css\Media queries\**" />
       <None Remove="wwwroot\css\Media queries\**" />
     </ItemGroup>
+   
     <ItemGroup>
       <Content Remove="wwwroot\images\homepic.png" />
     </ItemGroup>
