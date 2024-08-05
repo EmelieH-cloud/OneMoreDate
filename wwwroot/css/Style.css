@@ -174,10 +174,6 @@ img
 
 
 
-   
-
-
-
     /* 5. InputPlayerNames------------------------------------*/
 
 .inputPlayerNames-outer-container {
@@ -234,14 +230,13 @@ img
     font-size: 2.2rem;
 }
 
-.deck-outer-container 
-{
+.deck-outer-container {
     position: fixed;
     height: 100vh;
     width: 100vw;
     overflow: scroll;
-    background: rgb(247,137,209);
-    background: linear-gradient(0deg, rgba(247,137,209,1) 8%, rgba(210,146,189,1) 38%, rgba(164,32,118,1) 96%);
+    background: rgb(255,125,200);
+    background: linear-gradient(0deg, rgba(255,125,200,1) 1%, rgba(158,0,98,1) 76%);
 }
 
 .select-deck-header-container {
@@ -263,15 +258,13 @@ img
 }
 
 .outer-input-container {
-
- 
     display: flex;
     height: 20%;
     width: 100vw;
     align-items: flex-end;
     justify-content: center;
-    background: rgb(101,4,68);
-    background: linear-gradient(0deg, rgba(101,4,68,1) 12%, rgba(129,21,90,0.9523459041819853) 51%, rgba(190,27,137,0.9243346997001926) 97%);
+    background: rgb(255,125,200);
+    background: linear-gradient(0deg, rgba(255,125,200,1) 1%, rgba(158,0,98,1) 76%);
 }
 
 
@@ -417,11 +410,11 @@ img
 
 .done-btn {
     text-shadow: 4px 4px 8px rgba(0, 0, 0, 1);
-    height: 50px;
+    height: 45px;
     width: 70%;
     color: white;
     margin-top: 15%;
-    padding: 2%;
+    padding: 1%;
     font-weight: 700;
     font-size: 1.1rem;
     position: absolute;
@@ -990,8 +983,8 @@ img
     position: fixed;
     height: 100vh;
     width: 100vw;
-    background: rgb(247,137,209);
-    background: linear-gradient(0deg, rgba(247,137,209,1) 8%, rgba(210,146,189,1) 38%, rgba(164,32,118,1) 96%);
+    background: rgb(255,125,200);
+    background: linear-gradient(0deg, rgba(255,125,200,1) 1%, rgba(158,0,98,1) 76%);
 }
 
 
@@ -1094,20 +1087,62 @@ color: white;
 
 /* 9. start game */
 
+.start-game-animation-btn {
+    padding: 3%;
+    width: 80vw;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 5%;
+}
 
-.start-game-container 
-{
+.start-game-paragraph {
+    text-align: center;
+    width: 90%;
+    color: white;
+    font-weight: 600;
+    margin-top: 30%;
+}
 
-    height: 100vh;
+.start-game-header-container {
     width: 100vw;
+    height: 10vh;
+    background-color: #9e0062;
+    position: absolute;
+    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.start-game-header {
+    color: white;
+    font-family: "Playwrite AT", cursive;
+}
 
-.my-dialog-container
+.start-game-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: rgb(255,125,200);
+    background: linear-gradient(0deg, rgba(255,125,200,1) 1%, rgba(158,0,98,1) 76%);
+    flex-direction: column;
+}
+
+.before-game-img
 {
+    
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    border-bottom: 2px solid black;
+
+    
+}
+
+
+.my-dialog-container {
     z-index: 1000;
     background-color: white;
 }
