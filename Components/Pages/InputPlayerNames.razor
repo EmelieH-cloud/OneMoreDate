@@ -2,19 +2,23 @@
 @using OneMoreDate.Components.Reusable
 @using OneMoreDate.Managers
 @using OneMoreDate.Models
+
+
 @inject NavigationManager Navigation
 
+<GoBackBtn BackUrl="" />
 
-
+<GoForwardBtn ForwardUrl="deck" />
 
 <div class="inputPlayerNames-outer-container">
 
+
+
+
+
     <div class="logo-bg">
         <img src="images/pinksky.png" alt="sky" class="logo-img animate__animated animate__fadeIn" />
-    
     </div>
-
-
 
     <div class="clouds-bg">
     <img src="images/cloud1.png" alt="cloud1" class="cloud1-img animate__animated animate__slideInLeft"/>
@@ -28,12 +32,13 @@
     <img src="images/cloud2.png" alt="cloud9" class="cloud9-img animate__animated animate__slideInRight" />
     </div>
    
-  
-
     <div class="couple-kiss-bg">
         <img src="images/kiss.png" alt="kissing-couple" class="kiss-img animate__animated animate__fadeInUp" />
         
     </div>
+
+
+
 
     <div class="outer-input-container animate__animated animate__slideInDown">
 
@@ -42,7 +47,7 @@
         </div>
      
         <div class="animate__animated animate__fadeIn">
-            <div class="input-container rounded  ">
+            <div class="input-container ">
                
                 <input @bind="InputValue" placeholder="Player name" class="name-input form-control custom-color" disabled="@inputIsDone" @oninput="UpdateInputValue" @ref=" playerNameInput" @onkeydown="HandleKeyPress" />
 
@@ -50,26 +55,14 @@
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-plus add-btn-svg" viewBox="0 0 16 16">
                         <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
                     </svg>
-
-
                 </button>
 
             </div>
           
         </div>
-
-
-
     </div>
    
-    <GoBackBtn BackUrl="" />
-    <div class="forward-btn-container">
-        <button @onclick="GoForward" class="forward-btn animate__animated animate__fadeIn">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-chevron-right forward-btn-size" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
-            </svg>
-        </button>
-    </div>
+ 
 
 
     <div class="added-names-container">

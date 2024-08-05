@@ -44,77 +44,28 @@
 @media (min-width: 400px) and (max-width: 799px) {
 
     /* Home -------------------------*/
-    .one 
-    {
-        /* större font och lägre margin-top */
-        margin-top: 5%;
-        font-size: 110px;
-        background-color: blue;
+
+
+    .oval-frame {
+      
+        top: 5%;
+     
+       
     }
 
-    .more 
-    {
-        /* större font*/
-        font-size: 110px;
-        
-    }
-
-
-    .oval-frame 
-    {
-        height: 80vh; /* Högre höjd */
-        border-top-left-radius: 300px; /*  mer böj på cirkeln*/
-        border-top-right-radius: 300px; /*  mer böj på cirkeln*/
-    }
-
-    .date 
-    {
-        top:60%; /* mindre top-marginal så att date centreras vertikalt på glaset. */
-        font-size: 120px; /* större font */
-    }
-
-    .circle-frame {
-        height: 30%;
-        border-radius: 70% 70% 0 0; 
-    }
-   
-    /* Inputplayernames---------------------*/
-    .name-p {
-        font-size: 1.2rem; /* större font */
-        margin-left: 1.5%;
-
-    }
-
-    .added-names-container 
-    {
-        top: 25%; /* minskad top-marginal */
-        width: 100%; /* minskad bredd */
-        margin-left: 0%;
-    }
-
-    .name-container 
-    {
-
-        justify-content: center; /* istället för space-between */
-
-    }
-
-    .remove-btn 
-    {
-        width: 42px; /* större knapp */
-        height: 42px;
+    .home-img {
+  
+        height:95%;
+      
+     
  
     }
 
-    .input-container
-    {
-        width: 84%;
-        padding: 0%; 
-        margin-left: 3%;
-        
+    .menu-how-to-play-btn{
+        color: green;
     }
-    /* select deck */
-    .back-btn-size {
-        width: 32px;
-    }
-}
+
+
+   
+    /* Inputplayernames---------------------*/
+   
