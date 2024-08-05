@@ -6,11 +6,11 @@
 
 <div class='outer-container '>
     <div class="oval-frame">
-        <img class="table-image-new" src="images/dateee.png" />
+        <img class="home-img" src="images/dateee.png" />
     </div>
     <div class="outer-btn-container">
         <button @onclick="StartGame" class="button-29 menu-start-btn "> Start game </button>
-        <button @onclick="GoToRules" class="button-29 menu-rules-btn "> How to play</button>
+        <button @onclick="HowToPlay" class="button-29 menu-how-to-play-btn "> How to play</button>
 
     </div>
 </div>
@@ -25,9 +25,9 @@
         Navigation.NavigateTo("/inputPlayerNames");
     }
 
-    private void GoToRules()
+    private void HowToPlay()
     {
-        Navigation.NavigateTo("/rules");
+        Navigation.NavigateTo("/howToPlay");
     }
 
 }
