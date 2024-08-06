@@ -1,22 +1,19 @@
 ﻿@inject NavigationManager Navigation;
 
 <div class="deckmodal-outer-container">
-    <div class="deck-modal @AddAnimationClass">
-        <img src="images/bghearts.png" alt="hearts" class="modal-hearts-bg" />
-        <div class="deck-modal-btn-container">
 
-            <button type="button" class="btn-close small" aria-label="Close" @onclick="CloseButton"></button>
-        </div>
+    <div class="deck-modal @AddAnimationClass">
         <div class="deck-modal-inner-container">
+            <button type="button" class="btn-close small" aria-label="Close" @onclick="CloseButton"></button>
             @if (DeckNumber == 1)
             {
                 <h2 class="deck-modal-header">Trial Deck</h2>
                 <div class="deck-modal-text-container">
-                    <p class="modal-font p-text">Ready to dive into the joy of our game but not sure where to start?</p>
-                    <p class="modal-font p-text">Try it out without any commitment with our trial version!</p>
+                    <p class="modal-font p-text">Ready to dive into the joy of ONE MORE DATE but not sure where to start?</p>
+                    <p class="modal-font p-text">Try out our free trial version!</p>
                 </div>
             }
-            <button @onclick=StartGame class="text-white modal-btn">PLAY</button>
+            <button @onclick=StartGame class="text-white modal-btn button-29">PLAY</button>
         </div>
     </div>
 </div>
@@ -29,7 +26,7 @@
     public string AddAnimationClass { get; set; }
 
     [Parameter]
-    public Action CloseButton { get; set; }
+    public EventCallback CloseButton { get; set; }
 
     private void StartGame()
     {

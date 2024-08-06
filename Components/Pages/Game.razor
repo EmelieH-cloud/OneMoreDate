@@ -9,6 +9,20 @@
         <ToggleMenu />
     </div>
 
+    <div class="stormy">
+        <ul>
+            <li> <img src="images/heart1.png" alt="heart1" class="falling-heart"/> </li>
+            <li> <img src="images/heart3.png" alt="heart2" class="falling-heart" /> </li>
+            <li> <img src="images/heart3.png" alt="heart3" class="falling-heart" /> </li>
+            <li> <img src="images/heart1.png" alt="heart1" class="falling-heart" /></li>
+            <li> <img src="images/heart3.png" alt="heart1" class="falling-heart" /></li>
+            <li> <img src="images/heart3.png" alt="heart3" class="falling-heart" /></li>
+            <li> <img src="images/heart1.png" alt="heart1" class="falling-heart" /></li>
+        </ul>
+    </div>
+
+
+
     <div class="previous-cards-container">
         @if (ActivePlayer != null)
         {
@@ -17,12 +31,12 @@
             @if (ActivePlayer.Hand == null || ActivePlayer.Hand.Count == 0)
             {
                 <div class="first-card">
-                    <div class="first-card-p">
-                        <p class="first-card-text mb-3 animate__animated animate__fadeIn animate__delay-1s animate_slower">
+                    <div class="first-card-p animate__animated animate__zoomIn">
+                        <p class="animate__animated animate__fadeIn">
                             <span class="fw-bolder">@ActivePlayer.Name</span> is on the date and meets someone who seems absolutely perfect...
                         </p>
-                        <p class="first-card-text but-during animate__animated animate__fadeIn animate__delay-2s animate_slower">
-                            But during the date it turns out that he/she...
+                        <p class="but-during animate__animated animate__fadeIn animate__delay-2s animate_slower">
+                            <br />But during the date it turns out that he/she...
                         </p>
                     </div>
                 </div>
@@ -40,8 +54,10 @@
                     </div>
                 }
             }
+            <div class="read-card-btn-container">
+                <button @onclick="ReadCard" class="button-29 read-card-btn animate__animated animate__bounce animate__infinite	infinite">READ CARD</button>
+                </div>
 
-            <button @onclick="ReadCard" class="button-29 read-card-btn go-forward-btn">READ CARD</button>
         }
         else
         {
