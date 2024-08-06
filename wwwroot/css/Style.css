@@ -34,7 +34,6 @@
     top: 7%;
     border-top-left-radius: 180px;
     border-top-right-radius: 180px; 
-
     position: absolute;  
     overflow:hidden;
     background-color: #F7B4DD;
@@ -516,8 +515,8 @@
     height: 100vh;
     width: 100vw;
     overflow: scroll;
-    background: rgb(247,137,209);
-    background: linear-gradient(0deg, rgba(247,137,209,1) 8%, rgba(210,146,189,1) 38%, rgba(164,32,118,1) 96%);
+    background: rgb(255,125,200);
+    background: linear-gradient(0deg, rgba(255,125,200,1) 1%, rgba(202,33,107,1) 76%);
 }
 
 .select-deck-header-container {
@@ -630,13 +629,6 @@
 }
 
 
-.deck-modal-btn-container{
-    display:flex;
-    justify-content:end;
-    padding:5%;
-
-   
-}
 
 /* DeckModal komponent */
 
@@ -659,7 +651,7 @@
 
 .deck-modal-inner-container {
     display: flex;
-    height: 90%;
+    height: 100%;
     flex-direction: column;
     align-items: center;
     text-align: justify;
@@ -671,29 +663,35 @@
 
 }
 
+.btn-close
+{
+    align-self: flex-end;
+    padding: 5%; 
+}
+
 .deck-modal {
     position: fixed;
     width: 85%;
-    height: 45%;
+    height: 55%;
     top: 50%;
     border-radius: 25px;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgb(254,161,222);
-    background: linear-gradient(0deg, rgba(254,161,222,1) 8%, rgba(238,132,204,1) 62%, rgba(255,181,229,1) 96%);
+    background: rgb(255,125,200);
+    background: linear-gradient(0deg, rgba(255,125,200,1) 1%, rgba(202,33,107,1) 76%);
     z-index: 1000;
 }
 
 .modal-btn {
     position: absolute;
     bottom: 8%;
-    width: 80%;
-    background: rgb(241,13,128);
-    background: linear-gradient(0deg, rgba(241,13,128,1) 0%, rgba(246,72,168,1) 5%, rgba(251,37,123,1) 92%);
-    border-radius: 30px;
-    font-size: 16px;
     padding: 5%;
     font-weight: bold;
+    height: 50px;
+    font-size: 1.1rem;
+    width: 70%;
+    border-bottom: 2px solid black;
+    font-weight: 700;
 }
 
 .modal-font {
@@ -710,17 +708,15 @@
 
 .deck-modal-text-container {
     position: absolute; /* Absolut positionering för att använda top, left, transform */
-    top: 45%; /* Flytta 50% från toppen av förälderelementet */
+    top: 50%; /* Flytta 50% från toppen av förälderelementet */
     left: 50%; /* Flytta 50% från vänster av förälderelementet */
     transform: translate(-50%, -50%); /* Flytta tillbaka 50% av elementets egna höjd och bredd */
     width: 80%;
     padding: 5%;
     color: white;
     border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(2.9px);
-    -webkit-backdrop-filter: blur(5.4px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+
+
 }
 /* 7. Game */
 
@@ -783,16 +779,27 @@
     align-items: flex-start;
 }
 
-.my-show-cards-container {
-
+.my-show-cards-container 
+{
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-.read-card-btn{
-    margin-top:10%;
+.read-card-btn-container
+{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.read-card-btn {
+    position: absolute;
+    bottom: 3%;
+    width: 70%;
+    margin: 0 auto;
+    height: 50px;
+    border-bottom: 2px solid black;
 }
 
 .yes-btn-hidden
@@ -930,8 +937,6 @@
     flex-direction: column;
     height: 100vh;
     width: 100vw;
-    justify-content: flex-start;
-    align-items: center;
    text-align: center;
     padding-top: 5%;
  
@@ -942,8 +947,8 @@
     position: fixed;
     height: 100vh;
     width: 100vw;
-    background: rgb(255,125,200);
-    background: linear-gradient(0deg, rgba(255,125,200,1) 1%, rgba(158,0,98,1) 76%);
+    background: rgb(168,7,101);
+    background: linear-gradient(0deg, rgba(168,7,101,0.949544783733806) 7%, rgba(234,4,123,0.7618697137057948) 61%, rgba(255,105,55,0.2296568285517332) 100%);
 }
 
 
@@ -951,11 +956,11 @@
 .first-card {
     display: flex;
     flex-direction: column;
-    height: 80%;
-    justify-content: flex-start;
+    height: 70%;
+    justify-content: center;
+    align-self: center;
+    width: 80%;
     align-items: center;
-    padding-top: 2%;
-
 
 }
 
@@ -1004,20 +1009,18 @@ p {
 }
 
 .first-card-p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 400;
-    padding-left: 6%;
-    padding-right: 6%;
-    margin-top: 5%;
-    height: 90%;
     border-radius: 10px;
+    box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.9); /* Vit box-shadow */
+    padding: 4%;
+    line-height: 2;
+    color: white;
+    background: rgb(255,19,144);
+    background: linear-gradient(0deg, rgba(255,19,144,1) 7%, rgba(255,39,151,1) 57%, rgba(255,55,126,0.6862394616049545) 97%);
 }
 
-.first-card-text
-{
-line-height:2;
-color: white;
-}
+
 
 .but-during{
     font-weight:600;
@@ -1047,11 +1050,14 @@ color: white;
 /* 9. start game */
 
 .start-game-animation-btn {
-    padding: 3%;
-    width: 80vw;
-    font-size: 1rem;
-    font-weight: bold;
     margin-top: 5%;
+    padding: 5%;
+    font-weight: bold;
+    height: 50px;
+    font-size: 1.1rem;
+    width: 70%;
+    border-bottom: 2px solid black;
+    font-weight: 700;
 }
 
 .start-game-paragraph {
@@ -1065,7 +1071,7 @@ color: white;
 .start-game-header-container {
     width: 100vw;
     height: 10vh;
-    background-color: #9e0062;
+    background-color: #ca216b;
     position: absolute;
     top: 0;
     display: flex;
@@ -1085,19 +1091,17 @@ color: white;
     justify-content: flex-start;
     align-items: center;
     background: rgb(255,125,200);
-    background: linear-gradient(0deg, rgba(255,125,200,1) 1%, rgba(158,0,98,1) 76%);
+    background: linear-gradient(0deg, rgba(255,125,200,1) 1%, rgba(202,33,107,1) 76%);
     flex-direction: column;
 }
 
-.before-game-img
-{
-    
+.before-game-img {
     position: absolute;
-    width: 100%;
-    bottom: 0;
+    width: 80%;
     border-bottom: 2px solid black;
+    border-radius: 50%;
+    bottom: 2%;
 
-    
 }
 
 
@@ -1639,3 +1643,94 @@ Quit-komponent*/
     width: 25px;
     color: white;
 }
+
+/* gamepage animation */
+
+
+
+.stormy {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
+    .stormy li {
+        position: absolute;
+        list-style: none;
+        background-color: none;
+        border-radius: 100%;
+        box-shadow: 10px 10px 40px white;
+        animation: fall 3s infinite linear;
+        opacity: 0;
+    }
+
+        .stormy li:nth-child(1) {
+            top: 0%;
+            left: 100%;
+        }
+
+        .stormy li:nth-child(2) {
+            top: 15%;
+            left: 20%;
+        }
+
+        .stormy li:nth-child(3) {
+            top: -10%;
+            left: 80%;
+            animation-delay: 2s;
+        }
+
+        .stormy li:nth-child(4) {
+            top: 10%;
+            left: 100%;
+            animation-delay: 2s;
+        }
+
+        .stormy li:nth-child(5) {
+            top: 10%;
+            left: 80%;
+            animation-delay: 0.5s;
+        }
+
+        .stormy li:nth-child(6) {
+            top: 5%;
+            left: 70%;
+            animation-delay: 0.5s;
+        }
+
+
+        .stormy li:nth-child(7) {
+            top: 13%;
+            left: 60%;
+            animation-delay: 0.8s;
+        }
+
+        .stormy li:nth-child(8) {
+            top: 5%;
+            left: 70%;
+            animation-delay: 0.8s;
+        }
+
+    .falling-heart
+    {
+      width: 40px;
+      opacity: .6;
+    }
+
+@keyframes fall {
+    10% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 1;
+        transform: translate(-10px,30px);
+    }
+
+    100% {
+        transform: translate(-25px,70px);
+    }
+}
+
+
+

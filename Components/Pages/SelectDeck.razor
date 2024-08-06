@@ -11,9 +11,9 @@
 @if (showModal)
 {
    
-      <div class="overlay-background" @onclick="closeBtn"></div>
+      <div class="overlay-background" @onclick="CloseBtn"></div>
     <div class="deck-modal-inner-container">
-        <DeckModal CloseButton="closeBtn"  DeckNumber =@deckNumber AddAnimationClass=@addAnimationClass />
+        <DeckModal CloseButton="CloseBtn"  DeckNumber =@deckNumber AddAnimationClass=@addAnimationClass />
     </div>
 }
     <div class="select-deck-header-container">
@@ -74,11 +74,10 @@
         // Use GameManager to set (not initialize) the active deck
         GameManager.AddActiveDeck(deckName);
 
-        // Navigate to game page 
-        Navigation.NavigateTo("/startGame");
+        showModal = true; 
     }
 
-    private void closeBtn()
+    private void CloseBtn()
     {
         showModal = false;
         addAnimationClass = "animate__animated animate__fadeOut";
