@@ -26,18 +26,6 @@ h1, h3, h2, h5, li, h6, h4, p
     font-family: "Poppins";
 }
 
-.back-btn-no-background 
-{
-    margin: 3%;
-    position: fixed;
-    z-index: 2;
-}
-
-
-.back-btn-no-background-svg 
-{
-    width: 32px;
-}
 
 
 button {
@@ -49,47 +37,20 @@ button {
 .button-29 {
     text-shadow: 4px 4px 8px rgba(0, 0, 0, 1);
     align-items: center;
-    appearance: none;
+   
     background: rgb(241,13,128);
     background: linear-gradient(0deg, rgba(241,13,128,1) 0%, rgba(246,72,168,1) 5%, rgba(251,37,123,1) 92%);
-    border: 0;
+   border:none;
     border-radius: 30px;
-    box-sizing: border-box;
+
     color: #fff;
-    cursor: pointer;
-    display: inline-flex;
+   
+    display: flex;
     justify-content: center;
-    line-height: 1;
-    list-style: none;
-    overflow: hidden;
-    /*    padding-left: 16px;
-    padding-right: 16px;*/
-    /*    position: relative;*/
-    text-align: center;
-    text-decoration: none;
-    transition: box-shadow .15s, transform .15s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    white-space: nowrap;
-    will-change: box-shadow, transform;
+
     font-size: 15px;
     font-family: "Poppins";
     font-weight: 400;
 }
 
-    .button-29:focus {
-        box-shadow: #FF1DA5 0 0 0 1.5px inset, rgba(255, 29, 165, .6) 0 4px 6px, rgba(255, 29, 165, .5) 0 8px 16px -4px, #FF1DA5 0 -3px 0 inset, rgba(0, 0, 0, .1) 0 1px 0 inset;
-    }
 
-    .button-29:hover {
-        box-shadow: rgba(255, 29, 165, .6) 0 6px 10px, rgba(255, 29, 165, .5) 0 12px 20px -4px, #FF1DA5 0 -3px 0 inset, rgba(0, 0, 0, .1) 0 1px 0 inset;
-        transform: translateY(-2px);
-    }
-
-    .button-29:active {
-        box-shadow: #FF1DA5 0 3px 7px inset, rgba(0, 0, 0, .2) 0 1px 3px inset;
-        transform: translateY(2px);
-    }
-
-/**/
