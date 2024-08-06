@@ -788,24 +788,51 @@
     justify-content: center;
     align-items: center;
 }
-.read-card-btn-container
-{
+
+.read-card-btn {
+    height: 50px;
+    font-size: 1.1rem;
+    width: 70%;
+    box-shadow: 0 0 20px 0 rgba(255, 255, 255, 1); /* Vit box-shadow */
+    font-weight: 700;
+}
+
+.read-card-btn-container {
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.read-card-btn {
+
+.not-first-card-position {
     position: absolute;
-    bottom: 3%;
-    width: 70%;
+    bottom: 2%;
     margin: 0 auto;
     height: 50px;
-    border-bottom: 2px solid black;
 }
 
-.yes-btn-hidden
-{
+.first-card-position {
+    position: absolute;
+    bottom: 25%;
+    margin: 0 auto;
+
+
+}
+
+.previous-questions-area {
+    width: 90vw;
+    height: 75vh;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    border-radius: 20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -3000;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.yes-btn-hidden {
     display: none;
 }
 
@@ -1019,12 +1046,12 @@ p {
     font-size: 1.2rem;
     font-weight: 400;
     border-radius: 10px;
-    box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.9); /* Vit box-shadow */
+    border: 5px solid white;
+    box-shadow: 0 0 20px 0 rgba(255, 255, 255, 1); /* Vit box-shadow */
     padding: 4%;
     line-height: 2;
-    color: white;
-    background: rgb(255,19,144);
-    background: linear-gradient(0deg, rgba(255,19,144,1) 7%, rgba(255,39,151,1) 57%, rgba(255,55,126,0.6862394616049545) 97%);
+    color: black;
+    background-color: white;
 }
 
 
@@ -1033,16 +1060,14 @@ p {
     font-weight:600;
 }
 
-.question-container 
+.previous-question
 {
     display: flex;
+    width: 80%;
     text-align: left;
-    font-size: .9rem;
-    color: white;
-    padding-left: 3%;
- 
-
+    margin: 0 auto;
 }
+
 
 
 .activeplayer-header {
@@ -1123,6 +1148,7 @@ p {
     position: absolute;
     top: 2%;
     left: 0;
+    z-index: 1000;
     border-radius: 10px; /* Lägg till denna rad för att göra kanterna rundade */
 }
 
@@ -1664,9 +1690,8 @@ Quit-komponent*/
     .stormy li {
         position: absolute;
         list-style: none;
-        background-color: none;
         border-radius: 100%;
-        box-shadow: 10px 10px 40px white;
+
         animation: fall 3s infinite linear;
         opacity: 0;
     }
@@ -1677,12 +1702,12 @@ Quit-komponent*/
         }
 
         .stormy li:nth-child(2) {
-            top: 15%;
+            top: 65%;
             left: 20%;
         }
 
         .stormy li:nth-child(3) {
-            top: -10%;
+            top: 80%;
             left: 80%;
             animation-delay: 2s;
         }
@@ -1694,34 +1719,35 @@ Quit-komponent*/
         }
 
         .stormy li:nth-child(5) {
-            top: 10%;
-            left: 80%;
-            animation-delay: 0.5s;
+            top: 18%;
+            left: 40%;
+            animation-delay: 0.7s;
         }
 
         .stormy li:nth-child(6) {
             top: 5%;
-            left: 70%;
+            left: 60%;
             animation-delay: 0.5s;
         }
 
 
-        .stormy li:nth-child(7) {
+        .stormy li:nth-child(7) 
+        {
             top: 13%;
-            left: 60%;
+            left: 5%;
             animation-delay: 0.8s;
         }
 
         .stormy li:nth-child(8) {
-            top: 5%;
-            left: 70%;
+            top: 75%;
+            left: 20%;
             animation-delay: 0.8s;
         }
 
     .falling-heart
     {
-      width: 40px;
-      opacity: .6;
+      width: 100%;
+      opacity: .2;
     }
 
 @keyframes fall {

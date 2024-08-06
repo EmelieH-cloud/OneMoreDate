@@ -12,17 +12,13 @@
     <div class="stormy">
         <ul>
             <li> <img src="images/heart1.png" alt="heart1" class="falling-heart"/> </li>
-            <li> <img src="images/heart3.png" alt="heart2" class="falling-heart" /> </li>
             <li> <img src="images/heart3.png" alt="heart3" class="falling-heart" /> </li>
-            <li> <img src="images/heart1.png" alt="heart1" class="falling-heart" /></li>
+            <li> <img src="images/heart1.png" alt="heart1" class="falling-heart" /> </li>
             <li> <img src="images/heart3.png" alt="heart1" class="falling-heart" /></li>
             <li> <img src="images/heart3.png" alt="heart3" class="falling-heart" /></li>
             <li> <img src="images/heart1.png" alt="heart1" class="falling-heart" /></li>
         </ul>
     </div>
-
-
-
     <div class="previous-cards-container">
         @if (ActivePlayer != null)
         {
@@ -38,25 +34,27 @@
                         <p class="but-during animate__animated animate__fadeIn animate__delay-2s animate_slower">
                             <br />But during the date it turns out that he/she...
                         </p>
+
                     </div>
+                   
                 </div>
             }
 
             @if (ActivePlayer.Hand != null && ActivePlayer.Hand.Count > 0)
             {
-                <p class="mt-3 mb-3 text-white"><span class="fw-bolder">@ActivePlayer.Name is dating someone who...</span></p>
-
+                <p class="mt-3 mb-3"><span class="fw-bolder">@ActivePlayer.Name is dating someone who...</span></p>
+                <div class="previous-questions-area"> </div>
                 @foreach (PlayerCard card in ActivePlayer.Hand)
                 {
-                    <div class="question-container">
-                        <img src="images/heart.png" alt="heart" class="heart-image fade-in-previous" />
-                        <p class=" fade-in-previous game-question-text"> @card.Question.ToString() </p>
+                    <div class="previous-question">
+                        <img src="images/heart.png" alt="heart" class="heart-image" />
+                        <p class="game-question-text"> @card.Question.ToString() </p>
                     </div>
                 }
             }
-            <div class="read-card-btn-container">
+            <div class="read-card-btn-container @(IsFirstCard ? "first-card-position" : "not-first-card-position")">
                 <button @onclick="ReadCard" class="button-29 read-card-btn animate__animated animate__bounce animate__infinite	infinite">READ CARD</button>
-                </div>
+            </div>
 
         }
         else
@@ -118,43 +116,48 @@ else if (IsMovingInTogether)
 }
 
 @code {
+    /* ----------- bool variables --------------*/
     private bool IsGettingMarried = false;
+    private bool IsFirstCard = true;
     private bool YesButtonIsEnabled;
     private bool StandardCardIsShowing;
-    private Player ActivePlayer = new Player();
-
-    private string animationClass = "";
-    private int lastQuestionCounter = 0;
-    private int ActivePlayerIndex = 0;
-    private int ActiveCardIndex = 0;
-    private List<Player> players = new List<Player>();
-
-
-    private PlayerCard ActiveCard = new PlayerCard();
     private bool ShowHeart = false;
     private bool yesBtnIsDisabled = false;
     private bool IsMovingInTogether = false;
-    private string currentQuestion = "";
-    private ElementReference showCardsContainer;
     private bool isFadingOut = false;
-    private Deck ActiveDeck = new(); 
+
+    /* -------Object variables ------------- */
+    private Player ActivePlayer = new Player();
+    private List<Player> players = new List<Player>();
+    private PlayerCard ActiveCard = new PlayerCard();
+    private Deck ActiveDeck = new();
+    private ElementReference showCardsContainer;
+
+    /* ----------String variables ------------*/
+    private string animationClass = "";
+    private string currentQuestion = "";
+
+    /* ----------Number variables ------------*/
+    private int lastQuestionCounter = 0;
+    private int ActivePlayerIndex = 0;
+    private int ActiveCardIndex = 0;
+
 
     protected override void OnInitialized()
     {
         // Save all players in the 'players' array 
         players = PlayerManager.Players;
 
-
         if (players.Count > 0)
         {
             ActivePlayer = players[0];
         }
 
-        // Check chosen type and initialize the deck to that type
+        // Check and set deck type
         ActiveDeck = GameManager.ActiveDeck;
-
+        // Shuffle the deck
         ActiveDeck.Shuffle();
-
+        // Initialize ActiveCard 
         ActiveCardIndex = 0;
         ActiveCard = ActiveDeck.Cards[ActiveCardIndex];
     }
@@ -172,10 +175,7 @@ else if (IsMovingInTogether)
 
     public void SetCurrentQuestion()
     {
-
         currentQuestion = ActiveCard.Question;
-
-
     }
 
     private async Task GoBackShowCards()
@@ -258,11 +258,32 @@ else if (IsMovingInTogether)
 
     private void SwitchPlayer()
     {
+        // Get the ActivePlayerIndex
         ActivePlayerIndex = (ActivePlayerIndex + 1) % players.Count;
+        // Get the ActivePlayer
         ActivePlayer = players[ActivePlayerIndex];
+        // Get the ActiveCardIndex
         ActiveCardIndex = (ActiveCardIndex + 1);
+        // Get the ActiveCard 
         ActiveCard = ActiveDeck.Cards[ActiveCardIndex];
+
+        // Check if the player has any cards: 
+        ActivePlayerCardCount();
+        // Set the new question 
         SetCurrentQuestion();
+    }
+
+    private void ActivePlayerCardCount()
+    {
+        if (ActivePlayer.Hand.Count > 0)
+        {
+            IsFirstCard = false;
+        }
+
+        else if (ActivePlayer.Hand.Count == 0)
+        {
+            IsFirstCard = true;
+        }
     }
 
     private void CloseBtn()
